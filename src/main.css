@@ -1,5 +1,6 @@
 
 
+/* Mobile  */
 @media  screen and (max-width: 576px) {
     *{
         margin:0;
@@ -7,8 +8,9 @@
         font-family: 'Junge', serif;
         
     }
-    #homepage{
-        background-image: url(img/imagenTablet.jpg);
+   
+    main{
+        background-image: url(img/imagenmobile.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -22,16 +24,18 @@
       display: none;
 
     }
+    .logoFoodgram{
+        margin: 2rem;
+        width: 55vw;
+    }
     
     .formDiv{
         position: fixed;
         top: 50%; left: 1%;
         z-index:99;
-        border-radius:52rem;
+        border-radius:30rem;
         width: 100vw;
         height: 100vh;
-        /* margin-top:90%; */
-        /* z-index: 5; */
         background: #FDCD01;
         padding-top: 6rem;
 
@@ -40,6 +44,19 @@
 
     /* position: sticky; */
     /* position: fixed; */
+    input{
+        height: 5%;
+        width: 80%;
+        border: 10px;
+        margin-bottom: 0.5rem;
+        /* margin: 0.5rem; */
+        font-family: 'Jura', sans-serif;
+        font-weight: normal;
+        padding-left: 1rem;
+        border-radius: 20px;
+        margin-left:1.7rem ;
+        /* align-content: center; */
+    }
     .btn{
         height: 5%;
         width: 80%;
@@ -51,26 +68,250 @@
         border-radius: 20px;
         justify-content: center;
         align-content: center;
+        margin-left:2.1rem ;
     }
     .login{
-        background-color: #FFDA3E
+        background: #FDCD01;
+        /* border-bottom: 2px solid rgb(10, 10, 10); */
+        box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
         
     }
     .register{
-        background-color: #45DF0F;
+        background-color: #FFDA3E;
+        
+
     }
+    .formDiv .group_button{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        background-color: #FDCD01;
+    }
+    .formDiv .group_button .loginGoogle {
+        background-color: #45DF0F;
+        outline: none;
+    }
+    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa, svg:not(:root).svg-inline--fa{
+        position: absolute;
+        margin-left: 3rem; 
+        top: 2.4%;
+        background-color: #45DF0F;
+        /* font-size: 1.5em; */
+        
+    }
+
+
+    #btnRegister:hover{
+        /* background-color: rgb(94, 88, 88); */
+        color: white;
+  opacity: 0.5;
+  transform: scale(1.02);
+
+
+    }
+
 }
 
-@media  screen and (min-width: 577px) {
+/* Tablet */
+@media  screen and (max-width: 899px) {
     *{
         margin:0;
         background-color: white;
     }
+    main{
+        background-color: white;
+    }
+  
+    main{
+        background-image: url(img/imagenmobile.jpg);
+        z-index: 1;
+        background-size: cover;
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+
+        
+    }
+    .imageDiv{
+       
+      display: none;
+
+    }
+    .logoFoodgram{
+        margin: 2rem;
+        width: 55vw;
+    }
     
+    .formDiv{
+        position: fixed;
+        top: 50%; left: 1%;
+        z-index:99;
+        border-radius:30rem;
+        width: 100vw;
+        height: 100vh;
+        background: #FDCD01;
+        padding-top: 6rem;
+
+        
+    }
+
+    /* position: sticky; */
+    /* position: fixed; */
+    input{
+        height: 5%;
+        width: 80%;
+        border: 10px;
+        margin-bottom: 0.5rem;
+        /* margin: 0.5rem; */
+        font-family: 'Jura', sans-serif;
+        font-weight: normal;
+        padding-left: 1rem;
+        border-radius: 20px;
+        margin-left:1.7rem ;
+        /* align-content: center; */
+    }
+    .btn{
+        height: 5%;
+        width: 80%;
+        border: 10px;
+        margin: 0.5rem;
+        font-size: small;
+        font-family: 'Jura', sans-serif;
+        font-weight: bold;
+        border-radius: 20px;
+        justify-content: center;
+        align-content: center;
+        margin-left:2.1rem ;
+    }
+    .login{
+        background: #FDCD01;
+        /* border-bottom: 2px solid rgb(10, 10, 10); */
+        box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
+        
+    }
+    .register{
+        background-color: #FFDA3E;
+        
+
+    }
+    .formDiv .group_button{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        background-color: #FDCD01;
+    }
+    .formDiv .group_button .loginGoogle {
+        background-color: #45DF0F;
+        outline: none;
+    }
+    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa, svg:not(:root).svg-inline--fa{
+        position: absolute;
+        margin-left: 3rem; 
+        top: 2.4%;
+        /* font-size: 1.5em; */
+        
+    }
+
+
+    #btnRegister:hover{
+        /* background-color: rgb(94, 88, 88); */
+        color: white;
+  opacity: 0.5;
+  transform: scale(1.02);
+
+
+    }
+
+
+
+
+/* Destock  */
+
     }
 
 @media  screen and (min-width: 900px) {
     *{
         background-color: white;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+         width: 100vw;
+        height: 100vh;
+        background-color: white;
+        
+    }
+    .logoFoodgram{
+      display: none;
+    }
+    .imageDiv{
+           
+        background-image: url(../src/img/imgtablet.jpg) ;
+        background-size: cover;
+        grid-column: 1 / 2;
+        grid-row: 1;
+    
+      }
+    .formDiv{
+      
+        z-index: 1;
+        grid-column: 2 / 2;
+        grid-row: 1;
+    
+        
+    }
+    input{
+        height: 5%;
+        width: 80%;
+        border: 10px;
+        margin-bottom: 0.5rem;
+        /* margin: 0.5rem; */
+        font-family: 'Jura', sans-serif;
+        font-weight: normal;
+        padding-left: 1rem;
+        border-radius: 20px;
+        margin-left:1.7rem ;
+        /* align-content: center; */
+    
+}
+    .btn{
+         height: 5%;
+         width: 80%;
+         border: 10px;
+         margin: 0.5rem;
+         font-size: small;
+         font-family: 'Jura', sans-serif;
+         font-weight: bold;
+         border-radius: 20px;
+         justify-content: center;
+         align-content: center;
+         margin-left:2.1rem ;
+}
+    .formDiv .group_button{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        
+    }
+    .formDiv .group_button{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+    }
+    .formDiv .group_button .loginGoogle {
+        background-color: #45DF0F;
+        outline: none;
+    }
+    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa, svg:not(:root).svg-inline--fa{
+        position: absolute;
+        margin-left: 3rem; 
+        top: 2.4%;
+      
+        
     }
 }
