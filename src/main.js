@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
-import { Home } from './components/home.js';
-import { Register } from './components/register.js';
-import { Login } from './components/login.js';
+import { Home } from './components/Home.js';
+import { Register } from './components/Register.js';
+import { Login } from './components/Login.js';
 
 const rootDiv = document.getElementById('root');
 let routes = {

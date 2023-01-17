@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
+import { app } from '../lib/firebase.js';
 
 export const Home = () => {
   const HomeContent = document.createElement('main');
@@ -35,8 +36,21 @@ export const Home = () => {
   buttonLogin.textContent = 'Inicia sesión';
   buttonLoginGoogle.textContent = 'Ingresa con Google';
 
+  buttonLogin.addEventListener('click', () => {
+    // e.preventDefault();
+
+    // const email = inputUser.value;
+    // const pasword = inputPasword.value;
+
+    // console.log(email, pasword);
+    // try {
+    //   const userCredentials = await create;
+    // } catch (error) {
+
+    // }
+    onNavigate('/login');
+  });
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
-  buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
   HomeContent.appendChild(logoIcon);
   HomeContent.appendChild(HomeDivImage);
