@@ -1,3 +1,4 @@
+  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 
 
 /* Mobile  */
@@ -50,7 +51,9 @@
 
         
     }
-
+    .h2_home{
+        display: none;
+    }
     /* position: sticky; */
     /* position: fixed; */
     input{
@@ -172,6 +175,9 @@
 
         
     }
+    .h2_home{
+        display: none;
+    }
 
     /* position: sticky; */
     /* position: fixed; */
@@ -286,6 +292,12 @@
         grid-row: 1;
     
         
+    }
+    .h2_home{
+        color: #32A30A;
+        font-family: 'Josefin Sans', sans-serif;
+        font-style: italic;
+        margin: 2rem;
     }
     input{
         height: 5%;

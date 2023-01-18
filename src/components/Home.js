@@ -1,8 +1,7 @@
 // eslint-disable-next-line import/no-cycle
-import { onNavigate } from '../main.js';
 import { app } from '../lib/firebase.js';
 
-export const Home = () => {
+export const Home = (onNavigate) => {
   const HomeContent = document.createElement('main');
   const HomeDivImage = document.createElement('div');
   const logoIcon = document.createElement('img');
@@ -13,10 +12,12 @@ export const Home = () => {
   const tittleLogin = document.createElement('h1');
   const mensajeLogin = document.createElement('h2');
 
-  const HomeForm = document.createElement('form');
+  const HomeForm = document.createElement('div');
   const buttonLogin = document.createElement('button');
   const buttonRegister = document.createElement('button');
   const buttonLoginGoogle = document.createElement('button');
+
+  mensajeLogin.textContent = 'Te gusta comer nosotros tambien!';
   // const inputform = document.createElement('form');
 
   logoIcon.src = '../img/LogotipoSinFondo.png';
@@ -25,6 +26,7 @@ export const Home = () => {
   HomeDivImage.className = 'imageDiv';
   divbuttongoogle.className = 'group_button';
   iconGoogle.className = 'fa-brands fa-google';
+  mensajeLogin.className = 'h2_home';
 
   tittleLogin.className = 'h1_home';
   HomeForm.className = 'formDiv';
@@ -64,6 +66,7 @@ export const Home = () => {
 
   // HomeForm.appendChild(inputform);
   HomeForm.appendChild(tittleLogin);
+  HomeForm.appendChild(mensajeLogin);
   HomeForm.appendChild(inputUser);
   HomeForm.appendChild(inputPasword);
   HomeForm.appendChild(buttonLogin);

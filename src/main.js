@@ -4,10 +4,11 @@ import { Register } from './components/Register.js';
 import { Login } from './components/Login.js';
 
 const rootDiv = document.getElementById('root');
+
 let routes = {
 };
 
-export const onNavigate = (pathname) => {
+const onNavigate = (pathname) => {
   window.history.pushState(
     {},
     pathname,
@@ -26,12 +27,13 @@ routes = {
   '/register': Register,
   '/login': Login,
 };
+
 const component = routes[window.location.pathname];
 window.onpopstate = () => {
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild); // Borrar el primer nodo para dar espacio al nuevo
   }
-  rootDiv.appendChild(component()); // Insertar el nodo con la funcion
+  rootDiv.appendChild(component(onNavigate)); // Insertar el nodo con la funcion
 };
 
-rootDiv.appendChild(component());
+rootDiv.appendChild(component(onNavigate));
