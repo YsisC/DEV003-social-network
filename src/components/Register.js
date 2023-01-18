@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/no-cycle
+
 import { onNavigate } from '../main.js';
+// import { functionSignUp } from '../lib/index';
 
 export const Register = () => {
   const HomeDiv = document.createElement('div');
@@ -21,6 +23,12 @@ export const Register = () => {
   inputEmail.placeholder = 'Correo electronico';
   inputPasword.placeholder = 'Pasword';
 
+  buttonRegister.addEventListener('click', async () => {
+    onNavigate('/');
+    // const email = inputEmail.value;
+    // const user = inputUser.value;
+    // const pasword = inputPasword.value;
+  });
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
   HomeDiv.append(inputUser, inputEmail, inputPasword, buttonRegister, buttonHome);

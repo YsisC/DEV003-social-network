@@ -1,5 +1,5 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { async } from 'regenerator-runtime';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+
 import { auth } from './firebase.js';
 
 // import { app } from './firebase.js';
@@ -20,9 +20,10 @@ export const functionSignUp = async (name, email, password) => {
     return errorCode;
   }
 };
-console.log(app);
-console.log(auth);
-console.log(createUserWithEmailAndPassword);
+// console.log(app);
+// console.log(auth);
+// console.log(createUserWithEmailAndPassword);
+
 // export const myFunction = () => {
 //   // aqui tu codigo
 //   console.log('Hola mundo!');
