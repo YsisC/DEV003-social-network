@@ -10,8 +10,10 @@ export const Home = () => {
   const inputPasword = document.createElement('input');
   const divbuttongoogle = document.createElement('div');
   const iconGoogle = document.createElement('i');
+  const tittleLogin = document.createElement('h1');
+  const mensajeLogin = document.createElement('h2');
 
-  const HomeForm = document.createElement('div');
+  const HomeForm = document.createElement('form');
   const buttonLogin = document.createElement('button');
   const buttonRegister = document.createElement('button');
   const buttonLoginGoogle = document.createElement('button');
@@ -24,6 +26,7 @@ export const Home = () => {
   divbuttongoogle.className = 'group_button';
   iconGoogle.className = 'fa-brands fa-google';
 
+  tittleLogin.className = 'h1_home';
   HomeForm.className = 'formDiv';
   buttonRegister.className = 'btn register';
   buttonLogin.className = 'btn login';
@@ -31,9 +34,12 @@ export const Home = () => {
   buttonRegister.id = 'btnRegister';
   inputUser.placeholder = 'Nombre o correo electronico';
   inputPasword.placeholder = 'Contraseña';
+  inputPasword.type = 'password';
+  inputPasword.required = 'true';
 
+  tittleLogin.textContent = 'Iniciar sesión';
   buttonRegister.textContent = 'Registrate';
-  buttonLogin.textContent = 'Inicia sesión';
+  buttonLogin.textContent = 'Ingresar';
   buttonLoginGoogle.textContent = 'Ingresa con Google';
 
   buttonLogin.addEventListener('click', () => {
@@ -57,6 +63,7 @@ export const Home = () => {
   HomeContent.appendChild(HomeForm);
 
   // HomeForm.appendChild(inputform);
+  HomeForm.appendChild(tittleLogin);
   HomeForm.appendChild(inputUser);
   HomeForm.appendChild(inputPasword);
   HomeForm.appendChild(buttonLogin);
