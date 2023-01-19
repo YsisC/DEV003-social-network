@@ -10,6 +10,7 @@ export const Register = (onNavigate) => {
   const inputEmail = document.createElement('input');
   const inputPasword = document.createElement('input');
   const buttonRegister = document.createElement('button');
+  // const mensajeValidacion = document.createElement('p');
 
   HomeForm.className = 'formDiv';
   formRegister.className = 'formRegister';
@@ -34,19 +35,27 @@ export const Register = (onNavigate) => {
     const user = inputUser.value;
     const pasword = inputPasword.value;
     const result = await functionSignUp(user, email, pasword);
-    if (result === 'auth/email-already-in-use') {
-      alert('El correo ya ha sido utilizado');
-    } else if (result === 'auth/invalid-email') {
-      alert('Correo Invalido');
-    } else if (result === 'auth/weak-password') {
-      alert('La contraseña es muy debil');
-    } else if (typeof result === 'object') {
-      console.log(result);
-      console.log(`Bienvenido ${result.auth.displayName}`);
-    } else {
-      alert('El formulario tiene un error');
-    }
-    // alert('Bienvenido');
+    console.log(result);
+    // mensajeValidacion.textContent = 'El formulario tiene un error';
+    // onNavigate('/login');
+    // if (typeof result === 'object') {
+    //   console.log(result);
+    //   // console.log(result.auth.displayName);
+    //   // onNavigate('/login');
+    // } else if (result === 'auth/email-already-in-use') {
+    //   // alert('El correo ya ha sido utilizado');
+    //   mensajeValidacion.textContent = 'El correo ya ha sido utilizado';
+    // } else if (result === 'auth/invalid-email') {
+    //   // alert('Correo Invalido');
+    //   mensajeValidacion.textContent = 'Correo Invalido';
+    // } else if (result === 'auth/weak-password') {
+    //   // alert('La contraseña es muy debil');
+    //   mensajeValidacion.textContent = 'La contraseña es muy debil';
+    // } else {
+    //   // alert('El formulario tiene un error');
+    //   mensajeValidacion.textContent = 'El formulario tiene un error';
+    // }
+    // // alert('Bienvenido');
   });
   buttonHome.addEventListener('click', () => onNavigate('/'));
   formRegister.append(inputUser, inputEmail, inputPasword, buttonRegister);

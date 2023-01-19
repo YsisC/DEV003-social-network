@@ -21,7 +21,7 @@ const onNavigate = (pathname) => {
 
   rootDiv.appendChild(routes[pathname](onNavigate));
 };
-
+// console.log(typeof onNavigate);
 routes = {
   '/': Home,
   '/register': Register,
