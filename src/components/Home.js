@@ -1,6 +1,3 @@
-// eslint-disable-next-line import/no-cycle
-import { app } from '../lib/firebase.js';
-
 export const Home = (onNavigate) => {
   const HomeContent = document.createElement('main');
   const HomeDivImage = document.createElement('div');
@@ -58,6 +55,7 @@ export const Home = (onNavigate) => {
     // }
     onNavigate('/login');
   });
+
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
 
   HomeContent.appendChild(logoIcon);
