@@ -19,7 +19,7 @@ const onNavigate = (pathname) => {
     rootDiv.removeChild(rootDiv.firstChild);
   }
 
-  rootDiv.appendChild(routes[pathname]());
+  rootDiv.appendChild(routes[pathname](onNavigate));
 };
 
 routes = {

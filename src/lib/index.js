@@ -1,5 +1,4 @@
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { async } from 'regenerator-runtime';
 
 import { auth } from './firebase.js';
 
@@ -17,9 +16,9 @@ export const functionSignUp = async (name, email, password) => {
     }
     return userCredential;
   } catch (error) {
-    // const errorCode = error.code;
-    // return errorCode;
-    console.log(error);
+    const errorCode = error.code;
+    return errorCode;
+    // console.log(error.code);
   }
 };
 // console.log(app);
