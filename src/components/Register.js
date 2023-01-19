@@ -1,4 +1,4 @@
-// import { functionSignUp } from '../lib/index';
+import { functionSignUp } from '../lib/index';
 
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -20,11 +20,14 @@ export const Register = (onNavigate) => {
   inputEmail.placeholder = 'Correo electronico';
   inputPasword.placeholder = 'Pasword';
 
-  buttonRegister.addEventListener('click', () => {
-    onNavigate('/');
-    // const email = inputEmail.value;
-    // const user = inputUser.value;
-    // const pasword = inputPasword.value;
+  buttonRegister.addEventListener('click', async () => {
+    // onNavigate('/');
+    const email = inputEmail.value;
+    const user = inputUser.value;
+    const pasword = inputPasword.value;
+    const result = await functionSignUp(user, email, pasword);
+    console.log(result);
+    console.log(result.user.displayName);
   });
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
