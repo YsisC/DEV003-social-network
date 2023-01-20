@@ -48,6 +48,7 @@ export const Register = (onNavigate) => {
       }
     });
   });
+
   buttonHome.addEventListener('click', () => onNavigate('/'));
   formRegister.append(inputUser, inputEmail, inputPasword, buttonRegister);
   HomeForm.append(formRegister, buttonHome);

@@ -1,3 +1,5 @@
+import { functionSignin } from '../lib/index';
+
 export const Home = (onNavigate) => {
   const HomeContent = document.createElement('main');
   const HomeDivImage = document.createElement('div');
@@ -31,7 +33,7 @@ export const Home = (onNavigate) => {
   buttonLogin.className = 'btn login';
   buttonLoginGoogle.className = 'btn loginGoogle';
   buttonRegister.id = 'btnRegister';
-  inputUser.placeholder = 'Nombre o correo electronico';
+  inputUser.placeholder = 'Correo electronico';
   inputPasword.placeholder = 'Contraseña';
   inputPasword.type = 'password';
   inputPasword.required = 'true';
@@ -41,7 +43,23 @@ export const Home = (onNavigate) => {
   buttonLogin.textContent = 'Ingresar';
   buttonLoginGoogle.textContent = 'Ingresa con Google';
 
-  buttonLogin.addEventListener('click', () => {
+  buttonLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = inputUser.value;
+    const pasword = inputPasword.value;
+    functionSignin(email, pasword).then((promiseLogin) => {
+      if (promiseLogin === 'auth/invalid-email') {
+        alert('Verifique su correo');
+      } else if (promiseLogin === 'auth/wrong-password') {
+        alert('La contraseña invalida');
+      } else if (typeof (promiseLogin) === 'object') {
+        onNavigate('/login');
+      } else {
+        alert('Verifique sus datos o registrese');
+      }
+    });
+
+    // console.log(email,pasword)
     // e.preventDefault();
 
     // const email = inputUser.value;
@@ -53,7 +71,7 @@ export const Home = (onNavigate) => {
     // } catch (error) {
 
     // }
-    onNavigate('/login');
+    // onNavigate('/login');
   });
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
