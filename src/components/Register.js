@@ -29,34 +29,27 @@ export const Register = (onNavigate) => {
   inputEmail.required = 'true';
   inputPasword.required = 'true';
 
-  buttonRegister.addEventListener('click', async () => {
-    // onNavigate('/');
+  buttonRegister.addEventListener('click', (e) => {
+    e.preventDefault();
     const email = inputEmail.value;
     const user = inputUser.value;
     const pasword = inputPasword.value;
-    const result = await functionSignUp(user, email, pasword);
-    console.log(result);
-    // mensajeValidacion.textContent = 'El formulario tiene un error';
-    // onNavigate('/login');
-    // if (typeof result === 'object') {
-    //   console.log(result);
-    //   // console.log(result.auth.displayName);
-    //   // onNavigate('/login');
-    // } else if (result === 'auth/email-already-in-use') {
-    //   // alert('El correo ya ha sido utilizado');
-    //   mensajeValidacion.textContent = 'El correo ya ha sido utilizado';
-    // } else if (result === 'auth/invalid-email') {
-    //   // alert('Correo Invalido');
-    //   mensajeValidacion.textContent = 'Correo Invalido';
-    // } else if (result === 'auth/weak-password') {
-    //   // alert('La contraseña es muy debil');
-    //   mensajeValidacion.textContent = 'La contraseña es muy debil';
-    // } else {
-    //   // alert('El formulario tiene un error');
-    //   mensajeValidacion.textContent = 'El formulario tiene un error';
-    // }
-    // // alert('Bienvenido');
+
+    functionSignUp(user, email, pasword).then((promiseResult) => {
+      if (promiseResult === 'auth/email-already-in-use') {
+        alert('El correo ya ha sido utilizado');
+      } else if (promiseResult === 'auth/invalid-email') {
+        alert('Correo Invalido');
+      } else if (promiseResult === 'auth/weak-password') {
+        alert('La contraseña es muy debil');
+      } else if (typeof (promiseResult) === 'object') {
+        onNavigate('/login');
+      } else {
+        alert('El formulario tiene un error');
+      }
+    });
   });
+
   buttonHome.addEventListener('click', () => onNavigate('/'));
   formRegister.append(inputUser, inputEmail, inputPasword, buttonRegister);
   HomeForm.append(formRegister, buttonHome);
