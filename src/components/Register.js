@@ -2,21 +2,26 @@ import { functionSignUp } from '../lib/index';
 
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
+  const loginContent = document.createElement('main');
+  const loginIcon = document.createElement('img');
+  const tittleRegister = document.createElement('h2');
   const buttonHome = document.createElement('button');
   const HomeForm = document.createElement('div');
   const formRegister = document.createElement('form');
-  const tittleRegister = document.createElement('h1');
   const inputUser = document.createElement('input');
   const inputEmail = document.createElement('input');
   const inputPasword = document.createElement('input');
   const buttonRegister = document.createElement('button');
 
   HomeForm.className = 'formDiv';
+  loginContent.className = 'homepage2';
+  loginIcon.src = '../img/LogotipoSinFondo.png';
+  loginIcon.className = 'logoFoodgram';
+  tittleRegister.className = 'h1_home';
   formRegister.className = 'formRegister';
-  buttonRegister.className = 'btn register';
+  buttonRegister.className = 'btn_register';
   buttonHome.className = 'btn home';
-
-  tittleRegister.textContent = 'Bienvenido al registro';
+  tittleRegister.textContent = 'Aqui puedes registrate';
   buttonHome.textContent = 'Regresar';
   buttonRegister.textContent = 'Resgistrarse';
   inputUser.placeholder = 'Usuario';
@@ -50,9 +55,10 @@ export const Register = (onNavigate) => {
   });
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
+
   formRegister.append(inputUser, inputEmail, inputPasword, buttonRegister);
-  HomeForm.append(formRegister, buttonHome);
-  HomeDiv.append(tittleRegister, HomeForm);
+  HomeForm.append(tittleRegister, formRegister, buttonHome);
+  HomeDiv.append(HomeForm, loginContent, loginIcon);
 
   return HomeDiv;
 };

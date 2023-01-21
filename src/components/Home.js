@@ -1,4 +1,4 @@
-import { functionSignin } from '../lib/index';
+import { functionSignin, functionUserGoogle } from '../lib/index';
 
 export const Home = (onNavigate) => {
   const HomeContent = document.createElement('main');
@@ -10,15 +10,12 @@ export const Home = (onNavigate) => {
   const iconGoogle = document.createElement('i');
   const tittleLogin = document.createElement('h1');
   const mensajeLogin = document.createElement('h2');
-
   const HomeForm = document.createElement('div');
   const buttonLogin = document.createElement('button');
   const buttonRegister = document.createElement('button');
   const buttonLoginGoogle = document.createElement('button');
 
-  mensajeLogin.textContent = 'Te gusta comer nosotros tambien!';
-  // const inputform = document.createElement('form');
-
+  mensajeLogin.textContent = 'Te gusta comer a nosotros tambien!';
   logoIcon.src = '../img/LogotipoSinFondo.png';
   logoIcon.className = 'logoFoodgram';
   HomeContent.className = 'homepage';
@@ -75,6 +72,15 @@ export const Home = (onNavigate) => {
   });
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
+
+  buttonLoginGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    functionUserGoogle().then((promiseGoogle) => {
+      if (promiseGoogle !== 'error') {
+        onNavigate('/login');
+      }
+    });
+  });
 
   HomeContent.appendChild(logoIcon);
   HomeContent.appendChild(HomeDivImage);
