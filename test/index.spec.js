@@ -2,8 +2,8 @@
 
 import { functionSignUp } from '../src/lib/index';
 
-jest.mock('firebase/auth');
+jest.mock('@firebase/auth');
 
 it('deberia crear un usuario', () => functionSignUp('', '', '').then((userCredential) => {
-  console.log(userCredential);
+  expect(userCredential).toEqual({ currentUser: 'string' });
 }));

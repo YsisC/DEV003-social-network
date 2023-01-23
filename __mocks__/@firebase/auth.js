@@ -1,3 +1,3 @@
-export const createUserWithEmailAndPassword = () => Promise.resolve({});
+export const createUserWithEmailAndPassword = () => Promise.resolve({ currentUser: 'string' });
 
-export const getAuth = () => ({ currentUser: 'string' });
+export const getAuth = () => ({ })
