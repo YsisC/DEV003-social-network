@@ -16,8 +16,11 @@ export const Home = (onNavigate) => {
   const buttonLoginGoogle = document.createElement('button');
 
   mensajeLogin.textContent = 'Te gusta comer a nosotros tambien!';
-  logoIcon.src = './assets/img/LogotipoSinFondo.png';
+  logoIcon.src = '/assets/img/LogotipoSinFondo.png';
   logoIcon.className = 'logoFoodgram';
+  inputUser.className = 'inputLogin';
+  inputPasword.className = 'inputLogin';
+
   HomeContent.className = 'homepage';
   HomeDivImage.className = 'imageDiv';
   divbuttongoogle.className = 'group_button';

@@ -20,10 +20,13 @@ export const Register = (onNavigate) => {
   loginContent.className = 'homepage2';
   // loginIcon.src = './assets/img/LogotipoSinFondo.png';
   // loginIcon.className = 'logoFoodgram';
+  inputUser.className = 'input_Login';
+  inputEmail.className = 'input_Login';
+  inputPasword.className = 'input_Login';
   tittleRegister.className = 'h1_home';
   formRegister.className = 'formRegister';
   buttonRegister.className = 'btn_register';
-  buttonHome.className = 'btn home';
+  buttonHome.className = 'btn_home';
   tittleRegister.textContent = 'Crear usuario';
   buttonHome.textContent = 'Regresar';
   buttonRegister.textContent = 'Resgistrarse';
@@ -59,8 +62,8 @@ export const Register = (onNavigate) => {
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
-  formRegister.append(inputUser, inputEmail, inputPasword, buttonRegister);
-  HomeForm.append(tittleRegister, formRegister, buttonHome);
+  formRegister.append(inputUser, inputEmail, inputPasword, buttonRegister, buttonHome);
+  HomeForm.append(tittleRegister, formRegister);
   loginContent.append(divImgRegister, HomeForm);
   HomeDiv.append(loginContent);
 

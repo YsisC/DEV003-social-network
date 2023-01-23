@@ -20,7 +20,7 @@ export const functionSignUp = async (name, email, password) => {
 
     return userCredential;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     const errorCode = error.code;
     return errorCode;
     // console.log(error.code);
