@@ -15,7 +15,7 @@ export const Register = (onNavigate) => {
 
   HomeForm.className = 'formDiv';
   loginContent.className = 'homepage2';
-  loginIcon.src = '../img/LogotipoSinFondo.png';
+  loginIcon.src = './assets/img/LogotipoSinFondo.png';
   loginIcon.className = 'logoFoodgram';
   tittleRegister.className = 'h1_home';
   formRegister.className = 'formRegister';

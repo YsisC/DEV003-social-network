@@ -11,12 +11,12 @@
     }
    
     .homepage{
-        background-image: url(img/imagenmobile.jpg);
+        background-image: url(./assets/img/imagenmobile.jpg);
 
     }
 
     .homepage2{
-        background-image: url(img/imagedestock.jpg);
+        background-image: url(./assets/img/imagedestock.jpg);
 
     }
     main{
@@ -151,7 +151,7 @@
     }
    
     main{
-        background-image: url(img/imagenmobile.jpg);
+        background-image: url(./assets/img/imagenmobile.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -288,7 +288,7 @@
     }
     .imageDiv{
            
-        background-image: url(../src/img/imgtablet.jpg) ;
+        background-image: url(./assets/img/imagenTablet.jpg) ;
         background-size: cover;
         grid-column: 1 / 2;
         grid-row: 1;
