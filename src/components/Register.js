@@ -3,7 +3,8 @@ import { functionSignUp } from '../lib/index';
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   const loginContent = document.createElement('main');
-  const loginIcon = document.createElement('img');
+  const divImgRegister = document.createElement('div');
+  // const loginIcon = document.createElement('img');
   const tittleRegister = document.createElement('h2');
   const buttonHome = document.createElement('button');
   const HomeForm = document.createElement('div');
@@ -13,16 +14,17 @@ export const Register = (onNavigate) => {
   const inputPasword = document.createElement('input');
   const buttonRegister = document.createElement('button');
   // const mensajeValidacion = document.createElement('p');
-
+  divImgRegister.className = 'imageDivRegister';
+  HomeDiv.className = 'divRegister';
   HomeForm.className = 'formDiv';
   loginContent.className = 'homepage2';
-  loginIcon.src = './assets/img/LogotipoSinFondo.png';
-  loginIcon.className = 'logoFoodgram';
+  // loginIcon.src = './assets/img/LogotipoSinFondo.png';
+  // loginIcon.className = 'logoFoodgram';
   tittleRegister.className = 'h1_home';
   formRegister.className = 'formRegister';
   buttonRegister.className = 'btn_register';
   buttonHome.className = 'btn home';
-  tittleRegister.textContent = 'Aqui puedes registrate';
+  tittleRegister.textContent = 'Crear usuario';
   buttonHome.textContent = 'Regresar';
   buttonRegister.textContent = 'Resgistrarse';
   inputUser.placeholder = 'Usuario';
@@ -59,7 +61,8 @@ export const Register = (onNavigate) => {
 
   formRegister.append(inputUser, inputEmail, inputPasword, buttonRegister);
   HomeForm.append(tittleRegister, formRegister, buttonHome);
-  HomeDiv.append(HomeForm, loginContent, loginIcon);
+  loginContent.append(divImgRegister, HomeForm);
+  HomeDiv.append(loginContent);
 
   return HomeDiv;
 };

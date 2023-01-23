@@ -1,7 +1,9 @@
-  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');  
 
 
 /* Mobile  */
+
+
 @media  screen and (max-width: 600px) {
     *{
         margin:0;
@@ -12,7 +14,7 @@
     }
    
     .homepage{
-        background-image: url(./assets/img/imagenmobile.jpg);
+        background-image: url(/assets/imagenmobile.0489c6be.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -21,7 +23,7 @@
     }
 
     .homepage2{
-        background-image: url(./assets/img/imagedestock.jpg);
+        background-image: url(/assets/imagedestock.b85dfc78.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -161,7 +163,10 @@
 
 }
 
+
 /* Tablet */
+
+
 @media  screen and  (max-width: 913px) and (min-width: 600px) {
     *{
         margin:0;
@@ -170,7 +175,7 @@
     }
    
     main{
-        background-image: url(/assets/img/imagenmobile.jpg);
+        background-image: url(/assets/imagenmobile.0489c6be.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -180,7 +185,7 @@
         
     }
     .homepage{
-        background-image: url(/assets/img/imagenmobile.jpg);
+        background-image: url(/assets/imagenmobile.0489c6be.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -188,7 +193,7 @@
         position: relative;
     }
     .homepage2{
-        background-image: url(/assets/img/imagenmobile.jpg);
+        background-image: url(/assets/imagenmobile.0489c6be.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -311,6 +316,7 @@
 
     }
 
+
 @media  screen and (min-width: 914px) {
     *{
         background-color: white;
@@ -334,7 +340,7 @@
     }
     .imageDiv{
            
-        background-image: url(./assets/img/imagenmobile.jpg) ;
+        background-image: url(/assets/imagenmobile.0489c6be.jpg);
         background-size: cover;
         grid-column: 1 / 2;
         grid-row: 1;
@@ -342,7 +348,7 @@
       }
       .imageDivRegister{
        
-        background-image: url(./assets/img/imagedestock.jpg) ;
+        background-image: url(/assets/imagedestock.b85dfc78.jpg);
         background-size: cover;
         grid-column: 1 / 2;
         grid-row: 1;
