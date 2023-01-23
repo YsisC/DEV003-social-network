@@ -1,6 +1,8 @@
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,
+  GoogleAuthProvider, signInWithPopup,
 } from 'firebase/auth';
+
 import { auth } from './firebase.js';
 
 // import { app } from './firebase.js';
@@ -51,3 +53,16 @@ export const functionSignOut = async () => {
 //   // aqui tu codigo
 //   console.log('Hola mundo!');
 // };
+
+export const functionUserGoogle = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    const userGoogle = await signInWithPopup(auth, provider);
+    console.log(userGoogle.user);
+    return userGoogle.user;
+  } catch (error) {
+    // Handle Errors here.
+    const errorCode = error.code;
+    return errorCode;
+  }
+};

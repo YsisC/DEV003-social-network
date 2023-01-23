@@ -1,7 +1,9 @@
-  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');  
 
 
 /* Mobile  */
+
+
 @media  screen and (max-width: 600px) {
     *{
         margin:0;
@@ -11,12 +13,12 @@
     }
    
     .homepage{
-        background-image: url(./assets/img/imagenmobile.jpg);
+        background-image: url(/DEV003-social-network/assets/imagenmobile.0489c6be.jpg);
 
     }
 
     .homepage2{
-        background-image: url(./assets/img/imagedestock.jpg);
+        background-image: url(/DEV003-social-network/assets/imagedestock.b85dfc78.jpg);
 
     }
     main{
@@ -143,7 +145,10 @@
 
 }
 
+
 /* Tablet */
+
+
 @media  screen and  (max-width: 900px) and (min-width: 600px) {
     *{
         margin:0;
@@ -151,7 +156,7 @@
     }
    
     main{
-        background-image: url(./assets/img/imagenmobile.jpg);
+        background-image: url(/DEV003-social-network/assets/imagenmobile.0489c6be.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -270,6 +275,7 @@
 
     }
 
+
 @media  screen and (min-width: 900px) {
     *{
         background-color: white;
@@ -288,7 +294,7 @@
     }
     .imageDiv{
            
-        background-image: url(./assets/img/imagenTablet.jpg) ;
+        background-image: url(/DEV003-social-network/assets/imagenmobile.0489c6be.jpg);
         background-size: cover;
         grid-column: 1 / 2;
         grid-row: 1;
