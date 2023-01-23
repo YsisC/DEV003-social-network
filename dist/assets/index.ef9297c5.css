@@ -1,7 +1,9 @@
-  @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');  
 
 
 /* Mobile  */
+
+
 @media  screen and (max-width: 600px) {
     *{
         margin:0;
@@ -11,7 +13,7 @@
     }
    
     main{
-        background-image: url(assets/img/imagenmobile.jpg);
+        background-image: url(/DEV003-social-network/assets/imagenmobile.0489c6be.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -125,7 +127,10 @@
 
 }
 
+
 /* Tablet */
+
+
 @media  screen and  (max-width: 900px) and (min-width: 600px) {
     *{
         margin:0;
@@ -252,6 +257,7 @@
 
     }
 
+
 @media  screen and (min-width: 900px) {
     *{
         background-color: white;
@@ -270,7 +276,7 @@
     }
     .imageDiv{
            
-        background-image: url(../src/assets/img/imgtablet.jpg) ;
+        background-image: url(/DEV003-social-network/assets/imgtablet.b85dfc78.jpg);
         background-size: cover;
         grid-column: 1 / 2;
         grid-row: 1;
