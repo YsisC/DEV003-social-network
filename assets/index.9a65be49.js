@@ -2054,6 +2054,15 @@ function _errorWithCustomMessage(auth2, code, message) {
     appName: auth2.name
   });
 }
+function _assertInstanceOf(auth2, object, instance) {
+  const constructorInstance = instance;
+  if (!(object instanceof constructorInstance)) {
+    if (constructorInstance.name !== object.constructor.name) {
+      _fail(auth2, "argument-error");
+    }
+    throw _errorWithCustomMessage(auth2, "argument-error", `Type of ${object.constructor.name} does not match expected instance.Did you pass a reference from a different Auth SDK?`);
+  }
+}
 function createErrorInternal(authOrCode, ...rest) {
   if (typeof authOrCode !== "string") {
     const code = rest[0];
@@ -5845,6 +5854,13 @@ class AbstractPopupRedirectOperation {
  * limitations under the License.
  */
 const _POLL_WINDOW_CLOSE_TIMEOUT = new Delay(2e3, 1e4);
+async function signInWithPopup(auth2, provider, resolver) {
+  const authInternal = _castAuth(auth2);
+  _assertInstanceOf(auth2, provider, FederatedAuthProvider);
+  const resolverInternal = _withDefaultResolver(authInternal, resolver);
+  const action = new PopupOperation(authInternal, "signInViaPopup", provider, resolverInternal);
+  return action.executeNotNull();
+}
 class PopupOperation extends AbstractPopupRedirectOperation {
   constructor(auth2, filter, provider, resolver, user) {
     super(auth2, filter, resolver, user);
@@ -9995,7 +10011,6 @@ const functionSignUp = async (name2, email, password) => {
     }
     return userCredential;
   } catch (error) {
-    console.log(error);
     const errorCode = error.code;
     return errorCode;
   }
@@ -10012,6 +10027,17 @@ const functionSignin = async (email, password) => {
 const functionSignOut = async () => {
   await signOut(auth);
 };
+const functionUserGoogle = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    const userGoogle = await signInWithPopup(auth, provider);
+    console.log(userGoogle.user);
+    return userGoogle.user;
+  } catch (error) {
+    const errorCode = error.code;
+    return errorCode;
+  }
+};
 const Home = (onNavigate2) => {
   const HomeContent = document.createElement("main");
   const HomeDivImage = document.createElement("div");
@@ -10026,8 +10052,8 @@ const Home = (onNavigate2) => {
   const buttonLogin = document.createElement("button");
   const buttonRegister = document.createElement("button");
   const buttonLoginGoogle = document.createElement("button");
-  mensajeLogin.textContent = "Te gusta comer nosotros tambien!";
-  logoIcon.src = "../img/LogotipoSinFondo.png";
+  mensajeLogin.textContent = "Te gusta comer a nosotros tambien!";
+  logoIcon.src = "./assets/img/LogotipoSinFondo.png";
   logoIcon.className = "logoFoodgram";
   HomeContent.className = "homepage";
   HomeDivImage.className = "imageDiv";
@@ -10065,6 +10091,14 @@ const Home = (onNavigate2) => {
     });
   });
   buttonRegister.addEventListener("click", () => onNavigate2("/register"));
+  buttonLoginGoogle.addEventListener("click", (e) => {
+    e.preventDefault();
+    functionUserGoogle().then((promiseGoogle) => {
+      if (promiseGoogle !== "error") {
+        onNavigate2("/login");
+      }
+    });
+  });
   HomeContent.appendChild(logoIcon);
   HomeContent.appendChild(HomeDivImage);
   HomeContent.appendChild(HomeForm);
@@ -10081,19 +10115,25 @@ const Home = (onNavigate2) => {
 };
 const Register = (onNavigate2) => {
   const HomeDiv = document.createElement("div");
+  const loginContent = document.createElement("main");
+  const loginIcon = document.createElement("img");
+  const tittleRegister = document.createElement("h2");
   const buttonHome = document.createElement("button");
   const HomeForm = document.createElement("div");
   const formRegister = document.createElement("form");
-  const tittleRegister = document.createElement("h1");
   const inputUser = document.createElement("input");
   const inputEmail = document.createElement("input");
   const inputPasword = document.createElement("input");
   const buttonRegister = document.createElement("button");
   HomeForm.className = "formDiv";
+  loginContent.className = "homepage2";
+  loginIcon.src = "./assets/img/LogotipoSinFondo.png";
+  loginIcon.className = "logoFoodgram";
+  tittleRegister.className = "h1_home";
   formRegister.className = "formRegister";
-  buttonRegister.className = "btn register";
+  buttonRegister.className = "btn_register";
   buttonHome.className = "btn home";
-  tittleRegister.textContent = "Bienvenido al registro";
+  tittleRegister.textContent = "Aqui puedes registrate";
   buttonHome.textContent = "Regresar";
   buttonRegister.textContent = "Resgistrarse";
   inputUser.placeholder = "Usuario";
@@ -10125,8 +10165,8 @@ const Register = (onNavigate2) => {
   });
   buttonHome.addEventListener("click", () => onNavigate2("/"));
   formRegister.append(inputUser, inputEmail, inputPasword, buttonRegister);
-  HomeForm.append(formRegister, buttonHome);
-  HomeDiv.append(tittleRegister, HomeForm);
+  HomeForm.append(tittleRegister, formRegister, buttonHome);
+  HomeDiv.append(HomeForm, loginContent, loginIcon);
   return HomeDiv;
 };
 const Login = (onNavigate2) => {
