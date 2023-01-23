@@ -19,7 +19,7 @@ export const Home = (onNavigate) => {
   mensajeLogin.textContent = 'Te gusta comer nosotros tambien!';
   // const inputform = document.createElement('form');
 
-  logoIcon.src = '../img/LogotipoSinFondo.png';
+  logoIcon.src = '../assets/img/LogotipoSinFondo.png';
   logoIcon.className = 'logoFoodgram';
   HomeContent.className = 'homepage';
   HomeDivImage.className = 'imageDiv';
