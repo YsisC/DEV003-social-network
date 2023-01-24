@@ -10,6 +10,8 @@
 }
 @media screen and (max-width: 600px) {
 
+
+   
     .homeDivFeed{
         height: 100vh;
         width: 100vh;
@@ -25,19 +27,49 @@
     .logoFoodgramFeed{
       
         margin: 2rem;
-        width: 40vw;
-        padding-top: 1rem;
+        width: 70vw;
         background: none;
     
     }
-    .feedProfile{
-        display: flex;
-        height: 20vh;
-        width: 100vw;
+
+    header{
+        position: fixed;
     }
+
+   .feedHeader{
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    width: 100vw;
+    }
+
+    
     .Cerrar_Sesion{
         margin: 1rem;
-        width: 40vw;
+        margin-left: 28rem;
+        margin-top: 2rem;
+        width: 42vw;
+        font-size: large;
+        background:none ;
+        border: none;
+       
+    }
+
+    .Cerrar_Sesion:hover{ 
+        border-bottom: 1px solid var(--Verde-colorSecundario);
+    }
+    .mensajeFeed{
+        width: 25rem;
+        height: 4rem;
+        padding: 15px;
+        margin-left: 13rem;
+        padding-left: 1rem;
+        background-color: white;
+        font-size: large;
+        border-radius: 10px;
+        font-weight: bolder;
+        font-family: 'Jura', sans-serif;
+  
     }
 }
 
