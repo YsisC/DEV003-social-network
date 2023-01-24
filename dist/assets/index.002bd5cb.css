@@ -1,25 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');  
 
-:root {
-    --Amarillo-colorPrincipal: #FDCD01;
-    --Amarillo-colorButton: #FFDA3E;
-    --Verde-colorButton: #45DF0F;
-    --Verde-colorSecundario: #32A30A;
-
-}
 
 /* Mobile  */
-@media screen and (max-width: 600px) {
-    * {
-        margin: 0;
+
+
+@media  screen and (max-width: 600px) {
+    *{
+        margin:0;
         padding: 0;
         font-family: 'Junge', serif;
-
-
+     
+        
     }
-
-    .homepage {
-        background-image: url(./assets/img/imagenmobile.jpg);
+   
+    .homepage{
+        background-image: url(/assets/imagenmobile.0489c6be.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -27,15 +22,14 @@
         position: absolute;
     }
 
-    .homepage2 {
-        background-image: url(./assets/img/imagedestock.jpg);
+    .homepage2{
+        background-image: url(/assets/imagedestock.b85dfc78.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
         height: 100vh;
         position: absolute;
     }
-
     /* main{
         background-image: url(assets/img/imagenmobile.jpg);
         z-index: 1;
@@ -46,25 +40,23 @@
 
         
     } */
-    .imageDiv {
-
-        display: none;
-
-    }
-
-    .imageDivRegister {
-
-        display: none;
+    .imageDiv{
+       
+      display: none;
 
     }
-
-    .logoFoodgram {
+    .imageDivRegister{
+       
+        display: none;
+  
+      }
+    .logoFoodgram{
         margin: 2rem;
         width: 55vw;
-        background: var(--Amarillo-colorPrincipal);
+        background: #FDCD01;
     }
-
-    .h1_home {
+    
+    .h1_home{
         font-family: 'Jura', sans-serif;
         margin-bottom: 1rem;
         margin-left: 4.5rem;
@@ -72,57 +64,56 @@
         width: 55%;
     }
 
-    .formDiv {
+    .formDiv{
         position: fixed;
-        top: 40%;
-        left: 0%;
-        z-index: 99;
-        border-radius: 25rem;
+        top: 40%; left: 0%;
+        z-index:99;
+        border-radius:25rem;
         width: 100vw;
         height: 100vh;
-        background: var(--Amarillo-colorPrincipal);
+        background: #FDCD01;
         padding-top: 6rem;
 
+        
+    }
+    .register{
 
     }
-
-    .h2_home {
+    .h2_home{
         display: none;
     }
-
     /* position: sticky; */
     /* position: fixed; */
-    .input_Login {
+    .input_Login{
         height: 10%;
         width: 80%;
         border: 1px;
-        padding: 0.5rem;
+        padding: 0.1rem;
         margin-bottom: 0.5rem;
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
-        font-weight:bold;
+        font-weight: normal;
         padding-left: 1rem;
         border-radius: 5px;
-        margin-left: 1.7rem;
+        margin-left:1.7rem ;
         /* align-content: center; */
     }
-
-    .inputLogin {
+    .inputLogin{
         height: 5%;
         width: 80%;
         border: 1px;
         margin-bottom: 0.5rem;
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
-        font-weight: bold;
+        font-weight: normal;
         padding-left: 1rem;
         border-radius: 5px;
-        margin-left: 1.7rem;
+        margin-left:1.7rem ;
         /* align-content: center; */
     }
-
-
-    .btn {
+       
+    
+    .btn{
         height: 5%;
         width: 60%;
         border: 10px;
@@ -133,58 +124,41 @@
         border-radius: 20px;
         justify-content: center;
         align-content: center;
-        margin-left: 4.9rem;
+        margin-left: 4.9rem ;
     }
-
-    .login {
-        background: var(--Amarillo-colorPrincipal);
+    .login{
+        background: #FDCD01;
         /* border-bottom: 2px solid rgb(10, 10, 10); */
         box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
+        
+    }
+    .register{
+        background-color: #FFDA3E;
+        
 
     }
-     
-    .login:hover{
-        background-color: var(--Amarillo-colorButton);
-    }
-    .register {
-        background-color: var(--Amarillo-colorButton);
-
-    }
-    .register:hover{
-        background-color: var(--Amarillo-colorPrincipal);
-    }
-
-    .formDiv .group_button {
+    .formDiv .group_button{
         position: relative;
         height: 100%;
         width: 100%;
         margin: 0;
-        background-color: var(--Amarillo-colorPrincipal);
+        background-color: #FDCD01;
     }
-
     .formDiv .group_button .loginGoogle {
-        background-color: var(--Verde-colorButton);
+        background-color: #45DF0F;
         outline: none;
     }
-
-    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa,
-    svg:not(:root).svg-inline--fa {
+    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa, svg:not(:root).svg-inline--fa{
         position: absolute;
-        margin-left: 6.1rem;
+        margin-left: 6.1rem; 
         top: 2.4%;
-        background-color: var(--Verde-colorButton);
+        background-color: #45DF0F;
         /* font-size: 1.5em; */
-
-    }
-
-    .formDiv .group_button .loginGoogle:hover{
-       background-color: var(--Verde-colorSecundario);
-       
+        
     }
 
 
-
-    .btn_register {
+    .btn_register{
         padding: 7px;
         width: 60%;
         border: 10px;
@@ -195,20 +169,14 @@
         border-radius: 20px;
         justify-content: center;
         align-content: center;
-        margin-left: 4.9rem;
-        background: var(--Amarillo-colorPrincipal);
+        margin-left: 4.9rem ;
+        background: #FDCD01;
         /* border-bottom: 2px solid rgb(10, 10, 10); */
         box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
 
 
     }
-
-    .btn_register:hover{
-    background-color: var(--Amarillo-colorButton);
-
-    }
-
-    .btn_home {
+    .btn_home{
         padding: 7px;
         width: 60%;
         border: 10px;
@@ -219,28 +187,26 @@
         border-radius: 20px;
         justify-content: center;
         align-content: center;
-        margin-left: 4.9rem;
-        background-color: var(--Amarillo-colorButton);
+        margin-left: 4.9rem ;
+        background: #FDCD01;
         /* border-bottom: 2px solid rgb(10, 10, 10); */
-      
+        box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
 
     }
-     
-    .btn_home:hover{
-        background-color: var(--Amarillo-colorPrincipal);
-        box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
-    } 
 
 }
 
-/* Tablet */
-@media screen and (max-width: 913px) and (min-width: 600px) {
-    * {
-        margin: 0;
 
+/* Tablet */
+
+
+@media  screen and  (max-width: 913px) and (min-width: 600px) {
+    *{
+        margin:0;
+        
         /* background-color: white; */
     }
-
+   
     /* main{
         background-image: url(/assets/img/imagenmobile.jpg);
         z-index: 1;
@@ -251,43 +217,39 @@
 
         
     } */
-    .homepage {
-        background-image: url(/assets/img/imagenmobile.jpg);
+    .homepage{
+        background-image: url(/assets/imagenmobile.0489c6be.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
         height: 100vh;
         position: relative;
     }
-
-    .homepage2 {
-        background-image: url(/assets/img/imagedestock.jpg);
+    .homepage2{
+        background-image: url(/assets/imagedestock.b85dfc78.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
         height: 100vh;
         position: relative;
     }
-
-    .imageDiv {
-
-        display: none;
-
-    }
-
-    .imageDivRegister {
-
-        display: none;
+    .imageDiv{
+       
+      display: none;
 
     }
-
-    .logoFoodgram {
+    .imageDivRegister{
+       
+        display: none;
+  
+      }
+    .logoFoodgram{
         margin: 2rem;
         width: 55vw;
-        background: var(--Amarillo-colorPrincipal);
+         background: #FDCD01;
     }
 
-    .h1_home {
+    .h1_home{
         font-family: 'Jura', sans-serif;
         margin-bottom: 1rem;
         margin-left: 6.5rem;
@@ -295,26 +257,24 @@
         width: 55%;
     }
 
-
-    .formDiv {
+    
+    .formDiv{
         position: fixed;
-        top: 40%;
-        left: 1%;
-        z-index: 99;
-        border-radius: 30rem;
+        top: 40%; left: 1%;
+        z-index:99;
+        border-radius:30rem;
         width: 100vw;
         height: 100vh;
-        background: var(--Amarillo-colorPrincipal);
+        background: #FDCD01;
         padding-top: 10rem;
-        padding-left: 2rem;
+        padding-left:2rem ;
 
-
+        
     }
-
-    .formRegister {
+    .formRegister{
         height: 25vh;
     }
-
+       
     /* .formRegister{
         position: fixed;
         top: 40%; left: 1%;
@@ -329,44 +289,42 @@
         
     } */
 
-    .h2_home {
+    .h2_home{
         display: none;
     }
 
     /* position: sticky; */
     /* position: fixed; */
-
-    .input_Login {
+ 
+    .input_Login{
         height: 20%;
         width: 72%;
         border: 10px;
         margin-bottom: 0.5rem;
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
-        font-weight: bold;
+        font-weight: normal;
         font-size: large;
         padding-left: 1rem;
         border-radius: 5px;
-        margin-left: 4rem;
+        margin-left: 4rem ;
         height: 19%;
     }
-
-    .inputLogin {
+       .inputLogin{
         height: 5%;
         width: 72%;
         border: 10px;
         margin-bottom: 0.5rem;
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
-        font-weight: bold;
+        font-weight: normal;
         font-size: large;
         padding-left: 1rem;
         border-radius: 5px;
-        margin-left: 4rem;
+        margin-left: 4rem ;
         /* align-content: center; */
     }
-
-    .btn {
+    .btn{
         height: 5%;
         width: 50%;
         border: 10px;
@@ -375,10 +333,9 @@
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
-        margin-left: 10rem;
+        margin-left: 10rem ;
     }
-
-    .btn_register {
+    .btn_register{
         padding: 0.9rem;
         height: 20%;
         width: 50%;
@@ -390,14 +347,9 @@
         border-radius: 20px;
         justify-content: center;
         align-content: center;
-        margin-left: 10rem;
-        background-color: var(--Amarillo-colorPrincipal);
-        box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
-    }
-    
- 
-
-    .btn_home {
+        margin-left:10rem ;
+}
+    .btn_home{
         height: 20%;
         width: 50%;
         border: 10px;
@@ -406,82 +358,66 @@
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
-        margin-left: 10rem;
-        /* margin-top: 0.9rem; */
-        font-size: large;
-        background-color: var(--Amarillo-colorButton);
-        
-    }
-
-    .login {
-        background: var(--Amarillo-colorPrincipal);
+        margin-left: 10rem ;
+/* margin-top: 0.9rem; */
+font-size: large;
+}
+    .login{
+        background: #FDCD01;
         /* border-bottom: 2px solid rgb(10, 10, 10); */
         box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
-        font-size: large;
+        
+    }
+    .register{
+        background-color: #FFDA3E;
+        
 
     }
-    .login:hover{
-        background-color: var(--Amarillo-colorButton);
-    }
-  
-    
-    .register {
-        background-color: var(--Amarillo-colorButton);
-        font-size: large;
-
-    }
-
-    .register:hover{
-        background-color: var(--Amarillo-colorPrincipal);
-    }
-
-    .btn_register:hover{
-        background-color: var(--Amarillo-colorButton);
-    
-        }
-
-    .formDiv .group_button {
+    .formDiv .group_button{
         position: relative;
         height: 100%;
         width: 100%;
         margin: 0;
-        background-color: var(--Amarillo-colorPrincipal);
+        background-color: #FDCD01;
     }
-
     .formDiv .group_button .loginGoogle {
-        background-color: var(--Verde-colorButton);
+        background-color: #45DF0F;
         outline: none;
-        font-size: large;
     }
-
-    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa,
-    svg:not(:root).svg-inline--fa {
+    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa, svg:not(:root).svg-inline--fa{
         position: absolute;
-        margin-left: 14.5rem;
-        top: 2.7%;
-        background-color: var(--Verde-colorButton);
+        margin-left: 110rem; 
+        top: 2.4%;
         /* font-size: 1.5em; */
-    }
-    .formDiv .group_button .loginGoogle:hover{
-        background-color: var(--Verde-colorSecundario);
         
-     }
-
-   
+    }
 
 
-    /* Destock  */
+    #btnRegister:hover{
+        /* background-color: rgb(94, 88, 88); */
+        color: white;
+  opacity: 0.5;
+  transform: scale(1.02);
 
-}
 
-@media screen and (min-width: 914px) {
-    * {
+    }
+
+
+
+
+/* Destock  */
+
+    }
+
+
+@media  screen and (min-width: 914px) {
+    *{
         background-color: white;
         margin: 0;
         padding: 0;
     }
-
-
+   
+    
     /* main{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -492,73 +428,66 @@
         overflow: hidden;
         
     } */
-    .homepage {
+    .homepage{
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
-        width: 100vw;
+         width: 100vw;
         height: 130vh;
         background-color: white;
         overflow: hidden;
     }
-
-    .homepage2 {
+    .homepage2{
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
-        width: 100vw;
+         width: 100vw;
         height: 130vh;
         background-color: white;
         overflow: hidden;
     }
-
-    .logoFoodgram {
-        display: none;
+    .logoFoodgram{
+      display: none;
     }
-
-    .imageDiv {
-
-        background-image: url(./assets/img/imagenmobile.jpg);
+    .imageDiv{
+           
+        background-image: url(/assets/imagenmobile.0489c6be.jpg);
         background-size: cover;
         grid-column: 1 / 2;
         grid-row: 1;
-
-    }
-
-    .imageDivRegister {
-
-        background-image: url(./assets/img/imagedestock.jpg);
+    
+      }
+      .imageDivRegister{
+       
+        background-image: url(/assets/imagedestock.b85dfc78.jpg);
         background-size: cover;
         grid-column: 1 / 2;
         grid-row: 1;
-    }
+      }
 
-    .h1_home {
+      .h1_home{
         font-family: 'Jura', sans-serif;
         margin-bottom: 3rem;
-        margin-top: 5rem;
         margin-left: 6.5rem;
         border-bottom: 2px solid rgb(0, 0, 0);
-        
+        width: 55%;
     }
 
-    .formDiv {
-        padding-top: 3rem;
+    .formDiv{
+       padding-top: 3rem;
         z-index: 1;
         grid-column: 2 / 2;
         grid-row: 1;
-
-
+    
+        
     }
-
-    .h2_home {
-        color: var(--Verde-colorSecundario);
+    .h2_home{
+        color: #32A30A;
         font-family: 'Josefin Sans', sans-serif;
         font-style: italic;
         margin: 2rem;
     }
-
-    .input_Login {
+    .input_Login{
         height: 5%;
         width: 80%;
         border: 10px;
@@ -568,15 +497,13 @@
         font-weight: normal;
         font-size: x-large;
         padding-left: 1rem;
-        padding: 1rem;
         border-radius: 20px;
-        margin-left: 1.7rem;
+        margin-left:1.7rem ;
         /* align-content: center; */
-            
-    }
-
-    .inputLogin {
-        height: 5%;
+    
+}
+.inputLogin{
+    height: 5%;
         width: 80%;
         border: 10px;
         margin-bottom: 0.5rem;
@@ -585,112 +512,76 @@
         font-weight: normal;
         font-size: x-large;
         padding-left: 1rem;
-        padding: 0.4rem;
         border-radius: 20px;
-        margin-left: 1.7rem;
-    }
-
-    .btn_register {
-        height: 5%;
-        width: 80%;
-        border: 10px;
-        margin: 0.5rem;
-        font-size: large;
-        font-family: 'Jura', sans-serif;
-        font-weight: bold;
-        border-radius: 20px;
-        justify-content: center;
-        align-content: center;
-        margin-left: 4.1rem;
-        padding: 1rem;
-    }
-
+        margin-left:1.7rem ;
+}
     
-    .login:hover{
-        background-color: var(--Amarillo-colorButton);
+        .btn_register{
+         height: 5%;
+         width: 80%;
+         border: 10px;
+         margin: 0.5rem;
+         font-size: large;
+         font-family: 'Jura', sans-serif;
+         font-weight: bold;
+         border-radius: 20px;
+         justify-content: center;
+         align-content: center;
+         margin-left:2.1rem ;
+}
+.btn_home{
+    /* margin-top: 0.9rem; */
+    font-size: large;
     }
-    
-    .register:hover{
-        background-color: var(--Amarillo-colorPrincipal);
-    }
-
-    .btn_register:hover{
-        background-color: var(--Amarillo-colorButton);
-    
-        }
-
-    .btn_home {
-        /* margin-top: 0.9rem; */
-        font-size: large;
-    }
-
-    .btn {
-        height: 5%;
-        width: 80%;
-        border: 10px;
-        margin: 0.5rem;
-        font-size: large;
-        font-family: 'Jura', sans-serif;
-        font-weight: bold;
-        border-radius: 20px;
-        justify-content: center;
-        align-content: center;
-        margin-left: 2.1rem;
-    }
-
-    .btn_home {
-        height: 5%;
-        width: 80%;
-        border: 10px;
-        margin: 0.5rem;
-        font-size: large;
-        font-family: 'Jura', sans-serif;
-        font-weight: bold;
-        border-radius: 20px;
-        justify-content: center;
-        align-content: center;
-        margin-left: 4.1rem;
-        padding: 1rem;
-    }
-    .btn_home:hover{
-        background-color: var(--Verde-colorSecundario);
-    
-        }
-
-    .formDiv .group_button {
+    .btn{
+         height: 5%;
+         width: 80%;
+         border: 10px;
+         margin: 0.5rem;
+         font-size: large;
+         font-family: 'Jura', sans-serif;
+         font-weight: bold;
+         border-radius: 20px;
+         justify-content: center;
+         align-content: center;
+         margin-left:2.1rem ;
+}
+.btn_home{
+    height: 5%;
+    width: 80%;
+    border: 10px;
+    margin: 0.5rem;
+    font-size: large;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    border-radius: 20px;
+    justify-content: center;
+    align-content: center;
+    margin-left:2.1rem ; 
+}
+    .formDiv .group_button{
         position: relative;
         height: 100%;
         width: 100%;
         margin: 0;
-
+        
     }
-
-    .formDiv .group_button {
+    .formDiv .group_button{
         position: relative;
         height: 100%;
         width: 100%;
         margin: 0;
     }
-
     .formDiv .group_button .loginGoogle {
-        background-color: var(--Verde-colorButton);
+        background-color: #45DF0F;
         outline: none;
     }
-
-    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa,
-    svg:not(:root).svg-inline--fa {
+    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa, svg:not(:root).svg-inline--fa{
         position: absolute;
-        margin-left: 10rem;
+        margin-left: 3rem; 
         top: 2.4%;
-        background-color: var(--Verde-colorButton);
-
-
-    }
-
-    .formDiv .group_button .loginGoogle:hover{
-        background-color: var(--Verde-colorSecundario);
+        background-color: #45DF0F;
+      
         
-     }
-
-     
+    }
 }
