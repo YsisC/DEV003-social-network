@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+:root {
+    --Amarillo-colorPrincipal: #FDCD01;
+    --Amarillo-colorButton: #FFDA3E;
+    --Verde-colorButton: #45DF0F;
+    --Verde-colorSecundario: #32A30A;
+    --verde-colorFeed: #CBF0BE;
+
+}
+
+
+.feedMain{
+    height: 100vh;
+    width: 100vh;
+    background-color: var(--verde-colorFeed);
+}
+.logoFoodgramFeed{
+    margin: 2rem;
+    width: 40vw;
+    padding-top: 1rem;
+    background: none;
+
+}

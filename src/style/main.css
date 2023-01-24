@@ -8,6 +8,11 @@
 
 }
 
+
+input:focus{
+    border: 4px solid var(--Verde-colorSecundario);
+}
+
 /* Mobile  */
 @media screen and (max-width: 600px) {
     * {
@@ -19,7 +24,7 @@
     }
 
     .homepage {
-        background-image: url(./assets/img/imagenmobile.jpg);
+        background-image: url(../assets/img/imagenmobile.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -28,7 +33,7 @@
     }
 
     .homepage2 {
-        background-image: url(./assets/img/imagedestock.jpg);
+        background-image: url(../assets/img/imagedestock.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -221,8 +226,7 @@
         align-content: center;
         margin-left: 4.9rem;
         background-color: var(--Amarillo-colorButton);
-        /* border-bottom: 2px solid rgb(10, 10, 10); */
-      
+             
 
     }
      
@@ -252,7 +256,7 @@
         
     } */
     .homepage {
-        background-image: url(/assets/img/imagenmobile.jpg);
+        background-image: url(../assets/img/imagenmobile.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -261,7 +265,7 @@
     }
 
     .homepage2 {
-        background-image: url(/assets/img/imagedestock.jpg);
+        background-image: url(../assets/img/imagedestock.jpg);
         z-index: 1;
         background-size: cover;
         width: 100vw;
@@ -470,10 +474,10 @@
    
 
 
-    /* Destock  */
+    
 
 }
-
+   /* Destock  */
 @media screen and (min-width: 914px) {
     * {
         background-color: white;
@@ -518,7 +522,7 @@
 
     .imageDiv {
 
-        background-image: url(./assets/img/imagenmobile.jpg);
+        background-image: url(../assets/img/imagenmobile.jpg);
         background-size: cover;
         grid-column: 1 / 2;
         grid-row: 1;
@@ -527,7 +531,7 @@
 
     .imageDivRegister {
 
-        background-image: url(./assets/img/imagedestock.jpg);
+        background-image: url(../assets/img/imagedestock.jpg);
         background-size: cover;
         grid-column: 1 / 2;
         grid-row: 1;
