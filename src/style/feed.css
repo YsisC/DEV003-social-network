@@ -8,17 +8,36 @@
     --verde-colorFeed: #CBF0BE;
 
 }
+@media screen and (max-width: 600px) {
 
-
-.feedMain{
-    height: 100vh;
-    width: 100vh;
-    background-color: var(--verde-colorFeed);
+    .homeDivFeed{
+        height: 100vh;
+        width: 100vh;
+        background-color: var(--verde-colorFeed);
+        overflow: hidden;
+    }
+    .feedMain{
+       
+        height: 80vh;
+        width: 100vh;
+     
+    }
+    .logoFoodgramFeed{
+      
+        margin: 2rem;
+        width: 40vw;
+        padding-top: 1rem;
+        background: none;
+    
+    }
+    .feedProfile{
+        display: flex;
+        height: 20vh;
+        width: 100vw;
+    }
+    .Cerrar_Sesion{
+        margin: 1rem;
+        width: 40vw;
+    }
 }
-.logoFoodgramFeed{
-    margin: 2rem;
-    width: 40vw;
-    padding-top: 1rem;
-    background: none;
 
-}
