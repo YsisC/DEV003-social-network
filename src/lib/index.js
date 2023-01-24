@@ -9,23 +9,29 @@ import { auth } from './firebase.js';
 // aqui exportaras las funciones que necesites
 // Creación de usuario con email y contraseñ
 
-export const functionSignUp = async (name, email, password) => {
-  try {
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    if (name !== '') {
-      await updateProfile(auth.currentUser, {
-        displayName: name,
-      });
-    }
-
-    return userCredential;
-  } catch (error) {
-    // console.log(error);
-    const errorCode = error.code;
-    return errorCode;
-    // console.log(error.code);
+export const functionSignUp = (name, email, password) => createUserWithEmailAndPassword(auth, email, password).then(() => {
+  if (name !== '') {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    });
   }
-};
+});
+// try {
+//   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+//   if (name !== '') {
+//     await updateProfile(auth.currentUser, {
+//       displayName: name,
+//     });
+//   }
+
+//   return userCredential;
+// } catch (error) {
+//   // console.log(error);
+//   const errorCode = error.code;
+//   return errorCode;
+//   // console.log(error.code);
+// }
+// };
 
 export const functionSignin = async (email, password) => {
   try {

@@ -46,15 +46,17 @@ export const Register = (onNavigate) => {
     const pasword = inputPasword.value;
 
     functionSignUp(user, email, pasword).then((promiseResult) => {
-      if (promiseResult === 'auth/email-already-in-use') {
+      console.log(promiseResult);
+      onNavigate('/login');
+    }).catch((error) => {
+      if (error.code === 'auth/email-already-in-use') {
         alert('El correo ya ha sido utilizado');
-      } else if (promiseResult === 'auth/invalid-email') {
+      } else if (error.code === 'auth/invalid-email') {
         alert('Correo Invalido');
-      } else if (promiseResult === 'auth/weak-password') {
+      } else if (error.code === 'auth/weak-password') {
         alert('La contraseña es muy debil');
-      } else if (typeof (promiseResult) === 'object') {
-        onNavigate('/login');
       } else {
+        console.error(error);
         alert('El formulario tiene un error');
       }
     });
