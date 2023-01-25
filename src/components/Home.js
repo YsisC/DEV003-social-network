@@ -16,7 +16,7 @@ export const Home = (onNavigate) => {
   const buttonLoginGoogle = document.createElement('button');
 
   mensajeLogin.textContent = 'Te gusta comer a nosotros tambien!';
-  logoIcon.src = '/assets/img/LogotipoSinFondo.png';
+  logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
   logoIcon.className = 'logoFoodgram';
   inputUser.className = 'inputLogin';
   inputPasword.className = 'inputLogin';
