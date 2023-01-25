@@ -17,6 +17,12 @@ export const functionSignUp = (name, email, password) => createUserWithEmailAndP
   }
   return result;
 });
+
+export const functionSignin = (email, password) => signInWithEmailAndPassword(auth, email, password).then((userLogin) => {
+  const user = userLogin.user;
+  return user;
+});
+
 // try {
 //   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 //   if (name !== '') {
@@ -33,16 +39,6 @@ export const functionSignUp = (name, email, password) => createUserWithEmailAndP
 //   // console.log(error.code);
 // }
 // };
-
-export const functionSignin = async (email, password) => {
-  try {
-    const userLogin = await signInWithEmailAndPassword(auth, email, password);
-    return userLogin.user;
-  } catch (error) {
-    const errorCode = error.code;
-    return errorCode;
-  }
-};
 
 export const functionSignOut = async () => {
   await signOut(auth);

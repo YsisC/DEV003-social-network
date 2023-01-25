@@ -48,31 +48,33 @@ export const Home = (onNavigate) => {
     const email = inputUser.value;
     const pasword = inputPasword.value;
     functionSignin(email, pasword).then((promiseLogin) => {
-      if (promiseLogin === 'auth/invalid-email') {
+      console.log(promiseLogin);
+      onNavigate('/login');
+    }).catch((error) => {
+      if (error.code === 'auth/invalid-email') {
         alert('Verifique su correo');
-      } else if (promiseLogin === 'auth/wrong-password') {
+      } else if (error.code === 'auth/wrong-password') {
         alert('La contraseña invalida');
-      } else if (typeof (promiseLogin) === 'object') {
-        onNavigate('/login');
       } else {
         alert('Verifique sus datos o registrese');
       }
     });
-
-    // console.log(email,pasword)
-    // e.preventDefault();
-
-    // const email = inputUser.value;
-    // const pasword = inputPasword.value;
-
-    // console.log(email, pasword);
-    // try {
-    //   const userCredentials = await create;
-    // } catch (error) {
-
-    // }
-    // onNavigate('/login');
   });
+
+  // console.log(email,pasword)
+  // e.preventDefault();
+
+  // const email = inputUser.value;
+  // const pasword = inputPasword.value;
+
+  // console.log(email, pasword);
+  // try {
+  //   const userCredentials = await create;
+  // } catch (error) {
+
+  // }
+  // onNavigate('/login');
+  // });
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
 
