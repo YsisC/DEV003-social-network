@@ -9,12 +9,13 @@ import { auth } from './firebase.js';
 // aqui exportaras las funciones que necesites
 // Creación de usuario con email y contraseñ
 
-export const functionSignUp = (name, email, password) => createUserWithEmailAndPassword(auth, email, password).then(() => {
+export const functionSignUp = (name, email, password) => createUserWithEmailAndPassword(auth, email, password).then((result) => {
   if (name !== '') {
     updateProfile(auth.currentUser, {
       displayName: name,
     });
   }
+  return result;
 });
 // try {
 //   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
