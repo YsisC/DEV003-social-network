@@ -1,16 +1,19 @@
 // importamos la funcion que vamos a testear
-import {
-  createUserWithEmailAndPassword,
-} from 'firebase/auth';
 import { functionSignUp } from '../src/lib/index';
 
-jest.mock('firebase/auth');
+jest.mock('@firebase/auth', () => (
+  {
+    createUserWithEmailAndPassword: () => Promise.resolve({ currentUser: 'string' }),
+    updateProfile: () => ({}),
+    getAuth: () => ({ currentUser: 'string' }),
+  }
+));
 
-it('deberia crear un usuario', () => functionSignUp('Prueba', 'prueba@hotmail.com', '123456').then((userCredential) => {
-  console.log(userCredential);
-  console.log(createUserWithEmailAndPassword().then(console.log));
-  expect(userCredential).toEqual({ currentUser: 'string' });
-}));
-it('deberia dar error al no llenar completos los campos', () => functionSignUp('', '', '').then((userCredential) => {
+it('deberia crear un usuario', async () => {
+  const userCredential = functionSignUp('Prueba', 'prueba@hotmail.com', '123456');
+  await expect(userCredential).resolves.toEqual({ currentUser: 'string' });
+});
+
+it('deberia dar error al no llenar completos los campos', async () => functionSignUp('', '', '').then((userCredential) => {
   expect(userCredential).toEqual({ currentUser: 'string' });
 }));
