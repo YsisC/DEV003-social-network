@@ -58,8 +58,15 @@
     height: 20%;
     width: 100%;
     }
-
-    
+    .divIconMessage{
+    position: relative;
+    }
+   .feedHeader .divIconMessage .svg-inline--fa {
+        background-color: white;
+        margin-left: 0;
+        top:18%;
+left:87%;
+    }
     .Cerrar_Sesion{
         margin: 0rem;
         margin-left: 13rem;

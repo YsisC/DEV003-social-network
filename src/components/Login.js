@@ -5,6 +5,8 @@ export const Login = (onNavigate) => {
   const feedHearder = document.createElement('header');
   const feedeMain = document.createElement('main');
   const logoIcon = document.createElement('img');
+  const divMessage = document.createElement('div');
+  const iconMessage = document.createElement('i');
   const mensajeFeed = document.createElement('input');
   const feedPost = document.createElement('div');
   // const feedFooter = document.createElement('div');
@@ -20,6 +22,9 @@ export const Login = (onNavigate) => {
   logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
   logoIcon.className = 'logoFoodgramFeed';
   feedHearder.className = 'feedHeader';
+  divMessage.className = 'divIconMessage';
+  iconMessage.className = 'fa-solid fa-pen';
+
   feedPost.className = 'feedPost';
   feedFooter.className = 'feedFooter';
   mensajeFeed.className = 'mensajeFeed';
@@ -28,15 +33,15 @@ export const Login = (onNavigate) => {
   iconUser.className = 'fa-solid fa-user';
   iconPublish.className = 'fa-regular fa-square-plus';
 
-  mensajeFeed.placeholder = '¿Que recetas estas pensando 🥬?';
+  mensajeFeed.placeholder = '¿Que recetas estas pensando?  ';
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesion';
   buttonHome.addEventListener('click', () => {
     functionSignOut();
     onNavigate('/');
   });
-
-  feedHearder.append(buttonHome, logoIcon, mensajeFeed);
+  divMessage.append(iconMessage, mensajeFeed);
+  feedHearder.append(buttonHome, logoIcon, divMessage);
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
   divIconPublish.appendChild(iconPublish);
