@@ -1,4 +1,4 @@
-import { functionSignOut } from '../lib/index.js';
+import { functionSignOut, userAuntenticado } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
   const homeDivFeed = document.createElement('div');
@@ -11,12 +11,22 @@ export const Login = (onNavigate) => {
   const feedPost = document.createElement('div');
   // const feedFooter = document.createElement('div');
   const feedFooter = document.createElement('footer'); // agregado
+  const templatePosts = `<div class="container">
+    <div class="row">
+        <div class="columnas">
+            <ul class="group" id="post">
+            </ul>
+        </div>
+    </div>
+</div>`;
+  const postlist = document.querySelector('#post');
   const divIconUser = document.createElement('div');
   const iconUser = document.createElement('i');
   const divIconPublish = document.createElement('div');
   const iconPublish = document.createElement('i');
   const buttonHome = document.createElement('button');
 
+  feedPost.innerHTML = templatePosts;
   homeDivFeed.className = 'homeDivFeed';
   feedeMain.className = 'feedMain';
   logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
@@ -32,14 +42,15 @@ export const Login = (onNavigate) => {
   divIconPublish.className = 'divIconPublish';
   iconUser.className = 'fa-solid fa-user';
   iconPublish.className = 'fa-regular fa-square-plus';
-
   mensajeFeed.placeholder = '¿Que recetas estas pensando?  ';
   buttonHome.className = 'Cerrar_Sesion';
-  buttonHome.textContent = 'Cerrar Sesion';
+  buttonHome.textContent = 'Cerrar Sesión';
   buttonHome.addEventListener('click', () => {
     functionSignOut();
     onNavigate('/');
   });
+
+  userAuntenticado();
   divMessage.append(iconMessage, mensajeFeed);
   feedHearder.append(buttonHome, logoIcon, divMessage);
   feedeMain.append(feedPost);

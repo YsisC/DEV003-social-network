@@ -1,4 +1,4 @@
-import { functionSignin, functionUserGoogle } from '../lib/index';
+import { functionSignin, functionUserGoogle, userAuntenticado } from '../lib/index';
 
 export const Home = (onNavigate) => {
   const HomeContent = document.createElement('main');
@@ -73,9 +73,8 @@ export const Home = (onNavigate) => {
     // }
     // onNavigate('/login');
   });
-
+  userAuntenticado();
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
-
   buttonLoginGoogle.addEventListener('click', (e) => {
     e.preventDefault();
     functionUserGoogle().then((promiseGoogle) => {

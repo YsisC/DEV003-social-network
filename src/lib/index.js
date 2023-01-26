@@ -3,7 +3,7 @@ import {
   GoogleAuthProvider, signInWithPopup,
 } from 'firebase/auth';
 
-import { auth } from './firebase.js';
+import { auth, db } from './firebase.js';
 
 // import { app } from './firebase.js';
 // aqui exportaras las funciones que necesites
@@ -66,3 +66,15 @@ export const functionUserGoogle = async () => {
     return errorCode;
   }
 };
+
+export const userAuntenticado = auth.onAuthStateChanged((user) => {
+  if (user) {
+    db.collection('posts')
+      .get()
+      .then((snapshot) => {
+        console.log(snapshot.docs);
+      });
+  } else {
+    console.log('no estaaa');
+  }
+});
