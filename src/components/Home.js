@@ -47,8 +47,7 @@ export const Home = (onNavigate) => {
     e.preventDefault();
     const email = inputUser.value;
     const pasword = inputPasword.value;
-    functionSignin(email, pasword).then((promiseLogin) => {
-      console.log(promiseLogin);
+    functionSignin(email, pasword).then(() => {
       onNavigate('/login');
     }).catch((error) => {
       if (error.code === 'auth/invalid-email') {

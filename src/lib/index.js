@@ -7,21 +7,22 @@ import { auth } from './firebase.js';
 
 // import { app } from './firebase.js';
 // aqui exportaras las funciones que necesites
-// Creación de usuario con email y contraseñ
 
-export const functionSignUp = (name, email, password) => createUserWithEmailAndPassword(auth, email, password).then((result) => {
-  if (name !== '') {
-    updateProfile(auth.currentUser, {
-      displayName: name,
-    });
-  }
-  return result;
-});
+// Cambiar las variables no escribir function
+export const functionSignUp = (name, email, password) => createUserWithEmailAndPassword(auth, email, password)
+  .then((result) => {
+    if (name !== '') {
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      });
+    }
+    return result;
+  });
 
-export const functionSignin = (email, password) => signInWithEmailAndPassword(auth, email, password).then((userLogin) => {
-  const user = userLogin.user;
-  return user;
-});
+export const functionSignin = (email, password) => signInWithEmailAndPassword(auth, email, password)
+  .then((userLogin) => userLogin.user);
+
+export const functionSignOut = () => signOut(auth);
 
 // try {
 //   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
@@ -40,9 +41,9 @@ export const functionSignin = (email, password) => signInWithEmailAndPassword(au
 // }
 // };
 
-export const functionSignOut = async () => {
-  await signOut(auth);
-};
+// export const functionSignOut = async () => {
+//   await signOut(auth);
+// };
 
 // export const signOut = auth.signOut().then(() => {
 //  console.log('funciona ehhhh');

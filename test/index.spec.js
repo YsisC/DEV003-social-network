@@ -1,12 +1,14 @@
 // importamos la funcion que vamos a testear
-import { functionSignUp, functionSignin } from '../src/lib/index';
+import { functionSignUp, functionSignin, functionUserGoogle } from '../src/lib/index';
 
 jest.mock('@firebase/auth', () => (
   {
     createUserWithEmailAndPassword: () => Promise.resolve({ currentUser: 'string' }),
     updateProfile: () => ({}),
     getAuth: () => ({ currentUser: 'string' }),
-    signInWithEmailAndPassword: () => Promise.resolve({ userRegistrado: 'string' }),
+    signInWithEmailAndPassword: () => Promise.resolve({ user: 'string' }),
+    GoogleAuthProvider: class {},
+    signInWithPopup: () => Promise.resolve({ user: 'stringGoogle' }),
   }
 ));
 jest.mock('../src/lib/firebase.js');
@@ -26,14 +28,20 @@ describe('functionSignUp', () => {
 /* -----Test para functionSignIn -----*/
 
 describe('functionSignIn', () => {
-  it('Debería ser una función', () => {
-    console.log(functionSignin);
-    expect(typeof functionSignIn).toBe('function');
+  it('deberia iniciar sesion con el usuario registrado', async () => {
+    const userLogin = functionSignin('prueba@hotmail.com', '123456');
+    await expect(userLogin).resolves.toEqual('string');
   });
 });
-// it('deberia iniciar sesion con el usuario registrado', async () => {
-//   const userLogin = functionSignin('prueba@hotmail.com', '123456');
-//   await expect(userLogin).resolves.toEqual({ userRegistrado: 'string' });
+
+/* -----Test para function Google -----*/
+
+describe('functionUserGoogle', () => {
+  it('deberia iniciar sesion con el usuario registrado', async () => {
+    const userGoogle = functionUserGoogle('prueba@hotmail.com', '123456');
+    await expect(userGoogle).resolves.toEqual('stringGoogle');
+  });
+});
 
 //   it('deberia dar error si no se llena los campos', async () => functionSignin('', '', '').then((userLogin) => {
 //     expect(userLogin).toEqual({ currentUser: 'string' });
