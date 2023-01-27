@@ -1,3 +1,4 @@
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,
   GoogleAuthProvider, signInWithPopup,
@@ -37,39 +38,21 @@ export const functionUserGoogle = async () => {
   }
 };
 
-export const userAuntenticado = auth.onAuthStateChanged((user) => {
-  if (user) {
-    db.collection('posts')
-      .get()
-      .then((snapshot) => {
-        console.log(snapshot.docs);
-      });
-  } else {
-    console.log('no estaaa');
-  }
-});
-// export const functionUserGoogle = async () => {
-//   const provider = new GoogleAuthProvider();
-//   try {
-//     const userGoogle = await signInWithPopup(auth, provider);
-//     console.log(userGoogle.user);
-//     return userGoogle.user;
-//   } catch (error) {
-//     // Handle Errors here.
-//     const errorCode = error.code;
-//     return errorCode;
+export const saveTask = (tittle, description) => {
+  addDoc(collection(db, 'tasks'), { tittle, description });
+};
+
+export const getTasks = () => {
+  getDocs(collection(db, 'tasks'));
+};
+// export const userAuntenticado = auth.onAuthStateChanged((user) => {
+//   if (user) {
+//     db.collection('posts')
+//       .get()
+//       .then((snapshot) => {
+//         console.log(snapshot.docs);
+//       });
+//   } else {
+//     console.log('no estaaa');
 //   }
-// };
-
-// export const signOut = auth.signOut().then(() => {
-//  console.log('funciona ehhhh');
 // });
-
-// console.log(app);
-// console.log(auth);
-// console.log(createUserWithEmailAndPassword);
-
-// export const myFunction = () => {
-//   // aqui tu codigo
-//   console.log('Hola mundo!');
-// };
