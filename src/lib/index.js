@@ -7,8 +7,8 @@ import { auth } from './firebase.js';
 
 // import { app } from './firebase.js';
 // aqui exportaras las funciones que necesites
+// Creación de usuario con email y contraseñ
 
-// Cambiar las variables no escribir function
 export const functionSignUp = (name, email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then((result) => {
     if (name !== '') {
@@ -24,25 +24,30 @@ export const functionSignin = (email, password) => signInWithEmailAndPassword(au
 
 export const functionSignOut = () => signOut(auth);
 
-// try {
-//   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-//   if (name !== '') {
-//     await updateProfile(auth.currentUser, {
-//       displayName: name,
-//     });
+export const functionUserGoogle = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    const userGoogle = await signInWithPopup(auth, provider);
+    console.log(userGoogle.user);
+    return userGoogle.user;
+  } catch (error) {
+    // Handle Errors here.
+    const errorCode = error.code;
+    return errorCode;
+  }
+};
+
+// export const functionUserGoogle = async () => {
+//   const provider = new GoogleAuthProvider();
+//   try {
+//     const userGoogle = await signInWithPopup(auth, provider);
+//     console.log(userGoogle.user);
+//     return userGoogle.user;
+//   } catch (error) {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     return errorCode;
 //   }
-
-//   return userCredential;
-// } catch (error) {
-//   // console.log(error);
-//   const errorCode = error.code;
-//   return errorCode;
-//   // console.log(error.code);
-// }
-// };
-
-// export const functionSignOut = async () => {
-//   await signOut(auth);
 // };
 
 // export const signOut = auth.signOut().then(() => {
@@ -57,16 +62,3 @@ export const functionSignOut = () => signOut(auth);
 //   // aqui tu codigo
 //   console.log('Hola mundo!');
 // };
-
-export const functionUserGoogle = async () => {
-  const provider = new GoogleAuthProvider();
-  try {
-    const userGoogle = await signInWithPopup(auth, provider);
-    console.log(userGoogle.user);
-    return userGoogle.user;
-  } catch (error) {
-    // Handle Errors here.
-    const errorCode = error.code;
-    return errorCode;
-  }
-};

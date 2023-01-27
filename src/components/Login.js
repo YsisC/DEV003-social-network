@@ -37,8 +37,13 @@ export const Login = (onNavigate) => {
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesion';
   buttonHome.addEventListener('click', () => {
-    functionSignOut();
-    onNavigate('/');
+    functionSignOut().then(() => {
+      onNavigate('/');
+    }).catch((error) => {
+      if (error.code) {
+        console.log(error.code);
+      }
+    });
   });
   divMessage.append(iconMessage, mensajeFeed);
   feedHearder.append(buttonHome, logoIcon, divMessage);
