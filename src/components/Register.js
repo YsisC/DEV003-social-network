@@ -32,7 +32,7 @@ export const Register = (onNavigate) => {
   buttonRegister.textContent = 'Resgistrarse';
   inputUser.placeholder = 'Usuario';
   inputEmail.placeholder = 'Correo electronico';
-  inputPasword.placeholder = 'Pasword';
+  inputPasword.placeholder = 'Password';
   inputPasword.type = 'password';
   inputEmail.type = 'email';
   inputUser.required = 'true';

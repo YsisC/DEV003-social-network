@@ -42,8 +42,3 @@ describe('functionUserGoogle', () => {
     await expect(userGoogle).resolves.toEqual('stringGoogle');
   });
 });
-
-//   it('deberia dar error si no se llena los campos', async () => functionSignin('', '', '').then((userLogin) => {
-//     expect(userLogin).toEqual({ currentUser: 'string' });
-//   }));
-// });
