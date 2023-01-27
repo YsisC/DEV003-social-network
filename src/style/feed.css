@@ -27,14 +27,23 @@
         /* overflow: hidden; */
     }
     .feedMain{
-       
-        height: 80vh;
+        height: 85vh;
         width: 100vw;
-     
+         
+    }
+
+    .group{
+        list-style: none;
+    }
+
+    .feedPost{
+        padding-top: 35%;
+        padding-left: 10%;
     }
     .logoFoodgramFeed{
       
         margin: 0.5rem;
+        /*margin-left: 2rem;*/
         width: 30vw;
         background: none;
     
@@ -55,7 +64,7 @@
    .feedHeader{
     display: flex;
     flex-direction: column;
-    height: 20%;
+    height: 10vw;
     width: 100%;
     }
     .divIconMessage{
@@ -70,9 +79,9 @@
     .Cerrar_Sesion{
         margin: 0rem;
         margin-left: 13rem;
-        margin-top: 0.7rem;
+        margin-top: 1rem;
         width: 42vw;
-        font-size: large;
+        font-size: 0.7em;
         background:none ;
         border: none;
        
@@ -101,7 +110,10 @@
     } */
 
     .Cerrar_Sesion:hover{ 
-        border-bottom: 1px solid var(--Verde-colorSecundario);
+        /*border-bottom: 1px solid var(--Verde-colorSecundario);*/
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 0%;
     }
 
     .mensajeFeed{
