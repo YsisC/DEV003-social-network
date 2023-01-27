@@ -46,8 +46,13 @@ export const Login = (onNavigate) => {
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesión';
   buttonHome.addEventListener('click', () => {
-    functionSignOut();
-    onNavigate('/');
+    functionSignOut().then(() => {
+      onNavigate('/');
+    }).catch((error) => {
+      if (error.code) {
+        console.log(error.code);
+      }
+    });
   });
 
   userAuntenticado();
