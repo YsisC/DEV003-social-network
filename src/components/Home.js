@@ -60,21 +60,6 @@ export const Home = (onNavigate) => {
     });
   });
 
-  // console.log(email,pasword)
-  // e.preventDefault();
-
-  // const email = inputUser.value;
-  // const pasword = inputPasword.value;
-
-  // console.log(email, pasword);
-  // try {
-  //   const userCredentials = await create;
-  // } catch (error) {
-
-  // }
-  // onNavigate('/login');
-  // });
-
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
 
   buttonLoginGoogle.addEventListener('click', (e) => {
