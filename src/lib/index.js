@@ -51,7 +51,7 @@ export const getTasks = () => {
 };
 
 export const onGetTasks = (querySnapshot) => {
-  const queryPost = query(collection(db, 'posts'), orderBy('date', 'desc'));
+  const queryPost = query(collection(db, 'tasks'), orderBy('date', 'desc'));
   onSnapshot(queryPost, querySnapshot);
 };
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {

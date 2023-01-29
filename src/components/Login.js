@@ -3,18 +3,11 @@ import {
 } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
+  // Creacion del DOM
   const homeDivFeed = document.createElement('div');
   const feedHearder = document.createElement('header');
   const feedeMain = document.createElement('main');
-  const logoIcon = document.createElement('img');
-  const divMessage = document.createElement('div');
-  const iconMessage = document.createElement('i');
-  const mensajeFeed = document.createElement('input');
-  const feedPost = document.createElement('div');
-  // const feedFooter = document.createElement('div');
-  const feedFooter = document.createElement('footer'); // agregado
-
-  // Con variables
+  // El post del feedMain
   const taskForm = document.createElement('form');
   const labelReceta = document.createElement('label');
   const inputTaskTittle = document.createElement('input');
@@ -22,23 +15,15 @@ export const Login = (onNavigate) => {
   const textarea = document.createElement('textarea');
   const btnSave = document.createElement('button');
   const taskContainer = document.createElement('div');
-
-  btnSave.textContent = 'Save';
-
-  taskForm.append(labelReceta, inputTaskTittle, labelDescripction, textarea, btnSave, taskContainer);
-
-  // Con template
-  // const templatePosts = `
-  // <form id="task-form">
-  //   <label for="title">Receta:</label>
-  //   <input type="text" placeholder="task tittle" id="task-title">
-  //   <label for="description">Preparacion:</label>
-  //   <textarea  id="task-description"  rows="3" placeholder="Comparte tu recetas"></textarea>
-  //   <button id="btn-task-save">Save</button>
-  //   <div id="tasks-container"></div>
-  // </form>`;
-
-  // const postlist = document.querySelector('#post');
+  // El contenido del Header
+  const logoIcon = document.createElement('img');
+  const divMessageHeader = document.createElement('div');
+  const iconMessage = document.createElement('i');
+  const mensajeFeed = document.createElement('input');
+  const feedPost = document.createElement('div');
+  // const feedFooter = document.createElement('div');
+  // El contenido del Footer
+  const feedFooter = document.createElement('footer'); // agregado
   const divIconUser = document.createElement('div');
   const iconUser = document.createElement('i');
   const divIconPublish = document.createElement('div');
@@ -47,12 +32,14 @@ export const Login = (onNavigate) => {
 
   // feedPost.innerHTML = templatePosts;
   homeDivFeed.className = 'homeDivFeed';
-  feedeMain.className = 'feedMain';
+  feedHearder.className = 'feedHeader';
   logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
   logoIcon.className = 'logoFoodgramFeed';
-  feedHearder.className = 'feedHeader';
-  divMessage.className = 'divIconMessage';
+  divMessageHeader.className = 'divIconMessage';
   iconMessage.className = 'fa-solid fa-pen';
+  feedeMain.className = 'muroDiv';
+  taskForm.id = 'task-form';
+  inputTaskTittle.id = 'task-title';
 
   feedPost.className = 'feedPost';
   feedFooter.className = 'feedFooter';
@@ -65,47 +52,60 @@ export const Login = (onNavigate) => {
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesión';
 
-  divMessage.append(iconMessage, mensajeFeed);
-  feedHearder.append(buttonHome, logoIcon, divMessage);
+  feedPost.id = 'taskDiv';
+  labelReceta.setAttribute('for', 'tittle');
+  labelReceta.textContent = 'Description';
+  inputTaskTittle.type = 'text';
+  inputTaskTittle.placeholder = 'Task tittle';
+  btnSave.textContent = 'Save';
+  textarea.placeholder = '¿Que receta estas pensando?';
+  btnSave.id = 'btnToPost';
+
+  taskForm.append(
+    labelReceta,
+    inputTaskTittle,
+    labelDescripction,
+    textarea,
+    btnSave,
+    taskContainer,
+  );
+  divMessageHeader.append(iconMessage, mensajeFeed);
+  feedHearder.append(buttonHome, logoIcon, divMessageHeader);
   feedPost.append(taskForm);
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
   divIconPublish.appendChild(iconPublish);
   feedFooter.append(divIconPublish, divIconUser);
   homeDivFeed.append(feedHearder, feedeMain, feedFooter);
+  // Con template
+  // const templatePosts = `
+  // <form id="task-form">
+  //   <label for="title">Receta:</label>
+  //   <input type="text" placeholder="task tittle" id="task-title">
+  //   <label for="description">Preparacion:</label>
+  //   <textarea  id="task-description"  rows="3" placeholder="Comparte tu recetas"></textarea>
+  //   <button id="btn-task-save">Save</button>
+  //   <div id="tasks-container"></div>
+  // </form>`;
+
+  // const postlist = document.querySelector('#post');
+
+  const taskConteiner = feedeMain.querySelector('#taskDiv');
+  const taskForms = feedeMain.querySelector('#task-form');
   // Post
   const editStatus = false;
   const id = '';
-  window.addEventListener('DOMContentLoaded', async () => {
-    onGetTasks((QuerySnapshot) => {
-      const html = '';
-      console.log(QuerySnapshot);
-      QuerySnapshot.forEac((doc) => {
-        const showPost = doc.data();
-        console.log(showPost);
-        const time = showPosts.date.seconds;
-        const date = new Date(time * 1000);
-        const datePost = `${date.getDate()
-        }/${date.getMonth() + 1
-        }/${date.getFullYear()
-        } ${date.getHours()
-        }:${date.getMinutes()
-        }:${date.getSeconds()}`;
 
-        html = `
-        <div class = 'eachPost'>
-        <span class='user_content'>
-        <p class='eachPost_user'>${showPosts.user}</p> 
-        <p class='eachPost_content'>${showPosts.content}</p>
-        </span>
-        <span class='btn_date'>
-        <span class='span_btns'>
-        ${currentUserInfo().uid === showPosts.uid ? `<button class='btn-delete' data-id='${doc.id}'>Delete</button>` : ''}
-        ${currentUserInfo().uid === showPosts.uid ? `<button class='btn-edit' data-id='${doc.id}'>Edit</button>` : ''}
-        </span>
-        <span class='eachPost_date'><p class='p_date'> ${datePost} </p></span>
-        </span>
-        </div>`;
+  window.addEventListener('DOMContentLoaded', async () => {
+    const querysnap = getTasks();
+    console.log(querysnap);
+
+    onGetTasks((querySnapshot) => {
+      const html = '';
+      console.log(querySnapshot, typeof querySnapshot);
+      querySnapshot.forEach((doc) => {
+        const dataPost = doc.data();
+        console.log(dataPost);
       });
     });
     // html =
@@ -115,8 +115,9 @@ export const Login = (onNavigate) => {
   // });
 
   // const taskForm = document.getElementById('task-form');
-  // console.log(taskForm);
+  console.log(taskForm);
 
+  // Guardar los post Funciona
   taskForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
