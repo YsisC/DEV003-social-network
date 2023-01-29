@@ -1,4 +1,6 @@
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import {
+  addDoc, collection, getDocs, query, orderBy, onSnapshot,
+} from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,
   GoogleAuthProvider, signInWithPopup,
@@ -38,12 +40,19 @@ export const functionUserGoogle = async () => {
   }
 };
 
+export const currentUserInfo = () => auth.currentUser;
+
 export const saveTask = (tittle, description) => {
   addDoc(collection(db, 'tasks'), { tittle, description });
 };
 
 export const getTasks = () => {
   getDocs(collection(db, 'tasks'));
+};
+
+export const onGetTasks = (querySnapshot) => {
+  const queryPost = query(collection(db, 'posts'), orderBy('date', 'desc'));
+  onSnapshot(queryPost, querySnapshot);
 };
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {
 //   if (user) {

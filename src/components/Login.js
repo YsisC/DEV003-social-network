@@ -1,4 +1,6 @@
-import { functionSignOut, getTasks, saveTask } from '../lib/index.js';
+import {
+  functionSignOut, getTasks, onGetTasks, saveTask, currentUserInfo,
+} from '../lib/index.js';
 
 export const Login = (onNavigate) => {
   const homeDivFeed = document.createElement('div');
@@ -72,11 +74,45 @@ export const Login = (onNavigate) => {
   feedFooter.append(divIconPublish, divIconUser);
   homeDivFeed.append(feedHearder, feedeMain, feedFooter);
   // Post
+  const editStatus = false;
+  const id = '';
+  window.addEventListener('DOMContentLoaded', async () => {
+    onGetTasks((QuerySnapshot) => {
+      const html = '';
+      console.log(QuerySnapshot);
+      QuerySnapshot.forEac((doc) => {
+        const showPost = doc.data();
+        console.log(showPost);
+        const time = showPosts.date.seconds;
+        const date = new Date(time * 1000);
+        const datePost = `${date.getDate()
+        }/${date.getMonth() + 1
+        }/${date.getFullYear()
+        } ${date.getHours()
+        }:${date.getMinutes()
+        }:${date.getSeconds()}`;
 
-  window.addEventListener('DOMContentLoaded', () => {
-    // const querySnapshot = await getTasks(dataset.id);
-    // console.log(querySnapshot());
+        html = `
+        <div class = 'eachPost'>
+        <span class='user_content'>
+        <p class='eachPost_user'>${showPosts.user}</p> 
+        <p class='eachPost_content'>${showPosts.content}</p>
+        </span>
+        <span class='btn_date'>
+        <span class='span_btns'>
+        ${currentUserInfo().uid === showPosts.uid ? `<button class='btn-delete' data-id='${doc.id}'>Delete</button>` : ''}
+        ${currentUserInfo().uid === showPosts.uid ? `<button class='btn-edit' data-id='${doc.id}'>Edit</button>` : ''}
+        </span>
+        <span class='eachPost_date'><p class='p_date'> ${datePost} </p></span>
+        </span>
+        </div>`;
+      });
+    });
+    // html =
   });
+  // const querySnapshot = await getTasks(dataset.id);
+  // console.log(querySnapshot());
+  // });
 
   // const taskForm = document.getElementById('task-form');
   // console.log(taskForm);
