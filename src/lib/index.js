@@ -27,18 +27,22 @@ export const functionSignin = (email, password) => signInWithEmailAndPassword(au
 
 export const functionSignOut = () => signOut(auth);
 
-export const functionUserGoogle = async () => {
+export const functionUserGoogle = () => {
   const provider = new GoogleAuthProvider();
-  try {
-    const userGoogle = await signInWithPopup(auth, provider);
-    console.log(userGoogle.user);
-    return userGoogle.user;
-  } catch (error) {
-    // Handle Errors here.
-    const errorCode = error.code;
-    return errorCode;
-  }
+  return signInWithPopup(auth, provider);
 };
+// export const functionUserGoogle = async () => {
+//   const provider = new GoogleAuthProvider();
+//   try {
+//     const userGoogle = await signInWithPopup(auth, provider);
+//     console.log(userGoogle.user);
+//     return userGoogle.user;
+//   } catch (error) {
+//     // Handle Errors here.
+//     const errorCode = error.code;
+//     return errorCode;
+//   }
+// };
 
 export const currentUserInfo = () => auth.currentUser;
 

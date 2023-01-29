@@ -54,7 +54,8 @@ export const Login = (onNavigate) => {
 
   feedPost.id = 'taskDiv';
   labelReceta.setAttribute('for', 'tittle');
-  labelReceta.textContent = 'Description';
+  labelReceta.textContent = 'Title:';
+  labelDescripction.textContent = 'Descrption:';
   inputTaskTittle.type = 'text';
   inputTaskTittle.placeholder = 'Task tittle';
   btnSave.textContent = 'Save';
@@ -96,9 +97,12 @@ export const Login = (onNavigate) => {
   const editStatus = false;
   const id = '';
 
+  console.log(currentUserInfo());
   window.addEventListener('DOMContentLoaded', async () => {
     const querysnap = getTasks();
     console.log(querysnap);
+
+    console.log(currentUserInfo());
 
     onGetTasks((querySnapshot) => {
       const html = '';
