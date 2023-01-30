@@ -99,20 +99,54 @@ export const Login = (onNavigate) => {
 
   console.log(currentUserInfo());
   window.addEventListener('DOMContentLoaded', async () => {
-    const querysnap = getTasks();
-    console.log(querysnap);
-
-    console.log(currentUserInfo());
+    // FUNCION DE GETTASKS
+    // const querySnapshot = await getTasks();
 
     onGetTasks((querySnapshot) => {
-      const html = '';
-      console.log(querySnapshot, typeof querySnapshot);
+      let html = '';
+
       querySnapshot.forEach((doc) => {
-        const dataPost = doc.data();
-        console.log(dataPost);
+        const task = doc.data();
+
+        html += `
+        <div>
+          <h3>${task.tittle}</h3>
+          <p>${task.description}<p>
+          <button class='btn-delete'>Delete</button>
+        </div>
+          `;
       });
+      taskContainer.innerHTML = html;
+      const btnsDelete = taskContainer.querySelectorAll('.btn-delete');
+      console.log(btnsDelete);
     });
-    // html =
+
+    // FUNCION DE GETTAKS CON THEN----------------------comienza
+    // const querysnap = getTasks().then((result) => {
+    // console.log(result);
+    // console.log(querysnap);
+    // });
+    // ------------------------------termina
+    // console.log(currentUserInfo());
+
+    // FUNCION DE ONGETTASKS
+
+    // await onGetTasks((querySnapshot) => {
+    //   const html = '';
+    //   console.log(querySnapshot);
+    // querySnapshot.forEach((doc) => {
+    //   const dataPost = doc.data();
+    //   html += `
+    //   <div>
+    //     <h3>${dataPost.tittle}</h3>
+    //     <p>${dataPost.description}<p>
+    //     <button>Delete</button>
+    //   </div>
+    //     `;
+    //   console.log(`${doc.id} => ${doc.data()}`);
+    //   console.log(dataPost);
+    // });
+    // });
   });
   // const querySnapshot = await getTasks(dataset.id);
   // console.log(querySnapshot());

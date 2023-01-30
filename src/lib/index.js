@@ -50,13 +50,20 @@ export const saveTask = (tittle, description) => {
   addDoc(collection(db, 'tasks'), { tittle, description });
 };
 
-export const getTasks = () => {
-  getDocs(collection(db, 'tasks'));
-};
+export const getTasks = () => getDocs(collection(db, 'tasks'));
 
-export const onGetTasks = (querySnapshot) => {
-  const queryPost = query(collection(db, 'tasks'), orderBy('date', 'desc'));
-  onSnapshot(queryPost, querySnapshot);
+// export const readAsingleDocument = () => {
+//  const mySnapShot= getDocs(collection(db, 'tasks'), { tittle, description });
+//  if (mySnapShot.exists()) {
+//   const docData = mySnapShot.data();
+//   console.log(┬ `My   sata ${JSON.stringify(docData)}`);
+
+//  }
+// };
+
+export const onGetTasks = (callback) => {
+  const queryPost = query(collection(db, 'tasks'));
+  onSnapshot(queryPost, callback);
 };
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {
 //   if (user) {
