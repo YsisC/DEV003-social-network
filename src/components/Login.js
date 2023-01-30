@@ -43,6 +43,7 @@ export const Login = (onNavigate) => {
   textarea.id = 'task-description';
 
   feedPost.className = 'feedPost';
+  taskContainer.className = 'divPostPublication';
   feedFooter.className = 'feedFooter';
   mensajeFeed.className = 'mensajeFeed';
   divIconUser.className = 'divIconUser';

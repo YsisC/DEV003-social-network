@@ -38,7 +38,13 @@
 
     .feedPost{
         padding-top: 35%;
-        padding-left: 10%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+        
+    }
+    .divPostPublication{
+        height: 69vh;
+        overflow: auto;
     }
     .logoFoodgramFeed{
       
@@ -145,7 +151,8 @@
     } */
    
     .feedFooter{
-        height: 10vh;
+        padding-top: 10%;
+        height: 8vh;
         width: 100vw;
         display: flex;
         position: fixed;

@@ -58,6 +58,11 @@ export const onGetTasks = (callback) => {
 };
 
 export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
+
+export const getTask = (id) => getDoc(doc(db, 'tasks', id));
+
+export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
+
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {
 //   if (user) {
 //     db.collection('posts')
@@ -69,8 +74,3 @@ export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
 //     console.log('no estaaa');
 //   }
 // });
-export const getTask = (id) => getDoc(doc(db, 'tasks', id));
-
-
-
-export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id),newFields);
