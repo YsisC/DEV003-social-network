@@ -58,6 +58,8 @@ export const onGetTasks = (callback) => {
 };
 
 export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
+
+// export const getTask =
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {
 //   if (user) {
 //     db.collection('posts')

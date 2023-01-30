@@ -131,6 +131,7 @@ export const Login = (onNavigate) => {
       btnsEdit.forEach((btn) => {
         console.log(btn);
         btn.addEventListener('click', (e) => {
+          const
           console.log(e.target.dataset.id);
         });
       });
