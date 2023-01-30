@@ -1,5 +1,5 @@
 import {
-  functionSignOut, getTasks, onGetTasks, saveTask, currentUserInfo,
+  functionSignOut, getTasks, onGetTasks, saveTask, currentUserInfo, deleteTask,
 } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
@@ -107,18 +107,33 @@ export const Login = (onNavigate) => {
 
       querySnapshot.forEach((doc) => {
         const task = doc.data();
-
+        // console.log(doc.id);
         html += `
         <div>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
-          <button class='btn-delete'>Delete</button>
+          <button class='btn-delete' data-id='${doc.id}'>Delete</button>
+          <button class='btn-edit' data-id='${doc.id}'>Edit</button>
         </div>
           `;
       });
       taskContainer.innerHTML = html;
       const btnsDelete = taskContainer.querySelectorAll('.btn-delete');
-      console.log(btnsDelete);
+      // console.log(btnsDelete);
+
+      btnsDelete.forEach((btn) => {
+        btn.addEventListener('click', ({ target: { dataset } }) => {
+          deleteTask(dataset.id);
+        });
+      });
+      const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
+
+      btnsEdit.forEach((btn) => {
+        console.log(btn);
+        btn.addEventListener('click', (e) => {
+          console.log(e.target.dataset.id);
+        });
+      });
     });
 
     // FUNCION DE GETTAKS CON THEN----------------------comienza
@@ -161,11 +176,9 @@ export const Login = (onNavigate) => {
 
     const title = inputTaskTittle.value;
     const taskDescription = textarea.value;
-    if (taskDescription !== '') {
+    if (taskDescription !== '' && title !== '') {
       await saveTask(title, taskDescription);
       taskForm.reset();
-    } else {
-      alert('Escribe algo');
     }
   });
 

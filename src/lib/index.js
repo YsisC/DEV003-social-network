@@ -1,5 +1,5 @@
 import {
-  addDoc, collection, getDocs, query, orderBy, onSnapshot,
+  addDoc, collection, getDocs, query, onSnapshot, deleteDoc, doc,
 } from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,
@@ -52,19 +52,12 @@ export const saveTask = (tittle, description) => {
 
 export const getTasks = () => getDocs(collection(db, 'tasks'));
 
-// export const readAsingleDocument = () => {
-//  const mySnapShot= getDocs(collection(db, 'tasks'), { tittle, description });
-//  if (mySnapShot.exists()) {
-//   const docData = mySnapShot.data();
-//   console.log(┬ `My   sata ${JSON.stringify(docData)}`);
-
-//  }
-// };
-
 export const onGetTasks = (callback) => {
   const queryPost = query(collection(db, 'tasks'));
   onSnapshot(queryPost, callback);
 };
+
+export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {
 //   if (user) {
 //     db.collection('posts')
