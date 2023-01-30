@@ -1,5 +1,5 @@
 import {
-  addDoc, collection, getDocs, query, onSnapshot, deleteDoc, doc,
+  addDoc, collection, getDocs, query, onSnapshot, deleteDoc, doc, getDoc, updateDoc,
 } from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,
@@ -69,3 +69,8 @@ export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
 //     console.log('no estaaa');
 //   }
 // });
+export const getTask = (id) => getDoc(doc(db, 'tasks', id));
+
+
+
+export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id),newFields);
