@@ -50,49 +50,64 @@ export const Register = (onNavigate) => {
       onNavigate('/login');
     }).catch((error) => {
       if (error.code === 'auth/email-already-in-use') {
-        Toastify({
-          text: 'El correo ya ha sido utilizado',
-          duration: 3000,
-          className: 'alertError',
-          style: {
-            background: 'linear-gradient(to right, #e07f11, #e07f11)',
-          },
-          onClick() {}, // Callback after click
-        }).showToast();
+        Swal.fire({
+          title: 'El correo ya ha sido utilizado',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
         // alert('El correo ya ha sido utilizado');
       } else if (error.code === 'auth/invalid-email') {
-        Toastify({
-          text: 'Correo Invalido',
-          duration: 3000,
-          className: 'alertError',
-          style: {
-            background: 'linear-gradient(to right, #e07f11, #e07f11)',
-          },
-          onClick() {}, // Callback after click
-        }).showToast();
-        // alert('Correo Invalido');
+        Swal.fire({
+          title: 'El correo es invalido.',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
       } else if (error.code === 'auth/weak-password') {
-        Toastify({
-          text: 'La contraseña es muy debil',
-          duration: 3000,
-          className: 'alertError',
-          style: {
-            background: 'linear-gradient(to right, #e07f11, #e07f11)',
-          },
-          onClick() {}, // Callback after click
-        }).showToast();
+        Swal.fire({
+          title: 'La contraseña es debil.',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
         // alert('La contraseña es muy debil');
       } else {
         // console.error(error);
-        Toastify({
-          text: 'El formulario tiene un error',
-          duration: 3000,
-          className: 'alertError',
-          style: {
-            background: 'linear-gradient(to right, #e07f11, #e07f11)',
-          },
-          onClick() {}, // Callback after click
-        }).showToast();
+        Swal.fire({
+          title: 'El formulario tiene un error.',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
         // alert('El formulario tiene un error');
       }
     });

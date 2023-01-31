@@ -51,47 +51,49 @@ export const Home = (onNavigate) => {
       onNavigate('/login');
     }).catch((error) => {
       if (error.code === 'auth/invalid-email') {
-        Toastify({
-          text: 'Verifique su correo',
-          duration: 3000,
-          className: 'alertError',
-          style: {
-            background: 'linear-gradient(to right, #e07f11, #e07f11)',
-          },
-          onClick() {}, // Callback after click
-        }).showToast();
+        Swal.fire({
+          title: 'Verifique su correo',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
         // alert('Verifique su correo');
       } else if (error.code === 'auth/wrong-password') {
-        Toastify({
-          text: 'La contraseña es invalida',
-          duration: 3000,
-          destination: 'https://github.com/apvarun/toastify-js',
-          newWindow: true,
-          close: true,
-          gravity: 'bottom', // `top` or `bottom`
-          position: 'right', // `left`, `center` or `right`
-          stopOnFocus: true, // Prevents dismissing of toast on hover
-          style: {
-            background: 'linear-gradient(to right, #e07f11, #e07f11)',
-          },
-          onClick() {}, // Callback after click
-        }).showToast();
+        Swal.fire({
+          title: 'La contraseña es invalida',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
         // alert('La contraseña invalida');
       } else {
-        Toastify({
-          text: 'Verifique sus datos',
-          duration: 3000,
-          destination: 'https://github.com/apvarun/toastify-js',
-          newWindow: true,
-          close: true,
-          gravity: 'bottom', // `top` or `bottom`
-          position: 'right', // `left`, `center` or `right`
-          stopOnFocus: true, // Prevents dismissing of toast on hover
-          style: {
-            background: 'linear-gradient(to right, #e07f11, #e07f11)',
-          },
-          onClick() {}, // Callback after click
-        }).showToast();
+        Swal.fire({
+          title: 'Verifique sus datos o registrese',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
         // alert('Verifique sus datos o registrese');
       }
     });
