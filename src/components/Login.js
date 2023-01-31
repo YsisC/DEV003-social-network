@@ -1,5 +1,6 @@
 import {
-  functionSignOut, getTasks, onGetTasks, saveTask, currentUserInfo, deleteTask,
+  functionSignOut, getTask, onGetTasks, saveTask, currentUserInfo, deleteTask,
+  updateTask,
 } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
@@ -40,8 +41,10 @@ export const Login = (onNavigate) => {
   feedeMain.className = 'muroDiv';
   taskForm.id = 'task-form';
   inputTaskTittle.id = 'task-title';
+  textarea.id = 'task-description';
 
   feedPost.className = 'feedPost';
+  taskContainer.className = 'divPostPublication';
   feedFooter.className = 'feedFooter';
   mensajeFeed.className = 'mensajeFeed';
   divIconUser.className = 'divIconUser';
@@ -60,7 +63,7 @@ export const Login = (onNavigate) => {
   inputTaskTittle.placeholder = 'Task tittle';
   btnSave.textContent = 'Save';
   textarea.placeholder = '¿Que receta estas pensando?';
-  btnSave.id = 'btnToPost';
+  btnSave.id = 'btn-task-save';
 
   taskForm.append(
     labelReceta,
@@ -94,8 +97,8 @@ export const Login = (onNavigate) => {
   const taskConteiner = feedeMain.querySelector('#taskDiv');
   const taskForms = feedeMain.querySelector('#task-form');
   // Post
-  const editStatus = false;
-  const id = '';
+  let editStatus = false;
+  let id = '';
 
   console.log(currentUserInfo());
   window.addEventListener('DOMContentLoaded', async () => {
@@ -109,7 +112,7 @@ export const Login = (onNavigate) => {
         const task = doc.data();
         // console.log(doc.id);
         html += `
-        <div>
+        <div class='cardPostPublication'>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
@@ -129,10 +132,16 @@ export const Login = (onNavigate) => {
       const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
 
       btnsEdit.forEach((btn) => {
-        console.log(btn);
-        btn.addEventListener('click', (e) => {
-          const
-          console.log(e.target.dataset.id);
+        btn.addEventListener('click', async (e) => {
+          const doc = await getTask(e.target.dataset.id);
+          const task = doc.data();
+
+          taskForm['task-title'].value = task.tittle;
+          taskForm['task-description'].value = task.description;
+
+          editStatus = true;
+          id = doc.id;
+          taskForm['btn-task-save'].innerText = 'Update';
         });
       });
     });
@@ -178,7 +187,17 @@ export const Login = (onNavigate) => {
     const title = inputTaskTittle.value;
     const taskDescription = textarea.value;
     if (taskDescription !== '' && title !== '') {
-      await saveTask(title, taskDescription);
+      if (!editStatus) {
+        saveTask(title, taskDescription);
+      } else {
+        updateTask(id, {
+          tittle: title,
+          description: taskDescription,
+
+        });
+        editStatus = false;
+      }
+
       taskForm.reset();
     }
   });

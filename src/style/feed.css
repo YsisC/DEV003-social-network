@@ -38,7 +38,22 @@
 
     .feedPost{
         padding-top: 35%;
-        padding-left: 10%;
+        padding-left: 2.5%;
+        padding-right: 0.5%;
+        
+    }
+    .divPostPublication{
+        height: 69vh;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+    }
+    .cardPostPublication{
+        background-color: var(--Amarillo-colorButton);
+        width: 100%;
+        margin: 4% 0 0 8%;
     }
     .logoFoodgramFeed{
       
@@ -48,14 +63,7 @@
         background: none;
     
     }
-/*Antes*/
-    /* .logoFoodgramFeed{
-      
-        margin: 2rem;
-        width: 70vw;
-        background: none;
-    
-    } */
+
 
     header{
         position: fixed;
@@ -86,28 +94,7 @@
         border: none;
        
     }
-/* Antes  */
-    /* .Cerrar_Sesion{
-        margin: 1rem;
-        margin-left: 12rem;
-        margin-top: 2rem;
-        width: 42vw;
-        font-size: large;
-        background:none ;
-        border: none;
-       
-    } */
-/* Antes  */
-    /* .Cerrar_Sesion{
-        margin: 1rem;
-        margin-left: 28rem;
-        margin-top: 2rem;
-        width: 42vw;
-        font-size: large;
-        background:none ;
-        border: none;
-       
-    } */
+
 
     .Cerrar_Sesion:hover{ 
         /*border-bottom: 1px solid var(--Verde-colorSecundario);*/
@@ -129,23 +116,12 @@
         font-family: 'Jura', sans-serif;
   
     }
-/* Antes */
-    /* .mensajeFeed{
-        width: 25rem;
-        height: 4rem;
-        padding: 15px;
-        margin-left: 13rem;
-        padding-left: 1rem;
-        background-color: white;
-        font-size: large;
-        border-radius: 10px;
-        font-weight: bolder;
-        font-family: 'Jura', sans-serif;
-  
-    } */
+
    
     .feedFooter{
-        height: 10vh;
+        background-color: var(--verde-colorFeed);
+        padding-top: 1%;
+        height: 8vh;
         width: 100vw;
         display: flex;
         position: fixed;
@@ -156,13 +132,14 @@
         height: 25%;
         position: relative;
         margin-left: 0;;
-
+        top:12%;
     }
     .divIconPublish{
         width: 10%;
         height: 25%;
         position: relative;
         margin-left: 60%;
+        top:12%;
 
     }
     .feedFooter .divIconUser .svg-inline--fa{

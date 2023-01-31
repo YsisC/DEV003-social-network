@@ -1,5 +1,6 @@
 import {
   addDoc, collection, getDocs, query, onSnapshot, deleteDoc, doc,
+  getDoc, updateDoc,
 } from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,
@@ -59,7 +60,10 @@ export const onGetTasks = (callback) => {
 
 export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
 
-// export const getTask =
+export const getTask = (id) => getDoc(doc(db, 'tasks', id));
+
+export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
+
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {
 //   if (user) {
 //     db.collection('posts')
