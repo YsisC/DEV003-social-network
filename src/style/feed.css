@@ -15,7 +15,15 @@
         padding: 0;
 
     }
-   
+   .alertError{
+    width: 20%;
+    position: fixed;
+    top:20%;
+    z-index: 5;
+    font-size: small;
+    display: flex;
+    right: 5%;
+   }
     .homeDivFeed{
         background-color: var(--verde-colorFeed);
         /* z-index: 1; */
@@ -40,6 +48,7 @@
         padding-top: 35%;
         padding-left: 2.5%;
         padding-right: 0.5%;
+        background-color: #e07f11;
         
     }
     .divPostPublication{

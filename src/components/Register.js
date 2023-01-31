@@ -50,14 +50,50 @@ export const Register = (onNavigate) => {
       onNavigate('/login');
     }).catch((error) => {
       if (error.code === 'auth/email-already-in-use') {
-        alert('El correo ya ha sido utilizado');
+        Toastify({
+          text: 'El correo ya ha sido utilizado',
+          duration: 3000,
+          className: 'alertError',
+          style: {
+            background: 'linear-gradient(to right, #e07f11, #e07f11)',
+          },
+          onClick() {}, // Callback after click
+        }).showToast();
+        // alert('El correo ya ha sido utilizado');
       } else if (error.code === 'auth/invalid-email') {
-        alert('Correo Invalido');
+        Toastify({
+          text: 'Correo Invalido',
+          duration: 3000,
+          className: 'alertError',
+          style: {
+            background: 'linear-gradient(to right, #e07f11, #e07f11)',
+          },
+          onClick() {}, // Callback after click
+        }).showToast();
+        // alert('Correo Invalido');
       } else if (error.code === 'auth/weak-password') {
-        alert('La contraseña es muy debil');
+        Toastify({
+          text: 'La contraseña es muy debil',
+          duration: 3000,
+          className: 'alertError',
+          style: {
+            background: 'linear-gradient(to right, #e07f11, #e07f11)',
+          },
+          onClick() {}, // Callback after click
+        }).showToast();
+        // alert('La contraseña es muy debil');
       } else {
-        console.error(error);
-        alert('El formulario tiene un error');
+        // console.error(error);
+        Toastify({
+          text: 'El formulario tiene un error',
+          duration: 3000,
+          className: 'alertError',
+          style: {
+            background: 'linear-gradient(to right, #e07f11, #e07f11)',
+          },
+          onClick() {}, // Callback after click
+        }).showToast();
+        // alert('El formulario tiene un error');
       }
     });
   });

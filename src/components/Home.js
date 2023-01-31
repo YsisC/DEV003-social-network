@@ -51,11 +51,48 @@ export const Home = (onNavigate) => {
       onNavigate('/login');
     }).catch((error) => {
       if (error.code === 'auth/invalid-email') {
-        alert('Verifique su correo');
+        Toastify({
+          text: 'Verifique su correo',
+          duration: 3000,
+          className: 'alertError',
+          style: {
+            background: 'linear-gradient(to right, #e07f11, #e07f11)',
+          },
+          onClick() {}, // Callback after click
+        }).showToast();
+        // alert('Verifique su correo');
       } else if (error.code === 'auth/wrong-password') {
-        alert('La contraseña invalida');
+        Toastify({
+          text: 'La contraseña es invalida',
+          duration: 3000,
+          destination: 'https://github.com/apvarun/toastify-js',
+          newWindow: true,
+          close: true,
+          gravity: 'bottom', // `top` or `bottom`
+          position: 'right', // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: 'linear-gradient(to right, #e07f11, #e07f11)',
+          },
+          onClick() {}, // Callback after click
+        }).showToast();
+        // alert('La contraseña invalida');
       } else {
-        alert('Verifique sus datos o registrese');
+        Toastify({
+          text: 'Verifique sus datos',
+          duration: 3000,
+          destination: 'https://github.com/apvarun/toastify-js',
+          newWindow: true,
+          close: true,
+          gravity: 'bottom', // `top` or `bottom`
+          position: 'right', // `left`, `center` or `right`
+          stopOnFocus: true, // Prevents dismissing of toast on hover
+          style: {
+            background: 'linear-gradient(to right, #e07f11, #e07f11)',
+          },
+          onClick() {}, // Callback after click
+        }).showToast();
+        // alert('Verifique sus datos o registrese');
       }
     });
   });
