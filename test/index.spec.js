@@ -39,6 +39,6 @@ describe('functionSignIn', () => {
 describe('functionUserGoogle', () => {
   it('deberia iniciar sesion con el usuario registrado', async () => {
     const userGoogle = functionUserGoogle('prueba@hotmail.com', '123456');
-    await expect(userGoogle).resolves.toEqual('stringGoogle');
+    await expect(userGoogle).resolves.toEqual({ user: 'stringGoogle' });
   });
 });
