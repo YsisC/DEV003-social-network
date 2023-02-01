@@ -50,14 +50,65 @@ export const Register = (onNavigate) => {
       onNavigate('/login');
     }).catch((error) => {
       if (error.code === 'auth/email-already-in-use') {
-        alert('El correo ya ha sido utilizado');
+        Swal.fire({
+          title: 'El correo ya ha sido utilizado',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
+        // alert('El correo ya ha sido utilizado');
       } else if (error.code === 'auth/invalid-email') {
-        alert('Correo Invalido');
+        Swal.fire({
+          title: 'El correo es invalido.',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
       } else if (error.code === 'auth/weak-password') {
-        alert('La contraseña es muy debil');
+        Swal.fire({
+          title: 'La contraseña es debil.',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
+        // alert('La contraseña es muy debil');
       } else {
-        console.error(error);
-        alert('El formulario tiene un error');
+        // console.error(error);
+        Swal.fire({
+          title: 'El formulario tiene un error.',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
+        // alert('El formulario tiene un error');
       }
     });
   });

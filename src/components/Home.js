@@ -51,11 +51,50 @@ export const Home = (onNavigate) => {
       onNavigate('/login');
     }).catch((error) => {
       if (error.code === 'auth/invalid-email') {
-        alert('Verifique su correo');
+        Swal.fire({
+          title: 'Verifique su correo',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
+        // alert('Verifique su correo');
       } else if (error.code === 'auth/wrong-password') {
-        alert('La contraseña invalida');
+        Swal.fire({
+          title: 'La contraseña es invalida',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
+        // alert('La contraseña invalida');
       } else {
-        alert('Verifique sus datos o registrese');
+        Swal.fire({
+          title: 'Verifique sus datos o registrese',
+          width: 600,
+          padding: '3em',
+          color: '#000000f1',
+          background: '#fff ',
+          backdrop: `
+            rgba(#000000f1)
+            url("")
+            left top
+            no-repeat
+          `,
+        });
+        // alert('Verifique sus datos o registrese');
       }
     });
   });
