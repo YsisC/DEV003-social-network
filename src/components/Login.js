@@ -18,12 +18,14 @@ export const Login = (onNavigate) => {
   const taskContainer = document.createElement('div');
   // El contenido del Header
   const logoIcon = document.createElement('img');
+  const spanMenu = document.createElement('span');
+  // <span class="menu-icon"><img src ="./img/menuf.png"></span>
   const divMessageHeader = document.createElement('div');
   const iconMessage = document.createElement('i');
   const mensajeFeed = document.createElement('input');
   const feedPost = document.createElement('div');
   // const feedFooter = document.createElement('div');
-  // El contenido del Footer
+  /* //El contenido del Footer */
   const feedFooter = document.createElement('footer'); // agregado
   const divIconUser = document.createElement('div');
   const iconUser = document.createElement('i');
@@ -36,6 +38,7 @@ export const Login = (onNavigate) => {
   feedHearder.className = 'feedHeader';
   logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
   logoIcon.className = 'logoFoodgramFeed';
+  spanMenu.className = 'menuIcon';
   divMessageHeader.className = 'divIconMessage';
   iconMessage.className = 'fa-solid fa-pen';
   feedeMain.className = 'muroDiv';
@@ -74,7 +77,7 @@ export const Login = (onNavigate) => {
     taskContainer,
   );
   divMessageHeader.append(iconMessage, mensajeFeed);
-  feedHearder.append(buttonHome, logoIcon, divMessageHeader);
+  feedHearder.append(logoIcon, spanMenu, buttonHome, divMessageHeader);
   feedPost.append(taskForm);
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
