@@ -29,6 +29,7 @@
     .muroDiv{
         height: 85vh;
         width: 100vw;
+        overflow: auto;
          
     }
 
@@ -37,11 +38,22 @@
     }
 
     .feedPost{
-        padding-top: 35%;
+        padding-top: 25%;
         padding-left: 2.5%;
         padding-right: 0.5%;
     
         
+    }
+    dialog[open] {
+        position: fixed;
+        width: 80%;
+        height: 40%;
+        max-width: 75rem;
+        top: 20%;
+        left: 10%;;
+    }
+    dialog::backdrop {
+        background-color: rgba(184, 175, 175, 0.8);
     }
     .divPostPublication{
         height: 69vh;
@@ -58,7 +70,7 @@
     }
     .logoFoodgramFeed{
       
-        margin: 0.5rem;
+        margin: 3% 0 0 5%;
         /*margin-left: 2rem;*/
         width: 30vw;
         background: none;
@@ -66,25 +78,53 @@
     }
 
 
-    header{
-        position: fixed;
-    }
-
    .feedHeader{
+    /* position: fixed; */
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     height: 10vw;
     width: 100%;
     }
-    .divIconMessage{
+    .menuIcon{
+        position: relative;
+        width: 9%;
+        margin: 3% 0 0 53%;
+    }
+    .feedHeader .navBar {
+        display: none;
+    }
+    .feedHeader  .show {
+        display: block;
+        width: 100%;
+    }
+    .feedHeader .navBar li a button{
+        background-color: white;
+        width: 100%;
+        margin: 0;
+        opacity: 0.5;
+        transition: 0.3s ease;
+    }
+    .feedHeader span .svg-inline--fa {
+     
+        position: absolute;
+        background-color: var(--verde-colorFeed);
+        margin-left: 0;
+    }
+   .feedHeader .divIconMessage{
+    width: 90%;
     position: relative;
     }
+     .feedHeader .divIconMessage .mensajeFeed{
+        font-size: small;
+     }
    .feedHeader .divIconMessage .svg-inline--fa {
         background-color: white;
+        position: absolute;
         margin-left: 0;
         top:18%;
-        left:87%;
+        right: 10%;
     }
+
     .Cerrar_Sesion{
         margin: 0rem;
         margin-left: 13rem;
@@ -211,25 +251,54 @@
     }
 
 
-    header{
-        position: fixed;
-    }
-
    .feedHeader{
+    /* position: fixed; */
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     height: 10vw;
     width: 100%;
     }
-    .divIconMessage{
+    .menuIcon{
+        position: relative;
+        width: 9%;
+        margin: 3% 0 0 58%;
+    }
+    .feedHeader .navBar {
+        display: none;
+    }
+    .feedHeader  .show {
+        display: block;
+        width: 100%;
+    }
+    .feedHeader .navBar li a button{
+        background-color: white;
+        width: 100%;
+        margin: 0;
+        opacity: 0.5;
+        transition: 0.3s ease;
+    }
+    .feedHeader span .svg-inline--fa {
+     
+        position: absolute;
+        background-color: var(--verde-colorFeed);
+        margin-left: 0;
+    }
+   .feedHeader .divIconMessage{
+    width: 95%;
     position: relative;
     }
+     .feedHeader .divIconMessage .mensajeFeed{
+        font-size: small;
+        width: 82%;
+     }
    .feedHeader .divIconMessage .svg-inline--fa {
         background-color: white;
+        position: absolute;
         margin-left: 0;
         top:18%;
-        left:84%;
+        right: 10%;
     }
+
     .Cerrar_Sesion{
         margin: 0rem;
         margin-left: 13rem;

@@ -173,8 +173,7 @@ input:focus{
         outline: none;
     }
 
-    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa,
-    svg:not(:root).svg-inline--fa {
+    .formDiv .group_button  .svg-inline--fa {
         position: absolute;
         margin-left: 6.1rem;
         top: 2.4%;
@@ -183,7 +182,7 @@ input:focus{
 
     }
 
-    .formDiv .group_button .loginGoogle:hover{
+    .formDiv .group_button .svg-inline--fa:hover{
        background-color: var(--Verde-colorSecundario);
        
     }
@@ -460,8 +459,7 @@ input:focus{
         font-size: large;
     }
 
-    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa,
-    svg:not(:root).svg-inline--fa {
+    .formDiv .group_button  .svg-inline--fa {
         position: absolute;
         margin-left: 14.5rem;
         top: 2.7%;
@@ -683,8 +681,7 @@ input:focus{
         outline: none;
     }
 
-    .formDiv .group_button .loginGoogle svg:not(:host).svg-inline--fa,
-    svg:not(:root).svg-inline--fa {
+    .formDiv .group_button  .svg-inline--fa {
         position: absolute;
         margin-left: 10rem;
         top: 2.4%;

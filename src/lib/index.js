@@ -1,6 +1,6 @@
 import {
   addDoc, collection, getDocs, query, onSnapshot, deleteDoc, doc,
-  getDoc, updateDoc,
+  getDoc, updateDoc, orderBy,
 } from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,
@@ -48,13 +48,19 @@ export const functionUserGoogle = () => {
 export const currentUserInfo = () => auth.currentUser;
 
 export const saveTask = (tittle, description) => {
-  addDoc(collection(db, 'tasks'), { tittle, description });
+  const today = new Date();
+  return addDoc(collection(db, 'tasks'), {
+    tittle,
+    description,
+    date: today,
+    like: [],
+  });
 };
 
 export const getTasks = () => getDocs(collection(db, 'tasks'));
 
 export const onGetTasks = (callback) => {
-  const queryPost = query(collection(db, 'tasks'));
+  const queryPost = query(collection(db, 'tasks'), orderBy('date', 'desc'));
   onSnapshot(queryPost, callback);
 };
 

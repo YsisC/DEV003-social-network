@@ -10,15 +10,26 @@ export const Login = (onNavigate) => {
   const feedeMain = document.createElement('main');
   // El post del feedMain
   const taskForm = document.createElement('form');
+  const dialogForm = document.createElement('dialog');
   const labelReceta = document.createElement('label');
   const inputTaskTittle = document.createElement('input');
   const labelDescripction = document.createElement('label');
+
   const textarea = document.createElement('textarea');
   const btnSave = document.createElement('button');
   const taskContainer = document.createElement('div');
   // El contenido del Header
   const logoIcon = document.createElement('img');
   const spanMenu = document.createElement('span');
+  const iconMenu = document.createElement('i');
+  const ulMenu = document.createElement('ul');
+  ulMenu.className = 'navBar';
+  ulMenu.id = 'navBar';
+
+  const liCerrarSesion = document.createElement('li');
+  const aLiCerrarSesion = document.createElement('a');
+  const buttonHome = document.createElement('button');
+
   // <span class="menu-icon"><img src ="./img/menuf.png"></span>
   const divMessageHeader = document.createElement('div');
   const iconMessage = document.createElement('i');
@@ -31,7 +42,6 @@ export const Login = (onNavigate) => {
   const iconUser = document.createElement('i');
   const divIconPublish = document.createElement('div');
   const iconPublish = document.createElement('i');
-  const buttonHome = document.createElement('button');
 
   // feedPost.innerHTML = templatePosts;
   homeDivFeed.className = 'homeDivFeed';
@@ -39,6 +49,7 @@ export const Login = (onNavigate) => {
   logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
   logoIcon.className = 'logoFoodgramFeed';
   spanMenu.className = 'menuIcon';
+  iconMenu.className = 'fa-solid fa-bars';
   divMessageHeader.className = 'divIconMessage';
   iconMessage.className = 'fa-solid fa-pen';
   feedeMain.className = 'muroDiv';
@@ -67,23 +78,24 @@ export const Login = (onNavigate) => {
   btnSave.textContent = 'Save';
   textarea.placeholder = '¿Que receta estas pensando?';
   btnSave.id = 'btn-task-save';
-
+  dialogForm.append(labelReceta, inputTaskTittle, labelDescripction, textarea, btnSave);
   taskForm.append(
-    labelReceta,
-    inputTaskTittle,
-    labelDescripction,
-    textarea,
-    btnSave,
+    dialogForm,
     taskContainer,
   );
+  ulMenu.appendChild(liCerrarSesion);
+  liCerrarSesion.appendChild(aLiCerrarSesion);
+  aLiCerrarSesion.appendChild(buttonHome);
+  spanMenu.appendChild(iconMenu);
   divMessageHeader.append(iconMessage, mensajeFeed);
-  feedHearder.append(logoIcon, spanMenu, buttonHome, divMessageHeader);
+  feedHearder.append(logoIcon, spanMenu, ulMenu, divMessageHeader);
   feedPost.append(taskForm);
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
   divIconPublish.appendChild(iconPublish);
   feedFooter.append(divIconPublish, divIconUser);
   homeDivFeed.append(feedHearder, feedeMain, feedFooter);
+
   // Con template
   // const templatePosts = `
   // <form id="task-form">
@@ -97,17 +109,14 @@ export const Login = (onNavigate) => {
 
   // const postlist = document.querySelector('#post');
 
-  const taskConteiner = feedeMain.querySelector('#taskDiv');
-  const taskForms = feedeMain.querySelector('#task-form');
   // Post
   let editStatus = false;
   let id = '';
 
-  console.log(currentUserInfo());
   window.addEventListener('DOMContentLoaded', async () => {
     // FUNCION DE GETTASKS
     // const querySnapshot = await getTasks();
-
+    // console.log(currentUserInfo());
     onGetTasks((querySnapshot) => {
       let html = '';
 
@@ -123,10 +132,10 @@ export const Login = (onNavigate) => {
         </div>
           `;
       });
+
       taskContainer.innerHTML = html;
       const btnsDelete = taskContainer.querySelectorAll('.btn-delete');
       // console.log(btnsDelete);
-
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
           deleteTask(dataset.id);
@@ -145,6 +154,10 @@ export const Login = (onNavigate) => {
           editStatus = true;
           id = doc.id;
           taskForm['btn-task-save'].innerText = 'Update';
+          dialogForm.showModal();
+        });
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') { dialogForm.showModal(); }
         });
       });
     });
@@ -179,7 +192,13 @@ export const Login = (onNavigate) => {
   // const querySnapshot = await getTasks(dataset.id);
   // console.log(querySnapshot());
   // });
-
+  btnSave.addEventListener('click', () => {
+    dialogForm.close();
+  });
+  // Funcion del menu
+  spanMenu.addEventListener('click', () => {
+    ulMenu.classList.toggle('show');
+  });
   // const taskForm = document.getElementById('task-form');
   console.log(taskForm);
 
@@ -204,7 +223,9 @@ export const Login = (onNavigate) => {
       taskForm.reset();
     }
   });
-
+  divMessageHeader.addEventListener('click', () => {
+    dialogForm.showModal();
+  });
   buttonHome.addEventListener('click', () => {
     functionSignOut().then(() => {
       onNavigate('/');
