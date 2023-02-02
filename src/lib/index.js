@@ -49,7 +49,9 @@ export const currentUserInfo = () => auth.currentUser;
 
 export const saveTask = (tittle, description) => {
   const today = new Date();
+
   return addDoc(collection(db, 'tasks'), {
+    displayName: '',
     tittle,
     description,
     date: today,

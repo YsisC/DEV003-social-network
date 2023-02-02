@@ -113,17 +113,20 @@ export const Login = (onNavigate) => {
   let editStatus = false;
   let id = '';
 
-  window.addEventListener('DOMContentLoaded', async () => {
-    // FUNCION DE GETTASKS
-    // const querySnapshot = await getTasks();
-    // console.log(currentUserInfo());
-    onGetTasks((querySnapshot) => {
-      let html = '';
+  console.log(currentUserInfo());
+  // FUNCION DE GETTASKS
+  // const querySnapshot = await getTasks();
+  const user = currentUserInfo().displayName;
+  console.log(user);
+  // console.log(userDisplayName);
 
-      querySnapshot.forEach((doc) => {
-        const task = doc.data();
-        // console.log(doc.id);
-        html += `
+  onGetTasks((querySnapshot) => {
+    let html = '';
+
+    querySnapshot.forEach((doc) => {
+      const task = doc.data();
+      // console.log(doc.id);
+      html += `
         <div class='cardPostPublication'>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
@@ -131,63 +134,67 @@ export const Login = (onNavigate) => {
           <button class='btn-edit' data-id='${doc.id}'>Edit</button>
         </div>
           `;
-      });
-
-      taskContainer.innerHTML = html;
-      const btnsDelete = taskContainer.querySelectorAll('.btn-delete');
-      // console.log(btnsDelete);
-      btnsDelete.forEach((btn) => {
-        btn.addEventListener('click', ({ target: { dataset } }) => {
-          deleteTask(dataset.id);
-        });
-      });
-      const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
-
-      btnsEdit.forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-          const doc = await getTask(e.target.dataset.id);
-          const task = doc.data();
-
-          taskForm['task-title'].value = task.tittle;
-          taskForm['task-description'].value = task.description;
-
-          editStatus = true;
-          id = doc.id;
-          taskForm['btn-task-save'].innerText = 'Update';
-          dialogForm.showModal();
-        });
-        window.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape') { dialogForm.showModal(); }
-        });
-      });
     });
 
-    // FUNCION DE GETTAKS CON THEN----------------------comienza
-    // const querysnap = getTasks().then((result) => {
-    // console.log(result);
-    // console.log(querysnap);
-    // });
-    // ------------------------------termina
-    // console.log(currentUserInfo());
+    taskContainer.innerHTML = html;
+    const btnsDelete = taskContainer.querySelectorAll('.btn-delete');
+    // console.log(btnsDelete);
+    btnsDelete.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        deleteTask(dataset.id);
+      });
+    });
+    const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
 
-    // FUNCION DE ONGETTASKS
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (e) => {
+        const doc = await getTask(e.target.dataset.id);
+        const task = doc.data();
 
-    // await onGetTasks((querySnapshot) => {
-    //   const html = '';
-    //   console.log(querySnapshot);
-    // querySnapshot.forEach((doc) => {
-    //   const dataPost = doc.data();
-    //   html += `
-    //   <div>
-    //     <h3>${dataPost.tittle}</h3>
-    //     <p>${dataPost.description}<p>
-    //     <button>Delete</button>
-    //   </div>
-    //     `;
-    //   console.log(`${doc.id} => ${doc.data()}`);
-    //   console.log(dataPost);
-    // });
-    // });
+        taskForm['task-title'].value = task.tittle;
+        taskForm['task-description'].value = task.description;
+
+        editStatus = true;
+        id = doc.id;
+        taskForm['btn-task-save'].innerText = 'Update';
+        dialogForm.showModal();
+      });
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') { dialogForm.showModal(); }
+      });
+    });
+  });
+
+  // FUNCION DE GETTAKS CON THEN----------------------comienza
+  // const querysnap = getTasks().then((result) => {
+  // console.log(result);
+  // console.log(querysnap);
+  // });
+  // ------------------------------termina
+  // console.log(currentUserInfo());
+
+  // FUNCION DE ONGETTASKS
+
+  // await onGetTasks((querySnapshot) => {
+  //   const html = '';
+  //   console.log(querySnapshot);
+  // querySnapshot.forEach((doc) => {
+  //   const dataPost = doc.data();
+  //   html += `
+  //   <div>
+  //     <h3>${dataPost.tittle}</h3>
+  //     <p>${dataPost.description}<p>
+  //     <button>Delete</button>
+  //   </div>
+  //     `;
+  //   console.log(`${doc.id} => ${doc.data()}`);
+  //   console.log(dataPost);
+  // });
+  // });
+  // const userDisplayName = user.displayName;
+  // console.log(userDisplayName);
+  window.addEventListener('load', async () => {
+
   });
   // const querySnapshot = await getTasks(dataset.id);
   // console.log(querySnapshot());
