@@ -17,6 +17,7 @@ export const Login = (onNavigate) => {
 
   const textarea = document.createElement('textarea');
   const btnSave = document.createElement('button');
+  const btnClose = document.createElement('button');
   const taskContainer = document.createElement('div');
   // El contenido del Header
   const logoIcon = document.createElement('img');
@@ -25,7 +26,7 @@ export const Login = (onNavigate) => {
   const ulMenu = document.createElement('ul');
   ulMenu.className = 'navBar';
   ulMenu.id = 'navBar';
- const liCerrarSesion = document.createElement('li');
+  const liCerrarSesion = document.createElement('li');
   const aLiCerrarSesion = document.createElement('a');
   const buttonHome = document.createElement('button');
 
@@ -48,6 +49,7 @@ export const Login = (onNavigate) => {
   logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
   logoIcon.className = 'logoFoodgramFeed';
   spanMenu.className = 'menuIcon';
+  dialogForm.className = 'dialogForm';
   iconMenu.className = 'fa-solid fa-bars';
   divMessageHeader.className = 'divIconMessage';
   iconMessage.className = 'fa-solid fa-pen';
@@ -75,10 +77,12 @@ export const Login = (onNavigate) => {
   labelDescripction.textContent = 'Descrption:';
   inputTaskTittle.type = 'text';
   inputTaskTittle.placeholder = 'Task tittle';
-  btnSave.textContent = 'Save';
+  btnSave.textContent = 'Guardar';
+  btnClose.textContent = 'Cerrar';
   textarea.placeholder = '¿Que receta estas pensando?';
   btnSave.id = 'btn-task-save';
-  dialogForm.append(labelReceta, inputTaskTittle, labelDescripction, textarea, btnSave);
+  btnClose.id = 'btn-task-cerrar';
+  dialogForm.append(labelReceta, inputTaskTittle, labelDescripction, textarea, btnSave, btnClose);
   taskForm.append(
     dialogForm,
     taskContainer,
@@ -158,7 +162,7 @@ export const Login = (onNavigate) => {
 
         editStatus = true;
         id = doc.id;
-        taskForm['btn-task-save'].innerText = 'Update';
+        taskForm['btn-task-save'].innerText = 'Guardar';
         dialogForm.showModal();
       });
       window.addEventListener('keydown', (e) => {
@@ -204,6 +208,9 @@ export const Login = (onNavigate) => {
   btnSave.addEventListener('click', () => {
     dialogForm.close();
   });
+  btnClose.addEventListener('click', () => {
+    dialogForm.close();
+  });
   // Funcion del menu
   spanMenu.addEventListener('click', () => {
     ulMenu.classList.toggle('show');
@@ -233,6 +240,9 @@ export const Login = (onNavigate) => {
     }
   });
   divMessageHeader.addEventListener('click', () => {
+    dialogForm.showModal();
+  });
+  divIconPublish.addEventListener('click', () => {
     dialogForm.showModal();
   });
   buttonHome.addEventListener('click', () => {
