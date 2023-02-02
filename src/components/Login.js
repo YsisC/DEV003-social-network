@@ -25,8 +25,7 @@ export const Login = (onNavigate) => {
   const ulMenu = document.createElement('ul');
   ulMenu.className = 'navBar';
   ulMenu.id = 'navBar';
-
-  const liCerrarSesion = document.createElement('li');
+ const liCerrarSesion = document.createElement('li');
   const aLiCerrarSesion = document.createElement('a');
   const buttonHome = document.createElement('button');
 
@@ -65,7 +64,8 @@ export const Login = (onNavigate) => {
   divIconPublish.className = 'divIconPublish';
   iconUser.className = 'fa-solid fa-user';
   iconPublish.className = 'fa-regular fa-square-plus';
-  mensajeFeed.placeholder = '¿Que recetas estas pensando?  ';
+  const usuario = currentUserInfo().displayName;
+  mensajeFeed.placeholder = `¿Que recetas estas pensando ${usuario}?`;
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesión';
 
@@ -112,10 +112,10 @@ export const Login = (onNavigate) => {
   // Post
   let editStatus = false;
   let id = '';
-
   console.log(currentUserInfo());
   // FUNCION DE GETTASKS
   // const querySnapshot = await getTasks();
+
   const user = currentUserInfo().displayName;
   console.log(user);
   // console.log(userDisplayName);
@@ -128,6 +128,7 @@ export const Login = (onNavigate) => {
       // console.log(doc.id);
       html += `
         <div class='cardPostPublication'>
+          <h2>${usuario}</h2>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
