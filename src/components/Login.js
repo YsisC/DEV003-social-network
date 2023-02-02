@@ -128,7 +128,7 @@ export const Login = (onNavigate) => {
       // console.log(doc.id);
       html += `
         <div class='cardPostPublication'>
-          <h2>${usuario}</h2>
+          <h2>${task.displayName}</h2>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
@@ -218,7 +218,7 @@ export const Login = (onNavigate) => {
     const taskDescription = textarea.value;
     if (taskDescription !== '' && title !== '') {
       if (!editStatus) {
-        saveTask(title, taskDescription);
+        saveTask(title, taskDescription, usuario);
       } else {
         updateTask(id, {
           tittle: title,

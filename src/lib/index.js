@@ -47,11 +47,11 @@ export const functionUserGoogle = () => {
 
 export const currentUserInfo = () => auth.currentUser;
 
-export const saveTask = (tittle, description) => {
+export const saveTask = (tittle, description, displayName) => {
   const today = new Date();
 
   return addDoc(collection(db, 'tasks'), {
-    displayName: '',
+    displayName,
     tittle,
     description,
     date: today,
@@ -72,14 +72,14 @@ export const getTask = (id) => getDoc(doc(db, 'tasks', id));
 
 export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
 
-// export const userAuntenticado = auth.onAuthStateChanged((user) => {
-//   if (user) {
-//     db.collection('posts')
-//       .get()
-//       .then((snapshot) => {
-//         console.log(snapshot.docs);
-//       });
-//   } else {
-//     console.log('no estaaa');
-//   }
-// });
+//export const userAuntenticado = auth.onAuthStateChanged((user) => {
+//  if (user) {
+//    db.collection('posts')
+//      .get()
+//      .then((snapshot) => {
+//        console.log(snapshot.docs);
+//      });
+//  } else {
+//    console.log('no estaaa');
+//  }
+//});
