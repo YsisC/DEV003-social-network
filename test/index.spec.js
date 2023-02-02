@@ -1,5 +1,8 @@
 // importamos la funcion que vamos a testear
-import { functionSignUp, functionSignin, functionUserGoogle } from '../src/lib/index';
+
+import {
+  functionSignUp, functionSignin, functionUserGoogle, saveTask,
+} from '../src/lib/index';
 
 jest.mock('@firebase/auth', () => (
   {
@@ -9,6 +12,13 @@ jest.mock('@firebase/auth', () => (
     signInWithEmailAndPassword: () => Promise.resolve({ user: 'string' }),
     GoogleAuthProvider: class {},
     signInWithPopup: () => Promise.resolve({ user: 'stringGoogle' }),
+  }
+));
+jest.mock('@firebase/firestore', () => (
+  {
+    addDoc: () => Promise.resolve({ tittle: 'Quesadilla', description: 'Jamon', displayName: 'Pedro' }),
+    collection: () => {},
+    getFirestore: () => ({ }),
   }
 ));
 jest.mock('../src/lib/firebase.js');
@@ -40,5 +50,14 @@ describe('functionUserGoogle', () => {
   it('deberia iniciar sesion con el usuario registrado', async () => {
     const userGoogle = functionUserGoogle('prueba@hotmail.com', '123456');
     await expect(userGoogle).resolves.toEqual({ user: 'stringGoogle' });
+  });
+});
+
+/* -----Test para function saveTask -----*/
+
+describe('funcion de saveTask', () => {
+  it('deberia guardar los post', async () => {
+    const postt = saveTask('Quesadilla', 'Jamon', 'Pedro');
+    await expect(postt).resolves.toEqual({ tittle: 'Quesadilla', description: 'Jamon', displayName: 'Pedro' });
   });
 });
