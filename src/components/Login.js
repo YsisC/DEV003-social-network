@@ -128,9 +128,10 @@ export const Login = (onNavigate) => {
       // console.log(doc.id);
       html += `
         <div class='cardPostPublication'>
-          <h2>${task.displayName}</h2>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
+          <p class='displayName'> 🧑🏻‍🍳${task.displayName}</p>
+          <button class='btn-like' data-id='${doc.id}'>❤</button>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
           <button class='btn-edit' data-id='${doc.id}'>Edit</button>
         </div>

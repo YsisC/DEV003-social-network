@@ -6,8 +6,13 @@
     --Verde-colorButton: #45DF0F;
     --Verde-colorSecundario: #32A30A;
     --verde-colorFeed: #CBF0BE;
-
+    --letra-junge:  'Junge', serif;
+    --letra-jura: 'Jura', sans-serif;
 }
+
+
+
+
 @media screen and (max-width: 600px) {
 
     * {
@@ -17,7 +22,7 @@
     }
    
     .homeDivFeed{
-        background-color: var(--verde-colorFeed);
+        background-color: red;
         /* z-index: 1; */
         background-size: cover;
         height: 100vh;
@@ -27,23 +32,24 @@
         /* overflow: hidden; */
     }
     .muroDiv{
-        height: 85vh;
+        height: 100vh;
         width: 100vw;
-        overflow: auto;
+        background-color: rgb(220, 213, 213);
          
     }
 
-    .group{
+       .group{
         list-style: none;
     }
 
     .feedPost{
-        padding-top: 25%;
+        padding-top: 10%;
         padding-left: 2.5%;
         padding-right: 0.5%;
-    
-        
+        height: 100%;
+           
     }
+
     dialog[open] {
         position: fixed;
         width: 80%;
@@ -55,20 +61,57 @@
     dialog::backdrop {
         background-color: rgba(184, 175, 175, 0.8);
     }
+
+
+    .mensajeFeed{
+     border-style: hidden;
+    }
+    
     .divPostPublication{
-        height: 69vh;
+        height: 90vh;
         overflow: auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        padding-top: 10%;
         
     }
     .cardPostPublication{
-        background-color: var(--Amarillo-colorButton);
+        background-color: white;
         width: 100%;
         height: 15vh;
-        margin: 4% 0 0 8%;
+        margin: 4% 2% 0 0%;
+        padding: 20px;
+        border-style:outset;
+      
     }
+
+    .cardPostPublication h3{
+        font-family: var(--letra-jura);
+    }
+
+    .cardPostPublication p{
+      font-family:var(--letra-jura);
+    }
+
+    .cardPostPublication button{
+        font-family:var(--letra-junge);
+        background-color: #FDCD01;
+        border-style: 1px solid;
+        padding: 4px;
+       margin-bottom: 10%;
+      }
+
+
+
+    .displayName{
+        margin-left: 50%;
+        font-size: small;
+        padding-top: 10%;
+        font-style:italic;
+
+    }
+
     .logoFoodgramFeed{
       
         margin: 3% 0 0 5%;
@@ -80,12 +123,14 @@
 
 
    .feedHeader{
-    /* position: fixed; */
+     position: fixed; 
     display: flex;
     flex-wrap: wrap;
-    height: 10vw;
     width: 100%;
+    background: var(--Amarillo-colorPrincipal);
+    
     }
+    
     .menuIcon{
         position: relative;
         width: 9%;
@@ -99,16 +144,17 @@
         width: 100%;
     }
     .feedHeader .navBar li a button{
-        background-color: white;
+        background-color: var(--Amarillo-colorPrincipal);
         width: 100%;
         margin: 0;
-        opacity: 0.5;
         transition: 0.3s ease;
+        font-weight:bold;
+        padding-bottom: 10px;
     }
     .feedHeader span .svg-inline--fa {
      
         position: absolute;
-        background-color: var(--verde-colorFeed);
+        background-color: var(--Amarillo-colorPrincipal);
         margin-left: 0;
     }
    .feedHeader .divIconMessage{
@@ -161,13 +207,13 @@
 
    
     .feedFooter{
-        background-color: var(--verde-colorFeed);
+        background-color: rgb(220, 213, 213);
         padding-top: 1%;
         height: 8vh;
         width: 100vw;
         display: flex;
         position: fixed;
-        top:90%;
+        top: 92%;
     }
     .divIconUser{
         width: 10%;
@@ -185,11 +231,11 @@
 
     }
     .feedFooter .divIconUser .svg-inline--fa{
-        background-color: var(--verde-colorFeed);
+        background-color: rgb(220, 213, 213);
     margin-left: 0;
     }
     .feedFooter .divIconPublish .svg-inline--fa{
-        background-color: var(--verde-colorFeed);
+        background-color: rgb(220, 213, 213);
         margin-left: 0;
     }
 }
@@ -223,7 +269,7 @@
     }
 
     .feedPost{
-        padding-top: 35%;
+        padding-top: 15%;
         padding-left: 2.5%;
         padding-right: 0.5%;
     
