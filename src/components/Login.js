@@ -1,6 +1,6 @@
 import {
   functionSignOut, getTask, onGetTasks, saveTask, currentUserInfo, deleteTask,
-  updateTask,
+  updateTask, addLikePost,
 } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
@@ -67,6 +67,7 @@ export const Login = (onNavigate) => {
   iconUser.className = 'fa-solid fa-user';
   iconPublish.className = 'fa-regular fa-square-plus';
   const usuario = currentUserInfo().displayName;
+  const usuarioId = currentUserInfo().uid;
   mensajeFeed.placeholder = `¿Que recetas estas pensando ${usuario}?`;
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesión';
@@ -135,8 +136,8 @@ export const Login = (onNavigate) => {
         <div class='cardPostPublication'>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
-          <p class='displayName'> 🧑🏻‍🍳${task.displayName}</p>
-          <button class='btn-like' data-id='${doc.id}'>❤</button>
+          <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
+          <button class='btn-like' data-id='${doc.id}'>🖤</button>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
           <button class='btn-edit' data-id='${doc.id}'>Edit</button>
         </div>
@@ -151,6 +152,16 @@ export const Login = (onNavigate) => {
         deleteTask(dataset.id);
       });
     });
+    // boton likes
+    const btnLike = taskContainer.querySelectorAll('.btn-like');
+    // console.log(btnLike);
+    btnLike.forEach((btn) => {
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        addLikePost(dataset.id, usuarioId);
+        console.log(btnLike);
+      });
+    });
+
     const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
 
     btnsEdit.forEach((btn) => {
@@ -227,12 +238,11 @@ export const Login = (onNavigate) => {
     const taskDescription = textarea.value;
     if (taskDescription !== '' && title !== '') {
       if (!editStatus) {
-        saveTask(title, taskDescription, usuario);
+        saveTask(title, taskDescription, usuario, usuarioId);
       } else {
         updateTask(id, {
           tittle: title,
           description: taskDescription,
-
         });
         editStatus = false;
       }

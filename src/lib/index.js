@@ -1,6 +1,6 @@
 import {
   addDoc, collection, getDocs, query, onSnapshot, deleteDoc, doc,
-  getDoc, updateDoc, orderBy,
+  getDoc, updateDoc, orderBy, arrayUnion, arrayRemove,
 } from 'firebase/firestore';
 import {
   createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut,
@@ -47,15 +47,16 @@ export const functionUserGoogle = () => {
 
 export const currentUserInfo = () => auth.currentUser;
 
-export const saveTask = (tittle, description, displayName) => {
+export const saveTask = (tittle, description, displayName, uidCurrentUser) => {
   const today = new Date();
 
   return addDoc(collection(db, 'tasks'), {
+    uidCurrentUser,
     displayName,
     tittle,
     description,
     date: today,
-    like: [],
+    like,
   });
 };
 
@@ -72,7 +73,16 @@ export const getTask = (id) => getDoc(doc(db, 'tasks', id));
 
 export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
 
-//export const userAuntenticado = auth.onAuthStateChanged((user) => {
+export const addLikePost = (id, uidCurrentUser) => {
+  updateDoc(doc(db, id), { like: arrayUnion(uidCurrentUser) });
+};
+
+// funcion para quitar like
+//  export const removeLikePost = (id, uidCurrentUser) => {
+//    updateDoc(doc(db, id), { like: arrayRemove(uidCurrentUser) });
+//  };
+
+// export const userAuntenticado = auth.onAuthStateChanged((user) => {
 //  if (user) {
 //    db.collection('posts')
 //      .get()
@@ -82,4 +92,4 @@ export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), new
 //  } else {
 //    console.log('no estaaa');
 //  }
-//});
+// });
