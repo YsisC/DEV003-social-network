@@ -73,8 +73,8 @@
 
     #task-title{
         font-family: var(--letra-jura);
-        width: 90%;
-        padding: 5%;
+        padding: 3%;
+        width: 30vh;
         margin-top: 2%;
         border-style: none;
             
