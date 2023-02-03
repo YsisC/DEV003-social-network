@@ -53,7 +53,7 @@
     dialog[open] {
         position: fixed;
         width: 80%;
-        height: 20%;
+        height: 40%;
         max-width: 75rem;
         top: 25%;
         left: 8%;;
@@ -68,7 +68,52 @@
         padding-left: 5%;
         border-radius: 10px;
         border-style:hidden;
+        
     }
+
+    #task-title{
+        font-family: var(--letra-jura);
+        width: 90%;
+        padding: 5%;
+        margin-top: 2%;
+        border-style: none;
+            
+    }
+    #task-description{
+        margin-top: 2%;
+        font-family: var(--letra-jura);
+        padding: 10%;
+    }
+
+    #btn-task-save{
+        font-family:var(--letra-junge);
+       font-weight: bolder;
+        border-style: 1px solid;
+        padding: 4px;
+        margin-left: 50%;
+        margin-top: 5%;
+
+    }
+
+    #btn-task-cerrar{
+        font-family:var(--letra-junge);
+        border-style: 1px solid;
+        padding: 4px;
+        margin-left: 5%;
+        font-weight: bolder;
+
+
+    }
+
+    #title{
+        margin-bottom: 10%;
+    }
+
+    .descriptionReceta{
+        margin-left: 10.4%;
+          
+    }
+
 
 
    
@@ -233,17 +278,21 @@
         width: 10%;
         height: 25%;
         position: relative;
-        margin-left: 0;;
+        margin-left: 5%;;
         top:15%;
     }
+
+
     .divIconPublish{
         width: 10%;
         height: 25%;
         position: relative;
-        margin-left: 60%;
+        margin-left: 70%;
         top:15%;
 
     }
+
+
     .feedFooter .divIconUser .svg-inline--fa{
         background-color: rgb(220, 213, 213);
     margin-left: 0;
@@ -252,6 +301,8 @@
         background-color: rgb(220, 213, 213);
         margin-left: 0;
     }
+
+
 }
 
 /* Tablet */

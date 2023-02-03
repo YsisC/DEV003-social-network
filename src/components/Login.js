@@ -72,14 +72,15 @@ export const Login = (onNavigate) => {
   buttonHome.textContent = 'Cerrar Sesión';
 
   feedPost.id = 'taskDiv';
-  labelReceta.setAttribute('for', 'tittle');
-  labelReceta.textContent = 'Title:';
-  labelDescripction.textContent = 'Descrption:';
+  labelReceta.setAttribute('id', 'tittle');
+  labelReceta.textContent = '▪ ¿Cual es el nombre de tu receta?:';
+  labelDescripction.textContent = '▪Ingredientes:';
+  labelDescripction.className = 'descriptionReceta';
   inputTaskTittle.type = 'text';
-  inputTaskTittle.placeholder = 'Task tittle';
+  inputTaskTittle.placeholder = 'Nombre de la receta';
   btnSave.textContent = 'Guardar';
   btnClose.textContent = 'Cerrar';
-  textarea.placeholder = '¿Que receta estas pensando?';
+  textarea.placeholder = 'Ingredientes de tu receta';
   btnSave.id = 'btn-task-save';
   btnClose.id = 'btn-task-cerrar';
   dialogForm.append(labelReceta, inputTaskTittle, labelDescripction, textarea, btnSave, btnClose);
