@@ -50,64 +50,44 @@ export const Register = (onNavigate) => {
       onNavigate('/login');
     }).catch((error) => {
       if (error.code === 'auth/email-already-in-use') {
-        Swal.fire({
-          title: 'El correo ya ha sido utilizado',
-          width: 600,
-          padding: '3em',
-          color: '#000000f1',
-          background: '#fff ',
-          backdrop: `
-            rgba(#000000f1)
-            url("")
-            left top
-            no-repeat
-          `,
-        });
+        // eslint-disable-next-line no-undef
+        Toastify({
+          text: 'El correo ya ha sido utilizado',
+          className: 'info',
+          style: {
+            background: 'linear-gradient(to right, #00b09b, #96c93d)',
+          },
+        }).showToast();
         // alert('El correo ya ha sido utilizado');
       } else if (error.code === 'auth/invalid-email') {
-        Swal.fire({
-          title: 'El correo es invalido.',
-          width: 600,
-          padding: '3em',
-          color: '#000000f1',
-          background: '#fff ',
-          backdrop: `
-            rgba(#000000f1)
-            url("")
-            left top
-            no-repeat
-          `,
-        });
+        // eslint-disable-next-line no-undef
+        Toastify({
+          text: 'El correo invalido',
+          className: 'info',
+          style: {
+            background: 'linear-gradient(to right, #00b09b, #96c93d)',
+          },
+        }).showToast();
       } else if (error.code === 'auth/weak-password') {
-        Swal.fire({
-          title: 'La contraseña es debil.',
-          width: 600,
-          padding: '3em',
-          color: '#000000f1',
-          background: '#fff ',
-          backdrop: `
-            rgba(#000000f1)
-            url("")
-            left top
-            no-repeat
-          `,
-        });
+        // eslint-disable-next-line no-undef
+        Toastify({
+          text: 'La contraseña es muy debil',
+          className: 'info',
+          style: {
+            background: 'linear-gradient(to right, #00b09b, #96c93d)',
+          },
+        }).showToast();
         // alert('La contraseña es muy debil');
       } else {
         // console.error(error);
-        Swal.fire({
-          title: 'El formulario tiene un error.',
-          width: 600,
-          padding: '3em',
-          color: '#000000f1',
-          background: '#fff ',
-          backdrop: `
-            rgba(#000000f1)
-            url("")
-            left top
-            no-repeat
-          `,
-        });
+        // eslint-disable-next-line no-undef
+        Toastify({
+          text: 'El formulario tiene un error',
+          className: 'info',
+          style: {
+            background: 'linear-gradient(to right, #00b09b, #96c93d)',
+          },
+        }).showToast();
         // alert('El formulario tiene un error');
       }
     });

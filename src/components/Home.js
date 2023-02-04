@@ -51,49 +51,34 @@ export const Home = (onNavigate) => {
       onNavigate('/login');
     }).catch((error) => {
       if (error.code === 'auth/invalid-email') {
-        Swal.fire({
-          title: 'Verifique su correo',
-          width: 600,
-          padding: '3em',
-          color: '#000000f1',
-          background: '#fff ',
-          backdrop: `
-            rgba(#000000f1)
-            url("")
-            left top
-            no-repeat
-          `,
-        });
+        // eslint-disable-next-line no-undef
+        Toastify({
+          text: 'Correo invalido',
+          className: 'info',
+          style: {
+            background: 'linear-gradient(to right, #00b09b, #96c93d)',
+          },
+        }).showToast();
         // alert('Verifique su correo');
       } else if (error.code === 'auth/wrong-password') {
-        Swal.fire({
-          title: 'La contraseña es invalida',
-          width: 600,
-          padding: '3em',
-          color: '#000000f1',
-          background: '#fff ',
-          backdrop: `
-            rgba(#000000f1)
-            url("")
-            left top
-            no-repeat
-          `,
-        });
+        // eslint-disable-next-line no-undef
+        Toastify({
+          text: 'Contraseña invalida',
+          className: 'info',
+          style: {
+            background: 'linear-gradient(to right, #00b09b, #96c93d)',
+          },
+        }).showToast();
         // alert('La contraseña invalida');
       } else {
-        Swal.fire({
-          title: 'Verifique sus datos o registrese',
-          width: 600,
-          padding: '3em',
-          color: '#000000f1',
-          background: '#fff ',
-          backdrop: `
-            rgba(#000000f1)
-            url("")
-            left top
-            no-repeat
-          `,
-        });
+        // eslint-disable-next-line no-undef
+        Toastify({
+          text: 'Verifique sus datos o registrese',
+          className: 'info',
+          style: {
+            background: 'linear-gradient(to right, #00b09b, #96c93d)',
+          },
+        }).showToast();
         // alert('Verifique sus datos o registrese');
       }
     });

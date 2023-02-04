@@ -56,7 +56,7 @@ export const saveTask = (tittle, description, displayName, uidCurrentUser) => {
     tittle,
     description,
     date: today,
-    like,
+    like: [],
   });
 };
 
@@ -78,9 +78,9 @@ export const addLikePost = (id, uidCurrentUser) => {
 };
 
 // funcion para quitar like
-//  export const removeLikePost = (id, uidCurrentUser) => {
-//    updateDoc(doc(db, id), { like: arrayRemove(uidCurrentUser) });
-//  };
+export const removeLikePost = (id, uidCurrentUser) => {
+    updateDoc(doc(db, id), { like: arrayRemove(uidCurrentUser) });
+  };
 
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {
 //  if (user) {
