@@ -54,7 +54,7 @@
         position: fixed;
         width: 80%;
         height: 40%;
-        max-width: 75rem;
+        max-width: 75vw;
         top: 25%;
         left: 8%;;
     }
@@ -74,15 +74,17 @@
     #task-title{
         font-family: var(--letra-jura);
         padding: 3%;
-        width: 30vh;
-        margin-top: 2%;
+        width: 80%;
+        margin: 2%;
         border-style: none;
             
     }
     #task-description{
-        margin-top: 2%;
+        margin-top:4%;
         font-family: var(--letra-jura);
-        padding: 10%;
+        padding: 2%;
+        width: 80%;
+        height: 40%;
     }
 
     #btn-task-save{
@@ -111,6 +113,7 @@
 
     #title{
         margin-bottom: 10%;
+        width: 100%;
     }
 
     .descriptionReceta{
@@ -137,15 +140,20 @@
         margin: 4% 2% 0 0%;
         padding: 20px;
         border-style:outset;
+        display: flex;
+        flex-wrap: wrap;
       
     }
 
     .cardPostPublication h3{
         font-family: var(--letra-jura);
+        width: 100%;
+      
     }
 
     .cardPostPublication p{
       font-family:var(--letra-jura);
+      width: 100%;
     }
 
     .cardPostPublication button{
@@ -153,12 +161,16 @@
         border-style: 1px solid;
         padding: 4px;
       }
-
+      .btnLikeDiv{
+        width: 40%;
+      }
 .btn-edit{
  margin-left: 2%;
+ width: 18%;
 }
 .btn-delete{
-    margin-left: 50%;
+    margin-left: 10%;
+    width: 18%;
    }
 
 
@@ -348,8 +360,8 @@
 
     dialog[open] {
         position: fixed;
-        width: 80%;
-        height: 40%;
+        width: 75vw;
+        height: 45vh;
         max-width: 75rem;
         top: 25%;
         left: 8%;;
@@ -360,25 +372,34 @@
     }
 
     .dialogForm{
-        padding-top: 21%;
+        padding-top: 10%;
         padding-left: 5%;
         border-radius: 10px;
         border-style:hidden;
+      
+
         
     }
-
+    #tittle{
+        display: none;
+    }
+    .descriptionReceta{
+      display: none;
+    }
     #task-title{
         font-family: var(--letra-jura);
         padding: 3%;
-        width: 30vh;
+        width: 90%;
         margin-top: 2%;
         border-style: none;
             
     }
     #task-description{
-        margin-top: 2%;
+        margin-top: 3%;
         font-family: var(--letra-jura);
-        padding: 10%;
+        padding: 2%;
+        width: 92%;
+        height: 36%;
     }
 
     #btn-task-save{
@@ -388,26 +409,21 @@
         padding: 4px;
         margin-left: 50%;
         margin-top: 5%;
+       
 
     }
-    .numLike{
-        color: black;
-        font-size: larger;
-    }
+    
 
     #btn-task-cerrar{
         font-family:var(--letra-junge);
+        font-weight: bolder;
         border-style: 1px solid;
         padding: 4px;
         margin-left: 5%;
-        font-weight: bolder;
-
+        width: 12%;
 
     }
 
-    #title{
-        margin-bottom: 10%;
-    }
 
     .descriptionReceta{
         margin-left: 10.4%;
@@ -433,15 +449,19 @@
         margin: 4% 2% 0 0%;
         padding: 20px;
         border-style:outset;
+        display: flex;
+        flex-wrap: wrap;
       
     }
 
     .cardPostPublication h3{
         font-family: var(--letra-jura);
+        width: 100%;
     }
 
     .cardPostPublication p{
       font-family:var(--letra-jura);
+      width: 100%;
     }
 
     .cardPostPublication button{
@@ -449,20 +469,25 @@
         border-style: 1px solid;
         padding: 4px;
       }
-
+      .numLike{
+        color: black;
+        font-size: larger;
+    }
 .btn-edit{
  margin-left: 2%;
+ width: 14%;
 }
 .btn-delete{
     margin-left: 50%;
+    width: 14%;
    }
 
 
     .displayName{
         margin-left: 60%;
         font-size: small;
-        padding-top: 5%;
-        padding-bottom: 4%;
+        padding-top: 1%;
+        padding-bottom: 1%;
         font-style:italic;
 
     }
@@ -481,11 +506,11 @@
    .feedHeader .logoFoodgramFeed{
       
         margin: 3% 0 0 5%;
-        /*margin-left: 2rem;*/
         width: 30vw;
         background: none;
     
     }
+    /* Menu bar  */
     .feedHeader .menuIcon{
         position: relative;
         width:50%;
@@ -517,11 +542,13 @@
         font-weight:bold;
         padding-bottom: 10px;
     }
-   
-    
+  
+    /* IconPencil del header  */
    .feedHeader .divIconMessage{
-    width: 90%;
+    width: 100%;
+    height: 30%;
     position: relative;
+    top:-1.5rem;
     }
      .feedHeader .divIconMessage .mensajeFeed{
         font-size: small;
@@ -530,8 +557,8 @@
         background-color: white;
         position: absolute;
         margin-left: 0;
-        top:29%;
-        right: 6%;
+        top:43%;
+        right: 10%;
     }
 
     .Cerrar_Sesion{
@@ -616,3 +643,92 @@
   
 
 }
+
+/* Destock  */
+/* 
+@media screen and (min-width: 914px) {
+     * {
+        margin: 0;
+        padding: 0;
+
+    } 
+   
+     .homeDivFeed{
+        background-color: red;
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+    
+    } 
+    .muroDiv{
+        height: 100vh;
+        width: 100vw;
+        background-color: rgb(220, 213, 213);
+        padding-left: 15rem;
+         
+    }
+
+       .group{
+        list-style: none;
+    }
+
+    .feedPost{
+        padding-top: 10%;
+        padding-left: 2.5%;
+        padding-right: 0.5%;
+        height: 100%;
+           
+    }
+
+    dialog[open] {
+        position: fixed;
+        width: 80%;
+        height: 40%;
+        max-width: 75rem;
+        top: 25%;
+        left: 8%;;
+    }
+
+    dialog::backdrop {
+        background-color: rgba(26, 26, 26, 0.8);
+    }
+    .dialogForm{
+        padding-top: 5%;
+        padding-left: 5%;
+        border-radius: 10px;
+        border-style:hidden;
+        
+    }
+
+    #task-title{
+        font-family: var(--letra-jura);
+        padding: 1%;
+        width: 90%;
+        margin-top: 2%;
+        border-style: none;
+            
+    }
+    #tittle{
+        display: none;
+    }
+    .descriptionReceta{
+      display: none;
+    }
+    #task-description{
+        margin-top: 2%;
+        font-family: var(--letra-jura);
+        padding: 1%;
+        width: 90%;
+    }
+
+    #btn-task-save{
+        font-family:var(--letra-junge);
+       font-weight: bolder;
+        border-style: 1px solid;
+        padding: 4px;
+        margin-left: 50%;
+        margin-top: 5%;
+
+    } 
+} */

@@ -137,8 +137,10 @@ export const Login = (onNavigate) => {
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
           <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
+          <div class='btnLikeDiv'>
           <button class='btn-like' data-id='${doc.id}'>🖤</button>
-          <p class='numLike' data-id='${doc.id}>${task.like}</p>
+          <p class='numLike' data-id='${doc.id}'>${task.like}</p>
+          </div>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
           <button class='btn-edit' data-id='${doc.id}'>Edit</button>
         </div>
