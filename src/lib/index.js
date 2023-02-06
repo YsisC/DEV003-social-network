@@ -47,7 +47,7 @@ export const functionUserGoogle = () => {
 
 export const currentUserInfo = () => auth.currentUser;
 
-export const saveTask = (tittle, description, displayName, uidCurrentUser) => {
+export const saveTask = (tittle, description, displayName, uidCurrentUser, like) => {
   const today = new Date();
 
   return addDoc(collection(db, 'tasks'), {
@@ -76,6 +76,9 @@ export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), new
 export const addLikePost = (id, uidCurrentUser) => {
   updateDoc(doc(db, id), { like: arrayUnion(uidCurrentUser) });
 };
+// export const addLikePost = (id, uidCurrentUser) => {
+//   updateDoc(doc(db, id), { like: arrayUnion(uidCurrentUser) });
+// };
 
 // funcion para quitar like
 export const removeLikePost = (id, uidCurrentUser) => {

@@ -20,7 +20,7 @@ export const Login = (onNavigate) => {
   const btnClose = document.createElement('button');
   const taskContainer = document.createElement('div');
   // El contenido del Header
-  const logoIcon = document.createElement('img');
+  const logoFoodfram = document.createElement('h3');
   const spanMenu = document.createElement('span');
   const iconMenu = document.createElement('i');
   const ulMenu = document.createElement('ul');
@@ -46,8 +46,8 @@ export const Login = (onNavigate) => {
   // feedPost.innerHTML = templatePosts;
   homeDivFeed.className = 'homeDivFeed';
   feedHearder.className = 'feedHeader';
-  logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
-  logoIcon.className = 'logoFoodgramFeed';
+  logoFoodfram.textContent = 'Foodgram.';
+  logoFoodfram.className = 'logoFoodgramFeed';
   spanMenu.className = 'menuIcon';
   dialogForm.className = 'dialogForm';
   iconMenu.className = 'fa-solid fa-bars';
@@ -94,13 +94,13 @@ export const Login = (onNavigate) => {
   aLiCerrarSesion.appendChild(buttonHome);
   spanMenu.appendChild(iconMenu);
   divMessageHeader.append(iconMessage, mensajeFeed);
-  feedHearder.append(logoIcon, spanMenu, ulMenu, divMessageHeader);
+  feedHearder.append(logoFoodfram, spanMenu, ulMenu);
   feedPost.append(taskForm);
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
   divIconPublish.appendChild(iconPublish);
   feedFooter.append(divIconPublish, divIconUser);
-  homeDivFeed.append(feedHearder, feedeMain, feedFooter);
+  homeDivFeed.append(feedHearder, divMessageHeader, feedeMain, feedFooter);
 
   // Con template
   // const templatePosts = `
@@ -137,14 +137,20 @@ export const Login = (onNavigate) => {
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
           <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
+          <div class='btnLikeDiv'>
           <button class='btn-like' data-id='${doc.id}'>🖤</button>
-          <button class='btn-delete' data-id='${doc.id}'>Eliminar</button>
-          <button class='btn-edit' data-id='${doc.id}'>Editar</button>
+          <p class='numLike' data-id='${doc.id}'>${task.like}</p>
+          </div>
+          <button class='btn-delete' data-id='${doc.id}'>Delete</button>
+          <button class='btn-edit' data-id='${doc.id}'>Edit</button>
         </div>
           `;
     });
 
     taskContainer.innerHTML = html;
+
+    // -----------------------------------------------------Boton Delete-------------------
+
     const btnsDelete = taskContainer.querySelectorAll('.btn-delete');
     // console.log(btnsDelete);
     btnsDelete.forEach((btn) => {
@@ -182,84 +188,71 @@ export const Login = (onNavigate) => {
     //    console.log(btnLike);
     //  });
     // });
+  });
+  /// ---------------------------boton likes-----------------------------------------------
+  const btnLike = taskContainer.querySelectorAll('.btn-like');
+  const countLike = taskContainer.querySelectorAll('.numLike');
+  console.log(countLike);
 
-    const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
+  // console.log(btnLike);
+  countLike.textContent = 0;
+  btnLike.forEach((btn) => {
+    let count = 0;
+    const numLike = [];
+    btn.addEventListener('click', ({ target: { dataset } }) => {
+      addLikePost(dataset.id, usuarioId);
+      if (dataset) {
+        count += 1;
+        console.log(count);
+        countLike.textContent = count;
+      }
+      console.log(btn);
+      console.log(dataset.id);
+    });
+  });
+  /// ---------------------------boton edit-----------------------------------------------
+  const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
 
-    btnsEdit.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        const doc = await getTask(e.target.dataset.id);
-        const task = doc.data();
+  btnsEdit.forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+      const doc = await getTask(e.target.dataset.id);
+      const task = doc.data();
 
-        taskForm['task-title'].value = task.tittle;
-        taskForm['task-description'].value = task.description;
+      taskForm['task-title'].value = task.tittle;
+      taskForm['task-description'].value = task.description;
 
-        editStatus = true;
-        id = doc.id;
-        taskForm['btn-task-save'].innerText = 'Guardar';
-        dialogForm.showModal();
-      });
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') { dialogForm.showModal(); }
-      });
+      editStatus = true;
+      id = doc.id;
+      taskForm['btn-task-save'].innerText = 'Guardar';
+      dialogForm.showModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { dialogForm.showModal(); }
     });
   });
 
-  // FUNCION DE GETTAKS CON THEN----------------------comienza
-  // const querysnap = getTasks().then((result) => {
-  // console.log(result);
-  // console.log(querysnap);
-  // });
-  // ------------------------------termina
-  // console.log(currentUserInfo());
-
-  // FUNCION DE ONGETTASKS
-
-  // await onGetTasks((querySnapshot) => {
-  //   const html = '';
-  //   console.log(querySnapshot);
-  // querySnapshot.forEach((doc) => {
-  //   const dataPost = doc.data();
-  //   html += `
-  //   <div>
-  //     <h3>${dataPost.tittle}</h3>
-  //     <p>${dataPost.description}<p>
-  //     <button>Delete</button>
-  //   </div>
-  //     `;
-  //   console.log(`${doc.id} => ${doc.data()}`);
-  //   console.log(dataPost);
-  // });
-  // });
-  // const userDisplayName = user.displayName;
-  // console.log(userDisplayName);
-  window.addEventListener('load', async () => {
-
-  });
-  // const querySnapshot = await getTasks(dataset.id);
-  // console.log(querySnapshot());
-  // });
   btnSave.addEventListener('click', () => {
     dialogForm.close();
   });
   btnClose.addEventListener('click', () => {
     dialogForm.close();
   });
-  // Funcion del menu
+  /// ---------------------------Funcion del menu bar-----------------------------------------------
   spanMenu.addEventListener('click', () => {
     ulMenu.classList.toggle('show');
   });
   // const taskForm = document.getElementById('task-form');
   console.log(taskForm);
 
-  // Guardar los post Funciona
+  /// ---------------------------Guardar los post-----------------------------------------------
   taskForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+    const userLikes = []; // se declara array vacio para likes
     const title = inputTaskTittle.value;
     const taskDescription = textarea.value;
     if (taskDescription !== '' && title !== '') {
       if (!editStatus) {
-        saveTask(title, taskDescription, usuario, usuarioId);
+        saveTask(title, taskDescription, usuario, usuarioId, userLikes);
       } else {
         updateTask(id, {
           tittle: title,
