@@ -155,9 +155,30 @@ export const Login = (onNavigate) => {
     // console.log(btnsDelete);
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        deleteTask(dataset.id);
+        Swal.fire({
+          title: '¿Esta seguro que desea eliminar esta publicacion?',
+          icon: 'warning',
+          showCancelButton: true,
+          width: 300,
+          Height: 100,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            deleteTask(dataset.id);
+            Swal.fire(
+              'Publicacion eliminada.',
+              '',
+              'success',
+            );
+          } else {
+            onNavigate('/login');
+          }
+        });
       });
     });
+
     /// ---------------------------boton likes-----------------------------------------------
     const btnLike = taskContainer.querySelectorAll('.btn-like');
     const countLike = taskContainer.querySelectorAll('.numLike');
