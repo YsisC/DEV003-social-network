@@ -20,7 +20,7 @@ export const Login = (onNavigate) => {
   const btnClose = document.createElement('button');
   const taskContainer = document.createElement('div');
   // El contenido del Header
-  const logoIcon = document.createElement('img');
+  const logoFoodfram = document.createElement('h3');
   const spanMenu = document.createElement('span');
   const iconMenu = document.createElement('i');
   const ulMenu = document.createElement('ul');
@@ -46,8 +46,8 @@ export const Login = (onNavigate) => {
   // feedPost.innerHTML = templatePosts;
   homeDivFeed.className = 'homeDivFeed';
   feedHearder.className = 'feedHeader';
-  logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
-  logoIcon.className = 'logoFoodgramFeed';
+  logoFoodfram.textContent = 'Foodgram.';
+  logoFoodfram.className = 'logoFoodgramFeed';
   spanMenu.className = 'menuIcon';
   dialogForm.className = 'dialogForm';
   iconMenu.className = 'fa-solid fa-bars';
@@ -94,13 +94,13 @@ export const Login = (onNavigate) => {
   aLiCerrarSesion.appendChild(buttonHome);
   spanMenu.appendChild(iconMenu);
   divMessageHeader.append(iconMessage, mensajeFeed);
-  feedHearder.append(logoIcon, spanMenu, ulMenu, divMessageHeader);
+  feedHearder.append(logoFoodfram, spanMenu, ulMenu);
   feedPost.append(taskForm);
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
   divIconPublish.appendChild(iconPublish);
   feedFooter.append(divIconPublish, divIconUser);
-  homeDivFeed.append(feedHearder, feedeMain, feedFooter);
+  homeDivFeed.append(feedHearder, divMessageHeader, feedeMain, feedFooter);
 
   // Con template
   // const templatePosts = `
