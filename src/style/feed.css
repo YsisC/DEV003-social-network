@@ -331,7 +331,7 @@
         padding: 0;
 
     }
-   
+   /* BODY  */
     .homeDivFeed{
         background-color: red;
         background-size: cover;
@@ -340,6 +340,7 @@
         position: relative;
       
     }
+    /* MAIN  */
     .muroDiv{
         height: 94vh;
         width: 100vw;
@@ -350,7 +351,7 @@
        .group{
         list-style: none;
     }
-
+    /* DIV DE LOS POST  */
     .feedPost{
         padding-top: 2%;
         padding-left: 2.5%;
@@ -358,7 +359,7 @@
         height: 100%;
            
     }
-
+    /* MODAL  */
     dialog[open] {
         position: fixed;
         width: 80%;
@@ -410,10 +411,7 @@
         margin-top: 5%;
 
     }
-    .numLike{
-        color: black;
-        font-size: larger;
-    }
+  
 
     #btn-task-cerrar{
         font-family:var(--letra-junge);
@@ -434,7 +432,11 @@
         margin-left: 10.4%;
           
     }
- 
+    .numLike{
+        color: black;
+        font-size: larger;
+    }
+    /* CADA TARJETA DEL POST EN UN DIV */
     .divPostPublication{
         height: 90vh;
         overflow: auto;
@@ -444,6 +446,7 @@
         padding-top: 2%;
         
     }
+    /* CADA TARJETA INDIVIDUAL  */
     .cardPostPublication{
         background-color: white;
         width: 100%;
@@ -495,7 +498,7 @@
         font-style:italic;
 
     }
-
+/* HEADER DEL MURO  */
      .feedHeader .logoFoodgramFeed{
         font-family: var(--letra-logo);
         margin: 3% 0 0 5%;
@@ -597,7 +600,7 @@
            
   
     }
-
+/* EL FOOTER DEL MURO  */
    
     .feedFooter{
         background-color: rgb(220, 213, 213);
@@ -644,7 +647,7 @@
 }
 
 /* Destock  */
-/* 
+
 @media screen and (min-width: 914px) {
      * {
         margin: 0;
@@ -797,4 +800,4 @@
         margin-top: 5%;
 
     } 
-} */
+}
