@@ -1,6 +1,6 @@
 import {
   functionSignOut, getTask, onGetTasks, saveTask, currentUserInfo, deleteTask,
-  updateTask,
+  updateTask, addLikePost,
 } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
@@ -17,15 +17,15 @@ export const Login = (onNavigate) => {
 
   const textarea = document.createElement('textarea');
   const btnSave = document.createElement('button');
+  const btnClose = document.createElement('button');
   const taskContainer = document.createElement('div');
   // El contenido del Header
-  const logoIcon = document.createElement('img');
+  const logoFoodfram = document.createElement('h3');
   const spanMenu = document.createElement('span');
   const iconMenu = document.createElement('i');
   const ulMenu = document.createElement('ul');
   ulMenu.className = 'navBar';
   ulMenu.id = 'navBar';
-
   const liCerrarSesion = document.createElement('li');
   const aLiCerrarSesion = document.createElement('a');
   const buttonHome = document.createElement('button');
@@ -46,9 +46,10 @@ export const Login = (onNavigate) => {
   // feedPost.innerHTML = templatePosts;
   homeDivFeed.className = 'homeDivFeed';
   feedHearder.className = 'feedHeader';
-  logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
-  logoIcon.className = 'logoFoodgramFeed';
+  logoFoodfram.textContent = 'Foodgram.';
+  logoFoodfram.className = 'logoFoodgramFeed';
   spanMenu.className = 'menuIcon';
+  dialogForm.className = 'dialogForm';
   iconMenu.className = 'fa-solid fa-bars';
   divMessageHeader.className = 'divIconMessage';
   iconMessage.className = 'fa-solid fa-pen';
@@ -65,20 +66,26 @@ export const Login = (onNavigate) => {
   divIconPublish.className = 'divIconPublish';
   iconUser.className = 'fa-solid fa-user';
   iconPublish.className = 'fa-regular fa-square-plus';
-  mensajeFeed.placeholder = '¿Que recetas estas pensando?  ';
+  const usuarioInfo = currentUserInfo();
+  const usuario = currentUserInfo().displayName;
+  const usuarioId = currentUserInfo().uid;
+  mensajeFeed.placeholder = `¿Que recetas estas pensando ${usuario}?`;
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesión';
 
   feedPost.id = 'taskDiv';
-  labelReceta.setAttribute('for', 'tittle');
-  labelReceta.textContent = 'Title:';
-  labelDescripction.textContent = 'Descrption:';
+  labelReceta.setAttribute('id', 'tittle');
+  labelReceta.textContent = '▪ ¿Cual es el nombre de tu receta?:';
+  labelDescripction.textContent = '▪Ingredientes:';
+  labelDescripction.className = 'descriptionReceta';
   inputTaskTittle.type = 'text';
-  inputTaskTittle.placeholder = 'Task tittle';
-  btnSave.textContent = 'Save';
-  textarea.placeholder = '¿Que receta estas pensando?';
+  inputTaskTittle.placeholder = 'Nombre de la receta';
+  btnSave.textContent = 'Guardar';
+  btnClose.textContent = 'Cerrar';
+  textarea.placeholder = 'Ingredientes de tu receta';
   btnSave.id = 'btn-task-save';
-  dialogForm.append(labelReceta, inputTaskTittle, labelDescripction, textarea, btnSave);
+  btnClose.id = 'btn-task-cerrar';
+  dialogForm.append(labelReceta, inputTaskTittle, labelDescripction, textarea, btnSave, btnClose);
   taskForm.append(
     dialogForm,
     taskContainer,
@@ -88,13 +95,13 @@ export const Login = (onNavigate) => {
   aLiCerrarSesion.appendChild(buttonHome);
   spanMenu.appendChild(iconMenu);
   divMessageHeader.append(iconMessage, mensajeFeed);
-  feedHearder.append(logoIcon, spanMenu, ulMenu, divMessageHeader);
+  feedHearder.append(logoFoodfram, spanMenu, ulMenu);
   feedPost.append(taskForm);
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
   divIconPublish.appendChild(iconPublish);
   feedFooter.append(divIconPublish, divIconUser);
-  homeDivFeed.append(feedHearder, feedeMain, feedFooter);
+  homeDivFeed.append(feedHearder, divMessageHeader, feedeMain, feedFooter);
 
   // Con template
   // const templatePosts = `
@@ -112,19 +119,45 @@ export const Login = (onNavigate) => {
   // Post
   let editStatus = false;
   let id = '';
+  console.log(currentUserInfo());
   // FUNCION DE GETTASKS
   // const querySnapshot = await getTasks();
-  // console.log(currentUserInfo());
+
+  const user = currentUserInfo().displayName;
+  console.log(user);
+  // console.log(userDisplayName);
+
   onGetTasks((querySnapshot) => {
     let html = '';
 
     querySnapshot.forEach((doc) => {
       const task = doc.data();
       // console.log(doc.id);
+      // html += `
+      //   <div class='cardPostPublication'>
+      //     <h3>${task.tittle}</h3>
+      //     <p>${task.description}<p>
+      //     <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
+      //     <div class='iconos'>
+      //   <button class='buttonLike' data-id = ${doc.id}>
+      //   <span class='icon'><i class="fa-regular fa-heart like ${task.like.includes(usuarioInfo.email) ? 'true' : 'false'}"></i>
+      //   </span>
+      //   <span class='count'>${task.like.length}</span>
+      //   </button>   </div>
+      //     <button class='btn-delete' data-id='${doc.id}'>Delete</button>
+      //     <button class='btn-edit' data-id='${doc.id}'>Edit</button>
+      //   </div>
+      //     `;
+      const heartIcon = task.like.includes(usuarioId) ? 'fa-solid' : 'fa-regular';
       html += `
         <div class='cardPostPublication'>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
+          <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
+          <div class='btnLikeDiv'>
+          <button class='btn-like' data-id='${doc.id}'><i class="${heartIcon} fa-heart" id='${doc.id}'></i></button>
+          <p class='numLike' data-id='${doc.id}'>${task.like.length}</p>
+          </div>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
           <button class='btn-edit' data-id='${doc.id}'>Edit</button>
         </div>
@@ -132,13 +165,59 @@ export const Login = (onNavigate) => {
     });
 
     taskContainer.innerHTML = html;
+
+    // -----------------------------------------------------Boton Delete-------------------
+
     const btnsDelete = taskContainer.querySelectorAll('.btn-delete');
     // console.log(btnsDelete);
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        deleteTask(dataset.id);
+        Swal.fire({
+          title: '¿Esta seguro que desea eliminar esta publicacion?',
+          icon: 'warning',
+          showCancelButton: true,
+          width: 300,
+          Height: 100,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Si',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            deleteTask(dataset.id);
+            Swal.fire(
+              'Publicacion eliminada.',
+              '',
+              'success',
+            );
+          } else {
+            onNavigate('/login');
+          }
+        });
       });
     });
+
+    /// ---------------------------boton likes-----------------------------------------------
+    const btnLike = taskContainer.querySelectorAll('.btn-like');
+    const countLike = taskContainer.querySelectorAll('.numLike');
+    console.log(countLike);
+
+    // console.log(btnLike);
+    countLike.textContent = 0;
+    btnLike.forEach((btn) => {
+      let count = 0;
+      const numLike = [];
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        addLikePost(dataset.id, usuarioId);
+        if (dataset) {
+          count += 1;
+          console.log(count);
+          countLike.textContent = count;
+        }
+        console.log(btn);
+        console.log(dataset.id);
+      });
+    });
+    /// ---------------------------boton edit-----------------------------------------------
     const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
 
     btnsEdit.forEach((btn) => {
@@ -151,7 +230,7 @@ export const Login = (onNavigate) => {
 
         editStatus = true;
         id = doc.id;
-        taskForm['btn-task-save'].innerText = 'Update';
+        taskForm['btn-task-save'].innerText = 'Guardar';
         dialogForm.showModal();
       });
       window.addEventListener('keydown', (e) => {
@@ -163,27 +242,29 @@ export const Login = (onNavigate) => {
   btnSave.addEventListener('click', () => {
     dialogForm.close();
   });
-  // Funcion del menu
+  btnClose.addEventListener('click', () => {
+    dialogForm.close();
+  });
+  /// ---------------------------Funcion del menu bar-----------------------------------------------
   spanMenu.addEventListener('click', () => {
     ulMenu.classList.toggle('show');
   });
   // const taskForm = document.getElementById('task-form');
   console.log(taskForm);
 
-  // Guardar los post Funciona
+  /// ---------------------------Guardar los post-----------------------------------------------
   taskForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-
+    const userLikes = []; // se declara array vacio para likes
     const title = inputTaskTittle.value;
     const taskDescription = textarea.value;
     if (taskDescription !== '' && title !== '') {
       if (!editStatus) {
-        saveTask(title, taskDescription);
+        saveTask(title, taskDescription, usuario, usuarioId, userLikes);
       } else {
         updateTask(id, {
           tittle: title,
           description: taskDescription,
-
         });
         editStatus = false;
       }
@@ -192,6 +273,9 @@ export const Login = (onNavigate) => {
     }
   });
   divMessageHeader.addEventListener('click', () => {
+    dialogForm.showModal();
+  });
+  divIconPublish.addEventListener('click', () => {
     dialogForm.showModal();
   });
   buttonHome.addEventListener('click', () => {

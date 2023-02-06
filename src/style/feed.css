@@ -359,7 +359,6 @@
         height: 100%;
            
     }
-    /* MODAL  */
     dialog[open] {
         position: fixed;
         width: 80%;
@@ -411,7 +410,10 @@
         margin-top: 5%;
 
     }
-  
+    .numLike{
+        color: black;
+        font-size: larger;
+    }
 
     #btn-task-cerrar{
         font-family:var(--letra-junge);
@@ -432,11 +434,7 @@
         margin-left: 10.4%;
           
     }
-    .numLike{
-        color: black;
-        font-size: larger;
-    }
-    /* CADA TARJETA DEL POST EN UN DIV */
+ 
     .divPostPublication{
         height: 90vh;
         overflow: auto;
@@ -498,7 +496,6 @@
         font-style:italic;
 
     }
-/* HEADER DEL MURO  */
      .feedHeader .logoFoodgramFeed{
         font-family: var(--letra-logo);
         margin: 3% 0 0 5%;
@@ -647,7 +644,7 @@
 }
 
 /* Destock  */
-
+/* 
 @media screen and (min-width: 914px) {
      * {
         margin: 0;
@@ -800,4 +797,4 @@
         margin-top: 5%;
 
     } 
-}
+} */
