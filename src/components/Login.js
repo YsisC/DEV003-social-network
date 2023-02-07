@@ -38,6 +38,7 @@ export const Login = (onNavigate) => {
   // const feedFooter = document.createElement('div');
   /* //El contenido del Footer */
   const feedFooter = document.createElement('footer'); // agregado
+  const createdByFeed = document.createElement('h4');
   const divIconUser = document.createElement('div');
   const iconUser = document.createElement('i');
   const divIconPublish = document.createElement('div');
@@ -72,7 +73,7 @@ export const Login = (onNavigate) => {
   mensajeFeed.placeholder = `¿Que recetas estas pensando ${usuario}?`;
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesión';
-
+  // createdByFeed.textContent = 'Creado por Nicole e Ysis';
   feedPost.id = 'taskDiv';
   labelReceta.setAttribute('id', 'tittle');
   labelReceta.textContent = '▪ ¿Cual es el nombre de tu receta?:';
@@ -100,7 +101,7 @@ export const Login = (onNavigate) => {
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
   divIconPublish.appendChild(iconPublish);
-  feedFooter.append(divIconPublish, divIconUser);
+  feedFooter.append(divIconPublish, divIconUser, createdByFeed);
   homeDivFeed.append(feedHearder, divMessageHeader, feedeMain, feedFooter);
 
   // Con template
