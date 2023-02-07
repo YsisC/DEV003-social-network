@@ -119,12 +119,11 @@ export const Login = (onNavigate) => {
   // Post
   let editStatus = false;
   let id = '';
-  console.log(currentUserInfo());
   // FUNCION DE GETTASKS
   // const querySnapshot = await getTasks();
 
   const user = currentUserInfo().displayName;
-  console.log(user);
+
   // console.log(userDisplayName);
 
   onGetTasks((querySnapshot) => {
@@ -155,7 +154,7 @@ export const Login = (onNavigate) => {
           <p>${task.description}<p>
           <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
           <div class='btnLikeDiv'>
-          <button class='btn-like' data-id='${doc.id}'><i class="${heartIcon} fa-heart" id='${doc.id}'></i></button>
+          <button class='btn-like' data-id='${doc.id}'><i class="${heartIcon} fa-heart" data-id='${doc.id}'></i></button>
           <p class='numLike' data-id='${doc.id}'>${task.like.length}</p>
           </div>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
@@ -198,22 +197,19 @@ export const Login = (onNavigate) => {
 
     /// ---------------------------boton likes-----------------------------------------------
     const btnLike = taskContainer.querySelectorAll('.btn-like');
-    const countLike = taskContainer.querySelectorAll('.numLike');
-    console.log(countLike);
 
-    // console.log(btnLike);
-    countLike.textContent = 0;
     btnLike.forEach((btn) => {
-      let count = 0;
-      const numLike = [];
+      // const count = 0;
+
       btn.addEventListener('click', ({ target: { dataset } }) => {
         addLikePost(dataset.id, usuarioId);
-        if (dataset) {
-          count += 1;
-          console.log(count);
-          countLike.textContent = count;
-        }
-        console.log(btn);
+        // if (usuarioId) {
+        //   count += 1;
+        //   console.log(count);
+        //   countLike.textContent = count;
+        // }
+
+        console.log(usuarioId);
         console.log(dataset.id);
       });
     });

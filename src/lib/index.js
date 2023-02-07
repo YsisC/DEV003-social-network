@@ -72,18 +72,16 @@ export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
 export const getTask = (id) => getDoc(doc(db, 'tasks', id));
 
 export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
+// / creacion de db
 
 export const addLikePost = (id, uidCurrentUser) => {
-  updateDoc(doc(db, id), { like: arrayUnion(uidCurrentUser) });
+  updateDoc(doc(db, 'tasks', id), { like: arrayUnion(uidCurrentUser) });
 };
-// export const addLikePost = (id, uidCurrentUser) => {
-//   updateDoc(doc(db, id), { like: arrayUnion(uidCurrentUser) });
-// };
 
 // funcion para quitar like
-//  export const removeLikePost = (id, uidCurrentUser) => {
-//    updateDoc(doc(db, id), { like: arrayRemove(uidCurrentUser) });
-//  };
+export const removeLikePost = (id, uidCurrentUser) => {
+  updateDoc(doc((db, 'tasks', id)), { like: arrayRemove(uidCurrentUser) });
+};
 
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {
 //  if (user) {
