@@ -875,5 +875,18 @@
     top: 0%;
     right: 0%;
 }
+.divIconUser{
+   
+    display: none;
+}
+
+
+.divIconPublish{
+ display: none;
+
+}
+
+
+
 
 }
