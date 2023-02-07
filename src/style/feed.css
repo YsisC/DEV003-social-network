@@ -644,7 +644,7 @@
 }
 
 /* Destock  */
-/* 
+
 @media screen and (min-width: 914px) {
      * {
         margin: 0;
@@ -724,9 +724,23 @@
         width: 100vw;
         height: 6vh;
         padding-top:4%;
-        padding-left: 15rem;
+        padding-left: 19rem;
+        
     }
-    
+    .divIconMessage .mensajeFeed{
+        width: 26%;
+        padding: 1%;
+        border-radius: 10px;
+        border-style: none ;
+        padding-left: 10%;
+    }
+    .divIconMessage .svg-inline--fa {
+        background-color: white;
+        position: absolute;
+        margin-left: 0;
+        top:8%;
+        right: 41%;
+    }
     .muroDiv{
         height: 94vh;
         width: 100vw;
@@ -797,4 +811,69 @@
         margin-top: 5%;
 
     } 
-} */
+    .feedPost{
+        padding-top: 2%;
+        padding-left: 2.5%;
+        padding-right: 0.5%;
+        height: 100%;
+           
+    }
+    .divPostPublication{
+        height: 90vh;
+        overflow: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding-top: 2%;
+        
+    }
+    .cardPostPublication{
+        background-color: white;
+        width: 60vw;
+        height: 18vh;
+        margin: 4% 2% 0 0%;
+        padding: 20px;
+        border-style:outset;
+        display: flex;
+        flex-wrap: wrap;
+      
+    }
+    .cardPostPublication h3{
+        font-family: var(--letra-jura);
+        width: 100%;
+      
+    }
+
+    .cardPostPublication p{
+      font-family:var(--letra-jura);
+      width: 100%;
+    }
+
+    .cardPostPublication button{
+        font-family:var(--letra-junge);
+        border-style: 1px solid;
+        padding: 4px;
+      }
+      .btnLikeDiv{
+        width: 40%;
+      }
+
+.btn-edit{
+        margin-left: 2%;
+        width: 18%;
+}
+.btn-delete{
+    width: 18%;
+}
+.feedFooter{
+    background-color: rgb(220, 213, 213);
+    padding-top: 1%;
+    height: 100vh;
+    width: 20vw;
+    display: flex;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+}
+
+}
