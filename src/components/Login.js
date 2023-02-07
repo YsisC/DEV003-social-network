@@ -213,25 +213,25 @@ export const Login = (onNavigate) => {
         console.log(dataset.id);
       });
     });
-    /// ---------------------------boton edit-----------------------------------------------
-    const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
+  });
+  /// ---------------------------boton edit-----------------------------------------------
+  const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
 
-    btnsEdit.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
-        const doc = await getTask(e.target.dataset.id);
-        const task = doc.data();
+  btnsEdit.forEach((btn) => {
+    btn.addEventListener('click', async (e) => {
+      const doc = await getTask(e.target.dataset.id);
+      const task = doc.data();
 
-        taskForm['task-title'].value = task.tittle;
-        taskForm['task-description'].value = task.description;
+      taskForm['task-title'].value = task.tittle;
+      taskForm['task-description'].value = task.description;
 
-        editStatus = true;
-        id = doc.id;
-        taskForm['btn-task-save'].innerText = 'Guardar';
-        dialogForm.showModal();
-      });
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') { dialogForm.showModal(); }
-      });
+      editStatus = true;
+      id = doc.id;
+      taskForm['btn-task-save'].innerText = 'Guardar';
+      dialogForm.showModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { dialogForm.showModal(); }
     });
   });
 
