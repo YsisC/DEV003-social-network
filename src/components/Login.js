@@ -1,6 +1,6 @@
 import {
   functionSignOut, getTask, onGetTasks, saveTask, currentUserInfo, deleteTask,
-  updateTask, addLikePost,
+  updateTask, addLikePost, removeLikePost,
 } from '../lib/index.js';
 
 export const Login = (onNavigate) => {
@@ -66,7 +66,7 @@ export const Login = (onNavigate) => {
   divIconPublish.className = 'divIconPublish';
   iconUser.className = 'fa-solid fa-user';
   iconPublish.className = 'fa-regular fa-square-plus';
-  const usuarioInfo = currentUserInfo();
+  // const usuarioInfo = currentUserInfo();
   const usuario = currentUserInfo().displayName;
   const usuarioId = currentUserInfo().uid;
   mensajeFeed.placeholder = `¿Que recetas estas pensando ${usuario}?`;
@@ -154,7 +154,8 @@ export const Login = (onNavigate) => {
           <p>${task.description}<p>
           <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
           <div class='btnLikeDiv'>
-          <button class='btn-like' data-id='${doc.id}'><i class="${heartIcon} fa-heart" data-id='${doc.id}'></i></button>
+          <button class='btn-like'  data-liked='${task.like.includes(usuarioId)}' data-id='${doc.id}'><i class="${heartIcon} fa-heart" data-id='${doc.id}'></i></button>
+         
           <p class='numLike' data-id='${doc.id}'>${task.like.length}</p>
           </div>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
@@ -197,26 +198,31 @@ export const Login = (onNavigate) => {
 
     /// ---------------------------boton likes-----------------------------------------------
 
-    querySnapshot.forEach((doc) => {
-      const task = doc.data();
-      const btnLike = taskContainer.querySelectorAll('.btn-like');
+    // querySnapshot.forEach((doc) => {
+    // const task = doc.data();
+    const btnLike = taskContainer.querySelectorAll('.btn-like');
 
-      btnLike.forEach((btn) => {
+    btnLike.forEach((btn) => {
       // const count = 0;
 
-        btn.addEventListener('click', ({ target: { dataset } }) => {
-          addLikePost(dataset.id, usuarioId);
-          // if (usuarioId) {
-          //   count += 1;
-          //   console.log(count);
-          //   countLike.textContent = count;
-          // }
-          console.log(task.like);
-          console.log(usuarioId);
-          console.log(dataset.id);
+      btn.addEventListener('click', ({ target }) => {
+        const buttonLiked = target.dataset.id;
+        getTask(buttonLiked).then((doclike) => {
+          const jusonePost = doclike.data();
+          console.log(jusonePost);
+          const userLikes = jusonePost.like;
+          console.log(userLikes);
+          if (userLikes.includes(usuarioId)) {
+            removeLikePost(buttonLiked, usuarioId);
+          } else {
+            addLikePost(buttonLiked, usuarioId);
+          }
+        }).catch((error) => {
+          console.log(error);
         });
       });
     });
+    // });
     /// ---------------------------boton edit-----------------------------------------------
     const btnsEdit = taskContainer.querySelectorAll('.btn-edit');
 
