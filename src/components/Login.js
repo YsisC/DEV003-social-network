@@ -196,25 +196,21 @@ export const Login = (onNavigate) => {
     });
 
     /// ---------------------------boton likes-----------------------------------------------
+    const btnLike = taskContainer.querySelectorAll('.btn-like');
 
-    querySnapshot.forEach((doc) => {
-      const task = doc.data();
-      const btnLike = taskContainer.querySelectorAll('.btn-like');
-
-      btnLike.forEach((btn) => {
+    btnLike.forEach((btn) => {
       // const count = 0;
 
-        btn.addEventListener('click', ({ target: { dataset } }) => {
-          addLikePost(dataset.id, usuarioId);
-          // if (usuarioId) {
-          //   count += 1;
-          //   console.log(count);
-          //   countLike.textContent = count;
-          // }
-          console.log(task.like);
-          console.log(usuarioId);
-          console.log(dataset.id);
-        });
+      btn.addEventListener('click', ({ target: { dataset } }) => {
+        addLikePost(dataset.id, usuarioId);
+        // if (usuarioId) {
+        //   count += 1;
+        //   console.log(count);
+        //   countLike.textContent = count;
+        // }
+
+        console.log(usuarioId);
+        console.log(dataset.id);
       });
     });
     /// ---------------------------boton edit-----------------------------------------------

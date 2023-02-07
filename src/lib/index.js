@@ -56,7 +56,7 @@ export const saveTask = (tittle, description, displayName, uidCurrentUser, like)
     tittle,
     description,
     date: today,
-    like,
+    like: [],
   });
 };
 
