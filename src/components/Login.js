@@ -66,6 +66,7 @@ export const Login = (onNavigate) => {
   divIconPublish.className = 'divIconPublish';
   iconUser.className = 'fa-solid fa-user';
   iconPublish.className = 'fa-regular fa-square-plus';
+  const usuarioInfo = currentUserInfo();
   const usuario = currentUserInfo().displayName;
   const usuarioId = currentUserInfo().uid;
   mensajeFeed.placeholder = `¿Que recetas estas pensando ${usuario}?`;
@@ -132,14 +133,30 @@ export const Login = (onNavigate) => {
     querySnapshot.forEach((doc) => {
       const task = doc.data();
       // console.log(doc.id);
+      // html += `
+      //   <div class='cardPostPublication'>
+      //     <h3>${task.tittle}</h3>
+      //     <p>${task.description}<p>
+      //     <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
+      //     <div class='iconos'>
+      //   <button class='buttonLike' data-id = ${doc.id}>
+      //   <span class='icon'><i class="fa-regular fa-heart like ${task.like.includes(usuarioInfo.email) ? 'true' : 'false'}"></i>
+      //   </span>
+      //   <span class='count'>${task.like.length}</span>
+      //   </button>   </div>
+      //     <button class='btn-delete' data-id='${doc.id}'>Delete</button>
+      //     <button class='btn-edit' data-id='${doc.id}'>Edit</button>
+      //   </div>
+      //     `;
+      const heartIcon = task.like.includes(usuarioId) ? 'fa-solid' : 'fa-regular';
       html += `
         <div class='cardPostPublication'>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
           <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
           <div class='btnLikeDiv'>
-          <button class='btn-like' data-id='${doc.id}'>🖤</button>
-          <p class='numLike' data-id='${doc.id}'>${task.like}</p>
+          <button class='btn-like' data-id='${doc.id}'><i class="${heartIcon} fa-heart" id='${doc.id}'></i></button>
+          <p class='numLike' data-id='${doc.id}'>${task.like.length}</p>
           </div>
           <button class='btn-delete' data-id='${doc.id}'>Delete</button>
           <button class='btn-edit' data-id='${doc.id}'>Edit</button>
