@@ -155,7 +155,7 @@ export const Login = (onNavigate) => {
           <p>${task.description}<p>
           <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
           <div class='btnLikeDiv'>
-          <button class='btn-like'  data-liked='${task.like.includes(usuarioId)}' data-id='${doc.id}'><i class='${heartIcon} fa-heart' data-id='${doc.id}' ></i></button>
+          <button class='btn-like' data-id='${doc.id}'><i class='${heartIcon} fa-heart'></i></button>
          
           <p class='numLike' data-id='${doc.id}'>${task.like.length}</p>
           </div>
@@ -202,9 +202,13 @@ export const Login = (onNavigate) => {
     btnLike.forEach((btn) => {
       // const count = 0;
 
-      btn.addEventListener('click', (e) => {
-        const buttonLiked = e.target.dataset.id;
+      btn.addEventListener('click', () => {
+        const buttonLiked = btn.dataset.id;
+
         console.log(buttonLiked);
+        // console.log(dataset.id);
+        // console.log(dataset);
+        // console.log(usuarioId);
         getTask(buttonLiked).then((doclike) => {
           const jusonePost = doclike.data();
           console.log(jusonePost);
