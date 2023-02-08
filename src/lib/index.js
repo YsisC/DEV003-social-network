@@ -80,7 +80,7 @@ export const addLikePost = (id, uidCurrentUser) => {
 
 // funcion para quitar like
 export const removeLikePost = (id, uidCurrentUser) => {
-  updateDoc(doc((db, 'tasks', id)), { like: arrayRemove(uidCurrentUser) });
+  updateDoc(doc(db, 'tasks', id), { like: arrayRemove(uidCurrentUser) });
 };
 
 // export const userAuntenticado = auth.onAuthStateChanged((user) => {
