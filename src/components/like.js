@@ -1,29 +1,31 @@
+// import {
+//   getTask,
+//   addLikePost, removeLikePost, currentUserInfo,
+// } from '../lib/index.js';
 // import
 // {
-//   getTask,
-//   updateTask,
-//   currentUserInfo,
-// } from '../lib/index.js';
+
+// } from './login.js';
 
 // export const like = (taskContainer) => {
-//   const buttonLike = taskContainer.querySelectorAll('.buttonLike');
+//   const usuarioId = currentUserInfo().uid;
+//   const buttonLike = taskContainer.querySelectorAll('.btn-like');
 //   buttonLike.forEach((likes2) => {
 //     likes2.addEventListener('click', () => {
-//       console.log(likes2);
-//       console.log(like);
-//       const id = likes2.dataset.id;
-//       getTask(id).then((promise) => {
-//         let likes = promise.data().like;
-//         if (likes.lenght === 0) {
-//           likes.push(currentUserInfo.email);
-//         } else if (!likes.includes(currentUserInfo.email)) {
-//           likes.push(currentUserInfo.email);
+//       const buttonLiked = likes2.target.dataset.id;
+//       console.log(buttonLiked);
+//       getTask(buttonLiked).then((doclike) => {
+//         const jusonePost = doclike.data();
+//         console.log(jusonePost);
+//         const userLikes = jusonePost.like;
+//         console.log(userLikes);
+//         if (userLikes.includes(usuarioId)) {
+//           removeLikePost(buttonLiked, usuarioId);
 //         } else {
-//           likes = likes.filter(
-//             (email) => !email.includes(currentUserInfo.email),
-//           );
+//           addLikePost(buttonLiked, usuarioId);
 //         }
-//         updateTask(id, { likes });
+//       }).catch((error) => {
+//         console.log(error);
 //       });
 //     });
 //   });

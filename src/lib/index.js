@@ -47,7 +47,7 @@ export const functionUserGoogle = () => {
 
 export const currentUserInfo = () => auth.currentUser;
 
-export const saveTask = (tittle, description, displayName, uidCurrentUser, like) => {
+export const saveTask = (tittle, description, displayName, uidCurrentUser) => {
   const today = new Date();
 
   return addDoc(collection(db, 'tasks'), {

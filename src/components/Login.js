@@ -38,7 +38,7 @@ export const Login = (onNavigate) => {
   // const feedFooter = document.createElement('div');
   /* //El contenido del Footer */
   const feedFooter = document.createElement('footer'); // agregado
-  const createdByFeed = document.createElement('span');
+  const createdByFeed = document.createElement('h4');
   const divIconUser = document.createElement('div');
   const iconUser = document.createElement('i');
   const divIconPublish = document.createElement('div');
@@ -47,7 +47,6 @@ export const Login = (onNavigate) => {
   // feedPost.innerHTML = templatePosts;
   homeDivFeed.className = 'homeDivFeed';
   feedHearder.className = 'feedHeader';
-  createdByFeed.className = 'createdByFeed';
   logoFoodfram.textContent = 'Foodgram.';
   logoFoodfram.className = 'logoFoodgramFeed';
   spanMenu.className = 'menuIcon';
@@ -102,8 +101,8 @@ export const Login = (onNavigate) => {
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
   divIconPublish.appendChild(iconPublish);
-  feedFooter.append(divIconPublish, divIconUser);
-  homeDivFeed.append(feedHearder, divMessageHeader, feedeMain, createdByFeed, feedFooter);
+  feedFooter.append(divIconPublish, divIconUser, createdByFeed);
+  homeDivFeed.append(feedHearder, divMessageHeader, feedeMain, feedFooter);
 
   // Con template
   // const templatePosts = `
@@ -156,7 +155,7 @@ export const Login = (onNavigate) => {
           <p>${task.description}<p>
           <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
           <div class='btnLikeDiv'>
-          <button class='btn-like'  data-liked='${task.like.includes(usuarioId)}' data-id='${doc.id}'><i class="${heartIcon} fa-heart" data-id='${doc.id}' ></i></button>
+          <button class='btn-like'  data-liked='${task.like.includes(usuarioId)}' data-id='${doc.id}'><i class='${heartIcon} fa-heart' data-id='${doc.id}' ></i></button>
          
           <p class='numLike' data-id='${doc.id}'>${task.like.length}</p>
           </div>
@@ -203,8 +202,8 @@ export const Login = (onNavigate) => {
     btnLike.forEach((btn) => {
       // const count = 0;
 
-      btn.addEventListener('click', ({ target }) => {
-        const buttonLiked = target.dataset.id;
+      btn.addEventListener('click', (e) => {
+        const buttonLiked = e.target.dataset.id;
         console.log(buttonLiked);
         getTask(buttonLiked).then((doclike) => {
           const jusonePost = doclike.data();
@@ -259,12 +258,12 @@ export const Login = (onNavigate) => {
   /// ---------------------------Guardar los post-----------------------------------------------
   taskForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const userLikes = []; // se declara array vacio para likes
+
     const title = inputTaskTittle.value;
     const taskDescription = textarea.value;
     if (taskDescription !== '' && title !== '') {
       if (!editStatus) {
-        saveTask(title, taskDescription, usuario, usuarioId, userLikes);
+        saveTask(title, taskDescription, usuario, usuarioId);
       } else {
         updateTask(id, {
           tittle: title,
