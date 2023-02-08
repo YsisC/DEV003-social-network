@@ -197,9 +197,8 @@ export const Login = (onNavigate) => {
       });
     });
 
-    /// ---------------------------boton likes-----------------------------------------------
+    /// ----------------------------------boton likes-----------------------------------------------
     const btnLike = taskContainer.querySelectorAll('.btn-like');
-
     btnLike.forEach((btn) => {
       // const count = 0;
 
