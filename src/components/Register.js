@@ -5,7 +5,7 @@ export const Register = (onNavigate) => {
   const loginContent = document.createElement('main');
   const divImgRegister = document.createElement('div');
   // const loginIcon = document.createElement('img');
-  const tittleRegister = document.createElement('h2');
+  const tittleRegister = document.createElement('h1');
   const buttonHome = document.createElement('button');
   const HomeForm = document.createElement('div');
   const formRegister = document.createElement('form');
@@ -29,7 +29,7 @@ export const Register = (onNavigate) => {
   buttonHome.className = 'btn_home';
   tittleRegister.textContent = 'Crear usuario';
   buttonHome.textContent = 'Regresar';
-  buttonRegister.textContent = 'Resgistrarse';
+  buttonRegister.textContent = 'Registrarse';
   inputUser.placeholder = 'Usuario';
   inputEmail.placeholder = 'Correo electronico';
   inputPasword.placeholder = 'Password';

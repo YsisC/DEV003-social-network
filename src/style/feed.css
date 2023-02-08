@@ -15,6 +15,9 @@
 
 
 
+.btn-like path{
+    color: red;
+}
 
 @media screen and (max-width: 600px) {
 
@@ -154,7 +157,8 @@
         padding: 20px;
         border-style:outset;
         display: flex;
-        flex-wrap: wrap;
+        flex-flow: row wrap;
+        
        
       
     }
@@ -178,6 +182,8 @@
       .btnLikeDiv{
         width: 40%;
       }
+
+  
 
       .btn-edit{
         margin-left: 2%;
@@ -273,6 +279,7 @@ background-color: var(--gris-colorFondo);
 
     .btn-like{
         border-style: none;
+        background-color: white;
     }
 
     .Cerrar_Sesion{
@@ -636,6 +643,7 @@ background-color: var(--gris-colorFondo);
 
     .btn-like{
         border-style: none;
+        background-color: white;
     }
     .mensajeFeed{
         width: 75%;
@@ -893,7 +901,10 @@ background-color: var(--gris-colorFondo);
 
     .btn-like{
         border-style: none;
+        background-color: white;
     }
+
+    
     #btn-task-cerrar:hover{
         background-color: var(--gris-colorFondo);
 
