@@ -776,6 +776,11 @@ background-color: var(--gris-colorFondo);
         background-color: var(--Amarillo-colorPrincipal);
         margin-left: 0;
     }
+    .createdByFeed{
+        color: black;
+       
+       z-index: 100;
+    }
     .divIconMessage{
         background-color:  rgb(220, 213, 213);
         z-index: 1;

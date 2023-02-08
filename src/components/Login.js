@@ -38,7 +38,7 @@ export const Login = (onNavigate) => {
   // const feedFooter = document.createElement('div');
   /* //El contenido del Footer */
   const feedFooter = document.createElement('footer'); // agregado
-  const createdByFeed = document.createElement('h4');
+  const createdByFeed = document.createElement('span');
   const divIconUser = document.createElement('div');
   const iconUser = document.createElement('i');
   const divIconPublish = document.createElement('div');
@@ -47,6 +47,7 @@ export const Login = (onNavigate) => {
   // feedPost.innerHTML = templatePosts;
   homeDivFeed.className = 'homeDivFeed';
   feedHearder.className = 'feedHeader';
+  createdByFeed.className = 'createdByFeed';
   logoFoodfram.textContent = 'Foodgram.';
   logoFoodfram.className = 'logoFoodgramFeed';
   spanMenu.className = 'menuIcon';
@@ -101,8 +102,8 @@ export const Login = (onNavigate) => {
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
   divIconPublish.appendChild(iconPublish);
-  feedFooter.append(divIconPublish, divIconUser, createdByFeed);
-  homeDivFeed.append(feedHearder, divMessageHeader, feedeMain, feedFooter);
+  feedFooter.append(divIconPublish, divIconUser);
+  homeDivFeed.append(feedHearder, divMessageHeader, feedeMain, createdByFeed, feedFooter);
 
   // Con template
   // const templatePosts = `
