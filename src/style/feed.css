@@ -86,6 +86,8 @@
         padding: 2%;
         width: 80%;
         height: 40%;
+        margin-left: 5%;
+        border-style: none;
     }
 
     #btn-task-save{
@@ -95,12 +97,21 @@
         padding: 4px;
         margin-left: 50%;
         margin-top: 5%;
+        border-radius: 7px;
+    } 
+
+    #btn-task-save:hover{
+        background-color: var(--gris-colorFondo);
 
     }
     .numLike{
         color: black;
         font-size: larger;
+        display: inline-block;
+        text-align: left;
+
     }
+
 
     #btn-task-cerrar{
         font-family:var(--letra-junge);
@@ -108,7 +119,11 @@
         padding: 4px;
         margin-left: 5%;
         font-weight: bolder;
+        border-radius: 7px;
+    } 
 
+    #btn-task-cerrar:hover{
+        background-color: var(--gris-colorFondo);
 
     }
 
@@ -140,7 +155,7 @@
         border-style:outset;
         display: flex;
         flex-wrap: wrap;
-        overflow: scroll;
+       
       
     }
 
@@ -164,16 +179,24 @@
         width: 40%;
       }
 
-.btn-edit{
-        margin-left: 4%;
-        width: 18%;
+      .btn-edit{
+        margin-left: 2%;
+        width: 20%;
+        border-radius: 7px;
+        height: 5vh;
 }
-
+.btn-edit:hover{
+    background-color: var(--gris-colorFondo);
+    }
 .btn-delete{
-        margin-left: 14%;
-        width: 18%;
-   }
-
+    margin-left: 13%;
+    width: 20%;
+    border-radius: 7px;
+    height: 5vh;
+}
+.btn-delete:hover{
+background-color: var(--gris-colorFondo);
+}
 
     .displayName{
         margin-left: 40%;
@@ -244,8 +267,12 @@
         background-color: white;
         position: absolute;
         margin-left: 0;
-        top:7.5%;
-        right: 10%;
+        top:6.5%;
+        right: 11%;
+    }
+
+    .btn-like{
+        border-style: none;
     }
 
     .Cerrar_Sesion{
@@ -398,32 +425,43 @@
         width: 84%;
         height: 40%;
     }
-    #tittle{
+    /*#tittle{
         display: none;
     }
     .descriptionReceta{
       display: none;
-    }
+    }*/
     #btn-task-save{
         font-family:var(--letra-junge);
        font-weight: bolder;
         border-style: 1px solid;
-        padding: 4px;
-        margin-left: 50%;
+        padding: 7px;
+        margin-left: 65%;
         margin-top: 5%;
+        border-radius: 7px;
+    } 
 
-    }
+    #btn-task-save:hover{
+        background-color: var(--gris-colorFondo);
+
+    } 
   
 
     #btn-task-cerrar{
         font-family:var(--letra-junge);
         border-style: 1px solid;
-        padding: 4px;
-        margin-left: 5%;
+        padding: 7px;
+        margin-left: 3%;
         font-weight: bolder;
-
-
-    }
+        border-radius: 7px;
+    
+        }
+    
+     
+        #btn-task-cerrar:hover{
+            background-color: var(--gris-colorFondo);
+    
+        }  
 
     #title{
         margin-bottom: 10%;
@@ -437,6 +475,7 @@
     .numLike{
         color: black;
         font-size: larger;
+           margin-left:2%;
     }
     /* CADA TARJETA DEL POST EN UN DIV */
     .divPostPublication{
@@ -480,16 +519,24 @@
         width: 40%;
       }
 
-.btn-edit{
+      .btn-edit{
         margin-left: 2%;
-        width: 18%;
+        width: 10%;
+        border-radius: 7px;
+        height: 5vh;
 }
-
-.btn-delete{
-        margin-left: 10%;
-        width: 18%;
-   }
-
+.btn-edit:hover{
+    background-color: var(--gris-colorFondo);
+    }
+ .btn-delete{
+    margin-left: 23%;
+    width: 10%;
+    border-radius: 7px;
+    height: 5vh;
+}
+.btn-delete:hover{
+background-color: var(--gris-colorFondo);
+}
 
     .displayName{
         margin-left: 60%;
@@ -555,13 +602,16 @@
         padding-top:10%;
     }
   .divIconMessage .mensajeFeed{
-        font-size: small;
+        font-size: medium;
+        padding: 2%;
+        padding-left: 8%;
+        margin-left: 9%;
      }
  .divIconMessage .svg-inline--fa {
         background-color: white;
         position: absolute;
-        margin-left: 0;
-        top:9%;
+       
+        top:9.5%;
         right: 10%;
     }
 
@@ -584,6 +634,9 @@
         padding: 0%;
     }
 
+    .btn-like{
+        border-style: none;
+    }
     .mensajeFeed{
         width: 75%;
         height: 20%;
@@ -768,11 +821,11 @@
 
     dialog[open] {
         position: fixed;
-        width: 80%;
-        height: 40%;
+        width: 60%;
+        height: 50%;
         max-width: 75rem;
         top: 25%;
-        left: 8%;;
+        left: 18%;;
     }
 
     dialog::backdrop {
@@ -788,18 +841,19 @@
 
     #task-title{
         font-family: var(--letra-jura);
-        padding: 1%;
+        padding: 2%;
+        margin-bottom: 2%;
         width: 90%;
         margin-top: 2%;
         border-style: none;
             
     }
-    #tittle{
+    /*#tittle{
         display: none;
     }
     .descriptionReceta{
       display: none;
-    }
+    }*/
     #task-description{
         margin-top: 2%;
         font-family: var(--letra-jura);
@@ -811,12 +865,43 @@
         font-family:var(--letra-junge);
        font-weight: bolder;
         border-style: 1px solid;
-        padding: 4px;
-        margin-left: 50%;
+        padding: 8px;
+        margin-left: 60%;
         margin-top: 5%;
-
+        border-radius: 7px;
     } 
 
+    #btn-task-save:hover{
+        background-color: var(--gris-colorFondo);
+
+    }   
+
+    #btn-task-cerrar{
+        font-family:var(--letra-junge);
+        border-style: 1px solid;
+        padding: 8px;
+        margin-left: 2%;
+        font-weight: bolder;
+        border-radius: 7px;
+
+    }
+
+    .btn-like{
+        border-style: none;
+    }
+    #btn-task-cerrar:hover{
+        background-color: var(--gris-colorFondo);
+
+    }   
+    
+    .displayName{
+        margin-left: 60%;
+        font-size: small;
+        padding-top: 1%;
+        padding-bottom: 2%;
+        font-style:italic;
+
+    }
     .divPostPublication{
      height: 80vh;
      overflow: auto;
@@ -858,11 +943,24 @@
 
 .btn-edit{
         margin-left: 2%;
-        width: 18%;
+        width: 10%;
+        border-radius: 7px;
+        height: 5vh;
 }
+.btn-edit:hover{
+    background-color: var(--gris-colorFondo);
+    }
+    
 .btn-delete{
-    width: 18%;
+    margin-left: 23%;
+    width: 10%;
+    border-radius: 7px;
+    height: 5vh;
 }
+.btn-delete:hover{
+background-color: var(--gris-colorFondo);
+}
+
 .feedFooter{
     background-color: rgb(220, 213, 213);
     padding-top: 0%;
@@ -882,6 +980,12 @@
 .divIconPublish{
  display: none;
 
+}
+
+.numLike{
+    color: black;
+    font-size: larger;
+    margin-left:2% ;
 }
 
 
