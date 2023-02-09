@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-cycle
 import { Home } from './components/Home.js';
 import { Register } from './components/Register.js';
-import { Login } from './components/Login.js';
+import { Muro } from './components/Muro.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -25,7 +25,7 @@ const onNavigate = (pathname) => {
 routes = {
   '/': Home,
   '/register': Register,
-  '/login': Login,
+  '/Muro': Muro,
 };
 
 const component = routes[window.location.pathname];

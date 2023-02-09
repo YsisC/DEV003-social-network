@@ -9,10 +9,7 @@ import {
 
 import { auth, db } from './firebase.js';
 
-// import { app } from './firebase.js';
-// aqui exportaras las funciones que necesites
-// Creación de usuario con email y contraseñ
-
+// --------------------Funcion de registrarse-----------------
 export const functionSignUp = (name, email, password) => createUserWithEmailAndPassword(auth, email, password)
   .then((result) => {
     if (name !== '') {
@@ -23,30 +20,22 @@ export const functionSignUp = (name, email, password) => createUserWithEmailAndP
     return result;
   });
 
+// --------------------Funcion de ingresar a la cuenta-----------------
 export const functionSignin = (email, password) => signInWithEmailAndPassword(auth, email, password)
   .then((userLogin) => userLogin.user);
 
+// --------------------Funcion de cerrar sesion-----------------
 export const functionSignOut = () => signOut(auth);
 
+// --------------------Funcion de iniciar con google-----------------
 export const functionUserGoogle = () => {
   const provider = new GoogleAuthProvider();
   return signInWithPopup(auth, provider);
 };
-// export const functionUserGoogle = async () => {
-//   const provider = new GoogleAuthProvider();
-//   try {
-//     const userGoogle = await signInWithPopup(auth, provider);
-//     console.log(userGoogle.user);
-//     return userGoogle.user;
-//   } catch (error) {
-//     // Handle Errors here.
-//     const errorCode = error.code;
-//     return errorCode;
-//   }
-// };
-
+// --------------------Funcion de imostrar usuario-----------------
 export const currentUserInfo = () => auth.currentUser;
 
+// --------------------Funcion de guardar los post-----------------
 export const saveTask = (tittle, description, displayName, uidCurrentUser) => {
   const today = new Date();
 
@@ -59,26 +48,27 @@ export const saveTask = (tittle, description, displayName, uidCurrentUser) => {
     like: [],
   });
 };
-
+// --------------------Funcion de obtener los post-----------------
 export const getTasks = () => getDocs(collection(db, 'tasks'));
 
+// --------------------Funcion de obtener los post-----------------
 export const onGetTasks = (callback) => {
   const queryPost = query(collection(db, 'tasks'), orderBy('date', 'desc'));
   onSnapshot(queryPost, callback);
 };
-
+// --------------------Funcion de borrar un post -----------------
 export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
 
+// --------------------Funcion de obtener un post -----------------
 export const getTask = (id) => getDoc(doc(db, 'tasks', id));
 
 export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
-// / creacion de db
 
+// --------------------Funcion de agregar like -----------------
 export const addLikePost = (id, uidCurrentUser) => {
   updateDoc(doc(db, 'tasks', id), { like: arrayUnion(uidCurrentUser) });
 };
-
-// funcion para quitar like
+// --------------------Funcion de quitar like -----------------
 export const removeLikePost = (id, uidCurrentUser) => {
   updateDoc(doc(db, 'tasks', id), { like: arrayRemove(uidCurrentUser) });
 };

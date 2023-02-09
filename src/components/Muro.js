@@ -3,7 +3,7 @@ import {
   updateTask, addLikePost, removeLikePost,
 } from '../lib/index.js';
 
-export const Login = (onNavigate) => {
+export const Muro = (onNavigate) => {
   // Creacion del DOM
   const homeDivFeed = document.createElement('div');
   const feedHearder = document.createElement('header');

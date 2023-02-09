@@ -4,7 +4,6 @@ export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
   const loginContent = document.createElement('main');
   const divImgRegister = document.createElement('div');
-  // const loginIcon = document.createElement('img');
   const tittleRegister = document.createElement('h1');
   const buttonHome = document.createElement('button');
   const HomeForm = document.createElement('div');
@@ -13,7 +12,7 @@ export const Register = (onNavigate) => {
   const inputEmail = document.createElement('input');
   const inputPasword = document.createElement('input');
   const buttonRegister = document.createElement('button');
-  // const mensajeValidacion = document.createElement('p');
+
   divImgRegister.className = 'imageDivRegister';
   HomeDiv.className = 'divRegister';
   HomeForm.className = 'formDiv';
@@ -47,10 +46,9 @@ export const Register = (onNavigate) => {
 
     functionSignUp(user, email, pasword).then((promiseResult) => {
       console.log(promiseResult);
-      onNavigate('/login');
+      onNavigate('/Muro');
     }).catch((error) => {
       if (error.code === 'auth/email-already-in-use') {
-        // eslint-disable-next-line no-undef
         Toastify({
           text: 'El correo ya ha sido utilizado',
           className: 'info',
@@ -58,9 +56,7 @@ export const Register = (onNavigate) => {
             background: 'linear-gradient(to right, #00b09b, #96c93d)',
           },
         }).showToast();
-        // alert('El correo ya ha sido utilizado');
       } else if (error.code === 'auth/invalid-email') {
-        // eslint-disable-next-line no-undef
         Toastify({
           text: 'El correo invalido',
           className: 'info',
@@ -69,7 +65,6 @@ export const Register = (onNavigate) => {
           },
         }).showToast();
       } else if (error.code === 'auth/weak-password') {
-        // eslint-disable-next-line no-undef
         Toastify({
           text: 'La contraseña es muy debil',
           className: 'info',
@@ -77,10 +72,7 @@ export const Register = (onNavigate) => {
             background: 'linear-gradient(to right, #00b09b, #96c93d)',
           },
         }).showToast();
-        // alert('La contraseña es muy debil');
       } else {
-        // console.error(error);
-        // eslint-disable-next-line no-undef
         Toastify({
           text: 'El formulario tiene un error',
           className: 'info',
@@ -88,7 +80,6 @@ export const Register = (onNavigate) => {
             background: 'linear-gradient(to right, #00b09b, #96c93d)',
           },
         }).showToast();
-        // alert('El formulario tiene un error');
       }
     });
   });

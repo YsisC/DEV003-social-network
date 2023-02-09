@@ -3,7 +3,8 @@ import { functionSignin, functionUserGoogle } from '../lib/index';
 export const Home = (onNavigate) => {
   const HomeContent = document.createElement('main');
   const HomeDivImage = document.createElement('div');
-  const logoIcon = document.createElement('img');
+  const logoIcon = document.createElement('h3');
+
   const inputUser = document.createElement('input');
   const inputPasword = document.createElement('input');
   const divbuttongoogle = document.createElement('div');
@@ -16,7 +17,8 @@ export const Home = (onNavigate) => {
   const buttonLoginGoogle = document.createElement('button');
 
   mensajeLogin.textContent = 'Te gusta comer a nosotros tambien!';
-  logoIcon.src = 'https://raw.githubusercontent.com/YsisC/DEV003-social-network/main/src/assets/img/LogotipoSinFondo.png';
+
+  logoIcon.textContent = 'Foodgram.';
   logoIcon.className = 'logoFoodgram';
   inputUser.className = 'inputLogin';
   inputPasword.className = 'inputLogin';
@@ -48,7 +50,7 @@ export const Home = (onNavigate) => {
     const email = inputUser.value;
     const pasword = inputPasword.value;
     functionSignin(email, pasword).then(() => {
-      onNavigate('/login');
+      onNavigate('/Muro');
     }).catch((error) => {
       if (error.code === 'auth/invalid-email') {
         // eslint-disable-next-line no-undef
@@ -90,7 +92,7 @@ export const Home = (onNavigate) => {
     e.preventDefault();
     functionUserGoogle().then((promiseGoogle) => {
       if (promiseGoogle !== 'error') {
-        onNavigate('/login');
+        onNavigate('/Muro');
       }
     });
   });

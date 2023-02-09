@@ -1,8 +1,10 @@
 // importamos la funcion que vamos a testear
 
+import { updateDoc } from 'firebase/firestore';
 import {
-  functionSignUp, functionSignin, functionUserGoogle, saveTask,
+  functionSignUp, functionSignin, functionUserGoogle, saveTask, addLikePost,
 } from '../src/lib/index';
+import { Muro } from '../src/components/Muro.js';
 
 jest.mock('@firebase/auth', () => (
   {
@@ -19,6 +21,13 @@ jest.mock('@firebase/firestore', () => (
     addDoc: () => Promise.resolve({ tittle: 'Quesadilla', description: 'Jamon', displayName: 'Pedro' }),
     collection: () => {},
     getFirestore: () => ({ }),
+    updateDoc: jest.fn(() => Promise.resolve({ id: 'postId', like: ['userUid'] })),
+    doc: () => {},
+    arrayUnion: () => {},
+    orderBy: () => {},
+    query: () => {},
+    onSnapshot: (q, callback) => callback([{ data: () => ({ tittle: 'Burrito', like: [] }) }]),
+
   }
 ));
 jest.mock('../src/lib/firebase.js');
@@ -59,5 +68,19 @@ describe('funcion de saveTask', () => {
   it('deberia guardar los post', async () => {
     const postt = saveTask('Quesadilla', 'Jamon', 'Pedro');
     await expect(postt).resolves.toEqual({ tittle: 'Quesadilla', description: 'Jamon', displayName: 'Pedro' });
+  });
+});
+
+/* -----Test para function addLikePost -----*/
+
+describe('funcion de addLikePost', () => {
+  it('deberia agregar los like', async () => {
+    document.body.append(Muro());
+    const btnLike = document.querySelector('.btn-like');
+    btnLike.click();
+    expect(updateDoc).toHaveBeenCalled();
+    // const like = addLikePost('postId', 'userUid');
+    // console.log(like);
+    // await expect(like).resolves.toEqual({ id: 'postId', like: ['userUid'] });
   });
 });
