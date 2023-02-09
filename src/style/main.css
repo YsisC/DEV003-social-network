@@ -15,7 +15,9 @@
 input:focus{
     border: 2px solid var(black);
 }
-
+body{
+    font-size: 100%;;
+}
 /* Mobile  */
 @media screen and (max-width: 599px) {
     * {
@@ -139,7 +141,7 @@ input:focus{
         width: 60%;
         border: 10px;
         margin: 0.5rem;
-        font-size: small;
+        font-size: 1.5em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
@@ -201,7 +203,7 @@ input:focus{
         border: 10px;
         margin: 0rem;
         margin-top: 1rem;
-        font-size: small;
+        font-size: 1.5em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
@@ -225,7 +227,7 @@ input:focus{
         width: 60%;
         border: 10px;
         margin: 0.5rem;
-        font-size: small;
+        font-size: 1.5em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
@@ -359,7 +361,7 @@ input:focus{
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
         font-weight: bold;
-        font-size: large;
+        font-size: 2em;
         padding-left: 1rem;
         border-radius: 5px;
         margin-left: 4rem;
@@ -374,7 +376,7 @@ input:focus{
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
         font-weight: bold;
-        font-size: large;
+        font-size: 2em;
         padding-left: 1rem;
         border-radius: 5px;
         margin-left: 4rem;
@@ -386,7 +388,7 @@ input:focus{
         width: 50%;
         border: 10px;
         margin: 0.5rem;
-        font-size: small;
+        font-size: 2em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
@@ -417,13 +419,12 @@ input:focus{
         width: 50%;
         border: 10px;
         margin: 0.5rem;
-        font-size: small;
+        font-size: 2em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
         margin-left: 10rem;
         /* margin-top: 0.9rem; */
-        font-size: large;
         background-color: var(--Amarillo-colorButton);
         
     }
@@ -432,7 +433,7 @@ input:focus{
         background: var(--Amarillo-colorPrincipal);
         /* border-bottom: 2px solid rgb(10, 10, 10); */
         box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
-        font-size: large;
+        font-size: 2em;
 
     }
     .login:hover{
@@ -442,7 +443,7 @@ input:focus{
     
     .register {
         background-color: var(--Amarillo-colorButton);
-        font-size: large;
+        font-size: 2em;
 
     }
 
@@ -466,7 +467,7 @@ input:focus{
     .formDiv .group_button .loginGoogle {
         background-color: var(--Verde-colorButton);
         outline: none;
-        font-size: large;
+        font-size: 2em;
     }
 
     .formDiv .group_button  .svg-inline--fa {
@@ -583,7 +584,7 @@ input:focus{
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
         font-weight: normal;
-        font-size: 1em;
+        font-size: 2.5em;
         padding-left: 1rem;
         padding: 2% 2% 2% 2%;
         border-radius: 2px;
@@ -600,7 +601,7 @@ input:focus{
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
         font-weight: normal;
-        font-size: x-large;
+        font-size: 2.5em;
         padding-left: 1rem;
         padding: 0.4rem;
         border-radius: 20px;
@@ -612,7 +613,7 @@ input:focus{
         width: 50%;
         border: 10px;
         margin: 0.5rem;
-        font-size: large;
+        font-size: 2.5em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
@@ -628,7 +629,7 @@ input:focus{
         /* border: 2px solid --Amarillo-colorButton; */
         color: white;
         background-color: green;
-        font-size: large;
+        font-size: 2.5em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
@@ -662,7 +663,7 @@ input:focus{
         width: 80%;
         border: 10px;
         margin: 0.5rem;
-        font-size: large;
+        font-size: 2.5em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
