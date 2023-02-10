@@ -9,6 +9,8 @@
     --letra-junge:  'Junge', serif;
     --letra-jura: 'Jura', sans-serif;
     --letra-logo:'Alfa Slab One', cursive;
+    --Verde-claro-button: lightgreen;
+   
 }
 
 
@@ -72,7 +74,7 @@ body{
         font-family: var(--letra-logo);
         margin: 0;
         padding: 1% 0 0 2%;
-        font-size: 1.5em;
+        font-size: 1.em;
         width: 55vw;
         background: var(--Amarillo-colorPrincipal);
     }
@@ -136,12 +138,12 @@ body{
     }
 
 
-    .btn {
+    .formDiv .btn {
         height: 5%;
         width: 60%;
         border: 10px;
         margin: 0.5rem;
-        font-size: 1.5em;
+        font-size: 0.9em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
@@ -195,45 +197,34 @@ body{
        
     }
 
+    .btn {
+    padding: 7px;
+    width: 60%;
+    border: 10px;
+    margin: 0rem;
+    margin-top: 1rem;
+    font-size: 1em;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+    border-radius: 20px;
+    justify-content: center;
+    align-content: center;
+    margin-left: 4.9rem;
+}
 
-
-    .btn_register {
-        padding: 7px;
-        width: 60%;
-        border: 10px;
-        margin: 0rem;
-        margin-top: 1rem;
-        font-size: 1.5em;
-        font-family: 'Jura', sans-serif;
-        font-weight: bold;
-        border-radius: 20px;
-        justify-content: center;
-        align-content: center;
-        margin-left: 4.9rem;
+    .formRegister .btn_register {
         background: var(--Amarillo-colorPrincipal);
-        /* border-bottom: 2px solid rgb(10, 10, 10); */
         box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
-
 
     }
 
-    .btn_register:hover{
+    .formRegister .btn_register:hover{
     background-color: var(--Amarillo-colorButton);
 
     }
 
-    .btn_home {
-        padding: 7px;
-        width: 60%;
-        border: 10px;
-        margin: 0.5rem;
-        font-size: 1.5em;
-        font-family: 'Jura', sans-serif;
-        font-weight: bold;
-        border-radius: 20px;
-        justify-content: center;
-        align-content: center;
-        margin-left: 4.9rem;
+    .formRegister .btn_home {
+        
         background-color: var(--Amarillo-colorButton);
              
 
@@ -243,7 +234,9 @@ body{
         background-color: var(--Amarillo-colorPrincipal);
         box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
     } 
-
+.labelRegister{
+    display: none;
+}
 }
 
 /* Tablet */
@@ -251,19 +244,9 @@ body{
     * {
         margin: 0;
 
-        /* background-color: white; */
     }
 
-    /* main{
-        background-image: url(/assets/img/imagenmobile.jpg);
-        z-index: 1;
-        background-size: cover;
-        width: 100vw;
-        height: 100vh;
-        position: relative;
-
-        
-    } */
+   
     .homepage {
         background-image: url(../assets/img/imagenmobile.jpg);
         z-index: 1;
@@ -331,26 +314,11 @@ body{
         height: 25vh;
     }
 
-    /* .formRegister{
-        position: fixed;
-        top: 40%; left: 1%;
-        z-index:99;
-        border-radius:30rem;
-        width: 100vw;
-        height: 50vh;
-        background: #FDCD01;
-        padding-top: 10rem;
-        padding-left:2rem ;
-
-        
-    } */
-
+ 
     .h2_home {
         display: none;
     }
 
-    /* position: sticky; */
-    /* position: fixed; */
 
     .formRegister .input_Login {
         height: 20%;
@@ -383,48 +351,28 @@ body{
         /* align-content: center; */
     }
 
-    .btn {
-        height: 5%;
+    .formDiv .btn {
+        height: 20%;
         width: 50%;
         border: 10px;
         margin: 0.5rem;
-        font-size: 2em;
+        font-size: 1.5em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
         margin-left: 10rem;
     }
 
-    .btn_register {
+    .formRegister .btn_register {
         padding: 0.9rem;
-        height: 20%;
-        width: 50%;
-        border: 10px;
-        margin: 0.5rem;
-        font-size: large;
-        font-family: 'Jura', sans-serif;
-        font-weight: bold;
-        border-radius: 20px;
-        justify-content: center;
-        align-content: center;
-        margin-left: 10rem;
         background-color: var(--Amarillo-colorPrincipal);
         box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
     }
     
  
 
-    .btn_home {
-        height: 20%;
-        width: 50%;
-        border: 10px;
-        margin: 0.5rem;
-        font-size: 2em;
-        font-family: 'Jura', sans-serif;
-        font-weight: bold;
-        border-radius: 20px;
-        margin-left: 10rem;
-        /* margin-top: 0.9rem; */
+    .formRegister .btn_home {
+    
         background-color: var(--Amarillo-colorButton);
         
     }
@@ -433,7 +381,7 @@ body{
         background: var(--Amarillo-colorPrincipal);
         /* border-bottom: 2px solid rgb(10, 10, 10); */
         box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
-        font-size: 2em;
+       
 
     }
     .login:hover{
@@ -443,7 +391,7 @@ body{
     
     .register {
         background-color: var(--Amarillo-colorButton);
-        font-size: 2em;
+    
 
     }
 
@@ -467,7 +415,8 @@ body{
     .formDiv .group_button .loginGoogle {
         background-color: var(--Verde-colorButton);
         outline: none;
-        font-size: 2em;
+        font-size: 1.2em;
+        
     }
 
     .formDiv .group_button  .svg-inline--fa {
@@ -482,10 +431,10 @@ body{
         
      }
 
-   
+     .labelRegister{
+        display: none;
+    }
 
-
-    
 
 }
    /* Destock  */
@@ -527,9 +476,7 @@ body{
         background-color: white;
         overflow: hidden;
     }
-    .homepage2  .formDiv .btn_register{
-        background-color: var(--Amarillo-colorPrincipal);
-    }
+   
     .logoFoodgram {
         display: none;
     }
@@ -553,15 +500,22 @@ body{
 
     .h1_home {
         font-family: 'Jura', sans-serif;
-        margin-bottom: 3rem;
+        
         margin-top: 1rem;
         margin-left: 4.5rem;
         border-bottom: 2px solid rgb(0, 0, 0);
-        width: 50%;
+        width: 60%;
+        height: 4%;;
         
     }
-
+    /* .h1_home::before{
+        content: "";
+        width: 50%;;
+        margin-bottom: 3rem;
+    } */
     .formDiv {
+        display: flex;
+        flex-wrap: wrap;
         padding-top: 3rem;
         z-index: 1;
         grid-column: 2 / 2;
@@ -569,6 +523,21 @@ body{
 
 
     }
+    .formRegister{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        font-family: var(--letra-jura);
+    }
+    .formRegister .labelRegister{
+        width: 100%;;
+        height: 2%;
+       margin: 0.5% 0.5% 2% 5%;
+       font-weight: 850;
+      
+      
+    }
+
 
     .h2_home {
         color: var(--Verde-colorSecundario);
@@ -576,16 +545,18 @@ body{
         font-style: italic;
         margin: 2rem;
     }
-
+    .formDiv .formRegister{
+       height: 87%;
+    }
     .formRegister .input_Login {
         height: 4%;
         width: 80%;
-        border: 2px solid black;
-        margin-bottom: 0.5rem;
+        border: 1px solid black;
+          margin-bottom: 10px;
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
         font-weight: normal;
-        font-size: 2.5em;
+        font-size: 1em;
         padding-left: 1rem;
         padding: 2% 2% 2% 2%;
         border-radius: 2px;
@@ -593,28 +564,28 @@ body{
         /* align-content: center; */
             
     }
-
-    .inputLogin {
-        height: 5%;
+ 
+   .formDiv .inputLogin {
+        height: 3%;
         width: 80%;
-        border: 10px;
-        margin-bottom: 0.5rem;
+        border: 5px;
+        margin-bottom: 10px;
+        border: 1px solid black;
         /* margin: 0.5rem; */
         font-family: 'Jura', sans-serif;
         font-weight: normal;
-        font-size: 2.5em;
-        padding-left: 1rem;
-        padding: 0.4rem;
-        border-radius: 20px;
+        font-size: 1em;
+        padding: 2%;
+        border-radius: 2px;
         margin-left: 1.7rem;
+     
     }
-
-    .btn_register {
+    .homepage2  .formRegister .btn {
         height: 5%;
         width: 50%;
         border: 10px;
         margin: 0.5rem;
-        font-size: 1.5em;
+        font-size: 1em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
@@ -622,23 +593,16 @@ body{
         align-content: center;
         margin-left: 19%;
         padding: 1rem;
+        color: black;
     }
    
-    .formRegister .btn_home {
-        height: 5%;
-        width: 50%;
-        /* border: 2px solid --Amarillo-colorButton; */
-        color: black;
-        background-color: var(--Verde-colorButton);
-        font-size: 1.5em;
-        border-style: none;
-        font-family: 'Jura', sans-serif;
-        font-weight: bold;
-        border-radius: 20px;
-        justify-content: center;
-        align-content: center;
-        margin-left: 19%;
-        padding: 1rem;
+  
+    .homepage2  .formDiv .btn_register{
+        background-color: var(--Amarillo-colorPrincipal);
+    }
+    .homepage2 .formRegister .btn_home {
+        background-color: lightgreen;
+        
     }
     .btn_home:hover{
         background-color: var(--Verde-colorSecundario);
@@ -660,20 +624,30 @@ body{
 
     
 
-    .btn {
+    .formDiv .btn {
         height: 5%;
-        width: 80%;
+        width: 50%;
         border: 10px;
         margin: 0.5rem;
-        font-size: 2.5em;
+        font-size: 1.1em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
         justify-content: center;
         align-content: center;
-        margin-left: 2.1rem;
+        margin-left: 20%;
     }
+    .formDiv .register {
+        background: lightgreen;
+      }
+    .formDiv  .login {
+        background: var(--Amarillo-colorPrincipal);
+        /* border-bottom: 2px solid rgb(10, 10, 10); */
+        box-shadow: 0px 0px 3px 3px rgba(255, 255, 255, 0.5);
+       
 
+    }
+   
   
 
     .formDiv .group_button {
@@ -692,21 +666,22 @@ body{
     }
 
     .formDiv .group_button .loginGoogle {
-        background-color: var(--Verde-colorButton);
+        color: var(--Verde-colorSecundario);
+        border: 1px solid var(--Verde-colorSecundario);
         outline: none;
     }
 
     .formDiv .group_button  .svg-inline--fa {
         position: absolute;
-        margin-left: 8rem;
+        margin-left: 25%;
         top: 2.7%;
-        background-color: var(--Verde-colorButton);
+        background-color: white;
 
 
     }
 
     .formDiv .group_button .loginGoogle:hover{
-        background-color: var(--Verde-colorSecundario);
+        background-color: white;
         
      }
 

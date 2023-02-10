@@ -12,6 +12,16 @@ export const Register = (onNavigate) => {
   const inputEmail = document.createElement('input');
   const inputPasword = document.createElement('input');
   const buttonRegister = document.createElement('button');
+  const labelUser = document.createElement('label');
+  const labelEmail = document.createElement('label');
+  const labelPasword = document.createElement('label');
+  labelUser.textContent = 'Usuario:';
+  labelEmail.textContent = 'Correo electronico:';
+  labelPasword.textContent = 'Pasword:';
+
+  labelUser.className = 'labelRegister';
+  labelEmail.className = 'labelRegister';
+  labelPasword.className = 'labelRegister';
 
   divImgRegister.className = 'imageDivRegister';
   HomeDiv.className = 'divRegister';
@@ -24,8 +34,8 @@ export const Register = (onNavigate) => {
   inputPasword.className = 'input_Login';
   tittleRegister.className = 'h1_home';
   formRegister.className = 'formRegister';
-  buttonRegister.className = 'btn_register';
-  buttonHome.className = 'btn_home';
+  buttonRegister.className = 'btn btn_register';
+  buttonHome.className = 'btn btn_home';
   tittleRegister.textContent = 'Crear usuario';
   buttonHome.textContent = 'Regresar';
   buttonRegister.textContent = 'Registrarse';
@@ -86,7 +96,16 @@ export const Register = (onNavigate) => {
 
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
-  formRegister.append(inputUser, inputEmail, inputPasword, buttonRegister, buttonHome);
+  formRegister.append(
+    labelUser,
+    inputUser,
+    labelEmail,
+    inputEmail,
+    labelPasword,
+    inputPasword,
+    buttonRegister,
+    buttonHome,
+  );
   HomeForm.append(tittleRegister, formRegister);
   loginContent.append(divImgRegister, HomeForm);
   HomeDiv.append(loginContent);
