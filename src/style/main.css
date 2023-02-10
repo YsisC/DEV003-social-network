@@ -496,6 +496,7 @@ body{
         padding: 0;
     }
 
+    
 
     /* main{
         display: grid;
@@ -613,7 +614,7 @@ body{
         width: 50%;
         border: 10px;
         margin: 0.5rem;
-        font-size: 2.5em;
+        font-size: 1.5em;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
@@ -627,9 +628,10 @@ body{
         height: 5%;
         width: 50%;
         /* border: 2px solid --Amarillo-colorButton; */
-        color: white;
-        background-color: green;
-        font-size: 2.5em;
+        color: black;
+        background-color: var(--Verde-colorButton);
+        font-size: 1.5em;
+        border-style: none;
         font-family: 'Jura', sans-serif;
         font-weight: bold;
         border-radius: 20px;
