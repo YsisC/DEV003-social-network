@@ -33,7 +33,7 @@ export const Muro = (onNavigate) => {
   // <span class="menu-icon"><img src ="./img/menuf.png"></span>
   const divMessageHeader = document.createElement('div');
   const iconMessage = document.createElement('i');
-  const mensajeFeed = document.createElement('input');
+  const mensajeFeed = document.createElement('button');
   const feedPost = document.createElement('div');
   // const feedFooter = document.createElement('div');
   /* //El contenido del Footer */
@@ -70,20 +70,20 @@ export const Muro = (onNavigate) => {
   // const usuarioInfo = currentUserInfo();
   const usuario = currentUserInfo().displayName;
   const usuarioId = currentUserInfo().uid;
-  mensajeFeed.placeholder = `¿Que recetas estas pensando ${usuario}?`;
+  mensajeFeed.textContent = `¿Que receta quieres compartir ${usuario}?`;
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesión';
   // createdByFeed.textContent = 'Creado por Nicole e Ysis';
   feedPost.id = 'taskDiv';
   labelReceta.setAttribute('id', 'tittle');
   labelReceta.textContent = '▪ ¿Cual es el nombre de tu receta?:';
-  labelDescripction.textContent = '▪Ingredientes:';
+  labelDescripction.textContent = 'Cuentanos sobre tu reparacion:';
   labelDescripction.className = 'descriptionReceta';
   inputTaskTittle.type = 'text';
   inputTaskTittle.placeholder = 'Nombre de la receta';
   btnSave.textContent = 'Guardar';
   btnClose.textContent = 'Cerrar';
-  textarea.placeholder = 'Ingredientes de tu receta';
+  textarea.placeholder = 'Ingredientes de tu receta y preparacion';
   btnSave.id = 'btn-task-save';
   btnClose.id = 'btn-task-cerrar';
   dialogForm.append(labelReceta, inputTaskTittle, labelDescripction, textarea, btnSave, btnClose);
@@ -153,14 +153,14 @@ export const Muro = (onNavigate) => {
         <div class='cardPostPublication'>
           <h3>${task.tittle}</h3>
           <p>${task.description}<p>
-          <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
+          <p class='displayName'> Autor: ${task.displayName}</p>
           <div class='btnLikeDiv'>
           <button class='btn-like' data-id='${doc.id}'><i class='${heartIcon} fa-heart'></i></button>
          
           <p class='numLike' data-id='${doc.id}'>${task.like.length}</p>
           </div>
-          <button class='btn-delete' data-id='${doc.id}'>Delete</button>
-          <button class='btn-edit' data-id='${doc.id}'>Edit</button>
+          <button class='btn-delete' data-id='${doc.id}'>Eliminar</button>
+          <button class='btn-edit' data-id='${doc.id}'>Editar</button>
         </div>
           `;
     });
@@ -191,7 +191,7 @@ export const Muro = (onNavigate) => {
               'success',
             );
           } else {
-            onNavigate('/login');
+            onNavigate('/Muro');
           }
         });
       });
