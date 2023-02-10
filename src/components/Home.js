@@ -15,6 +15,12 @@ export const Home = (onNavigate) => {
   const buttonLogin = document.createElement('button');
   const buttonRegister = document.createElement('button');
   const buttonLoginGoogle = document.createElement('button');
+  const labelEmail = document.createElement('label');
+  const labelPasword = document.createElement('label');
+  labelEmail.textContent = 'Correo:';
+  labelPasword.textContent = 'Contraseña:';
+  labelEmail.className = 'labelRegister';
+  labelPasword.className = 'labelRegister';
 
   mensajeLogin.textContent = 'Te gusta comer a nosotros tambien!';
 
@@ -102,13 +108,23 @@ export const Home = (onNavigate) => {
   HomeContent.appendChild(HomeForm);
 
   // HomeForm.appendChild(inputform);
-  HomeForm.appendChild(tittleLogin);
-  HomeForm.appendChild(mensajeLogin);
-  HomeForm.appendChild(inputUser);
-  HomeForm.appendChild(inputPasword);
-  HomeForm.appendChild(buttonLogin);
-  HomeForm.appendChild(buttonRegister);
-  HomeForm.appendChild(divbuttongoogle);
+  HomeForm.append(
+    tittleLogin,
+    mensajeLogin,
+    labelEmail,
+    inputUser,
+    labelPasword,
+    inputPasword,
+    buttonLogin,
+    buttonRegister,
+    divbuttongoogle,
+  );
+  // HomeForm.appendChild(mensajeLogin);
+  // HomeForm.appendChild(inputUser);
+  // HomeForm.appendChild(inputPasword);
+  // HomeForm.appendChild(buttonLogin);
+  // HomeForm.appendChild(buttonRegister);
+  // HomeForm.appendChild(divbuttongoogle);
   divbuttongoogle.appendChild(iconGoogle);
   divbuttongoogle.appendChild(buttonLoginGoogle);
 

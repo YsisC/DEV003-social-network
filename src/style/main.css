@@ -500,7 +500,7 @@ body{
 
     .h1_home {
         font-family: 'Jura', sans-serif;
-        
+        padding: 2%;
         margin-top: 1rem;
         margin-left: 4.5rem;
         border-bottom: 2px solid rgb(0, 0, 0);
@@ -529,7 +529,7 @@ body{
         width: 100%;
         font-family: var(--letra-jura);
     }
-    .formRegister .labelRegister{
+     .labelRegister{
         width: 100%;;
         height: 2%;
        margin: 0.5% 0.5% 2% 5%;
@@ -537,7 +537,6 @@ body{
       
       
     }
-
 
     .h2_home {
         color: var(--Verde-colorSecundario);
@@ -549,7 +548,7 @@ body{
        height: 87%;
     }
     .formRegister .input_Login {
-        height: 4%;
+        height: 2.5%;
         width: 80%;
         border: 1px solid black;
           margin-bottom: 10px;
@@ -581,7 +580,7 @@ body{
      
     }
     .homepage2  .formRegister .btn {
-        height: 5%;
+        height: 6.5%;
         width: 50%;
         border: 10px;
         margin: 0.5rem;
@@ -592,7 +591,7 @@ body{
         justify-content: center;
         align-content: center;
         margin-left: 19%;
-        padding: 1rem;
+        padding: 2%;
         color: black;
     }
    
@@ -601,7 +600,7 @@ body{
         background-color: var(--Amarillo-colorPrincipal);
     }
     .homepage2 .formRegister .btn_home {
-        background-color: lightgreen;
+        background-color: var(--Verde-colorButton);
         
     }
     .btn_home:hover{
@@ -638,7 +637,7 @@ body{
         margin-left: 20%;
     }
     .formDiv .register {
-        background: lightgreen;
+        background: var(--Verde-colorButton);
       }
     .formDiv  .login {
         background: var(--Amarillo-colorPrincipal);

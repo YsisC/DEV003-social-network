@@ -17,7 +17,7 @@ export const Register = (onNavigate) => {
   const labelPasword = document.createElement('label');
   labelUser.textContent = 'Usuario:';
   labelEmail.textContent = 'Correo electronico:';
-  labelPasword.textContent = 'Pasword:';
+  labelPasword.textContent = 'Contraseña:';
 
   labelUser.className = 'labelRegister';
   labelEmail.className = 'labelRegister';
