@@ -34,6 +34,7 @@ export const Muro = (onNavigate) => {
   const divMessageHeader = document.createElement('div');
   const iconMessage = document.createElement('i');
   const mensajeFeed = document.createElement('button');
+  const creadopor = document.createElement('button');
   const feedPost = document.createElement('div');
   // const feedFooter = document.createElement('div');
   /* //El contenido del Footer */
@@ -63,6 +64,7 @@ export const Muro = (onNavigate) => {
   taskContainer.className = 'divPostPublication';
   feedFooter.className = 'feedFooter';
   mensajeFeed.className = 'mensajeFeed';
+  creadopor.className = 'creadoPor';
   divIconUser.className = 'divIconUser';
   divIconPublish.className = 'divIconPublish';
   iconUser.className = 'fa-solid fa-user';
@@ -70,7 +72,8 @@ export const Muro = (onNavigate) => {
   // const usuarioInfo = currentUserInfo();
   const usuario = currentUserInfo().displayName;
   const usuarioId = currentUserInfo().uid;
-  mensajeFeed.textContent = `¿Que receta quieres compartir ${usuario}?`;
+  mensajeFeed.textContent = `Hola ${usuario}! Haz click, comparte tu receta:`;
+  creadopor.textContent = 'Proyecto elaborado por: Ysis Longart y Nicole Conde';
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesión';
   // createdByFeed.textContent = 'Creado por Nicole e Ysis';
@@ -96,7 +99,7 @@ export const Muro = (onNavigate) => {
   aLiCerrarSesion.appendChild(buttonHome);
   spanMenu.appendChild(iconMenu);
   divMessageHeader.append(iconMessage, mensajeFeed);
-  feedHearder.append(logoFoodfram, spanMenu, ulMenu);
+  feedHearder.append(logoFoodfram, spanMenu, ulMenu, creadopor);
   feedPost.append(taskForm);
   feedeMain.append(feedPost);
   divIconUser.appendChild(iconUser);
