@@ -17,7 +17,7 @@ Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
 sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
 vivir sin ellas.
 
-![Getting Started](./src/assets/img/Logotipo%20minimalista%20para%20Community%20Manager%20.png)
+
 ![Getting Started](./src/assets/img/Logotipo_SinFondo.png)
 
 Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
