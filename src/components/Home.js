@@ -16,19 +16,39 @@ export const Home = (onNavigate) => {
   const buttonRegister = document.createElement('button');
   const buttonLoginGoogle = document.createElement('button');
   const labelEmail = document.createElement('label');
+  const divPasword = document.createElement('div');
+  divPasword.className = 'divPasword';
   const labelPasword = document.createElement('label');
+  const labelImgPasword = document.createElement('label');
+  const imgLabel = document.createElement('img');
+  imgLabel.src = './assets/img/1.png';
+  imgLabel.alt = '';
+  imgLabel.id = 'eye';
+  // labelImgPasword.innerText=templateLabel;
   labelEmail.textContent = 'Correo:';
   labelPasword.textContent = 'Contraseña:';
   labelEmail.className = 'labelRegister';
   labelPasword.className = 'labelRegister';
-
   mensajeLogin.textContent = 'Te gusta comer a nosotros tambien!';
 
   logoIcon.textContent = 'Foodgram.';
   logoIcon.className = 'logoFoodgram';
   inputUser.className = 'inputLogin';
   inputPasword.className = 'inputLogin';
-
+  // inputPasword;
+  // imgLabel;
+  let flag = 0;
+  imgLabel.addEventListener('click', () => {
+    if (flag === 0) {
+      inputPasword.type = 'text';
+      imgLabel.src = './assets/img/2.jpg';// Ojos abiertos
+      flag = 1;
+    } else {
+      inputPasword.type = 'password';
+      imgLabel.src = './assets/img/1.png';// Ojos cerrados
+      flag = 0;
+    }
+  });
   HomeContent.className = 'homepage';
   HomeDivImage.className = 'imageDiv';
   divbuttongoogle.className = 'group_button';
@@ -108,13 +128,14 @@ export const Home = (onNavigate) => {
   HomeContent.appendChild(HomeForm);
 
   // HomeForm.appendChild(inputform);
+  labelImgPasword.appendChild(imgLabel);
+  divPasword.append(labelPasword, inputPasword, labelImgPasword);
   HomeForm.append(
     tittleLogin,
     mensajeLogin,
     labelEmail,
     inputUser,
-    labelPasword,
-    inputPasword,
+    divPasword,
     buttonLogin,
     buttonRegister,
     divbuttongoogle,
