@@ -125,7 +125,7 @@ body{
         /* align-content: center; */
     }
 
-    .inputLogin {
+    .formDiv .inputLogin {
         height: 5%;
         width: 80%;
         border: 1px;

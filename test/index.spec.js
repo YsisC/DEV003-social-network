@@ -1,6 +1,5 @@
 // importamos la funcion que vamos a testear
 
-import { updateDoc } from 'firebase/firestore';
 import {
   functionSignUp, functionSignin, functionUserGoogle, saveTask, addLikePost,
 } from '../src/lib/index';
@@ -23,7 +22,9 @@ jest.mock('@firebase/firestore', () => (
     getFirestore: () => ({ }),
     updateDoc: jest.fn(() => Promise.resolve({ id: 'postId', like: ['userUid'] })),
     doc: () => {},
+    getDoc: () => {},
     arrayUnion: () => {},
+    removeUnion: () => {},
     orderBy: () => {},
     query: () => {},
     onSnapshot: (q, callback) => callback([{ data: () => ({ tittle: 'Burrito', like: [] }) }]),
@@ -78,7 +79,9 @@ describe('funcion de addLikePost', () => {
     document.body.append(Muro());
     const btnLike = document.querySelector('.btn-like');
     btnLike.click();
-    expect(updateDoc).toHaveBeenCalled();
+    const addLikePostUnion = addLikePost('postId', 'userUid');
+    expect(addLikePostUnion).toHaveBeenCalled();
+
     // const like = addLikePost('postId', 'userUid');
     // console.log(like);
     // await expect(like).resolves.toEqual({ id: 'postId', like: ['userUid'] });

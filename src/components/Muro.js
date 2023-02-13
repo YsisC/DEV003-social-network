@@ -4,6 +4,8 @@ import {
 } from '../lib/index.js';
 
 export const Muro = (onNavigate) => {
+  const usuario = currentUserInfo().displayName;
+  const usuarioId = currentUserInfo().uid;
   // Creacion del DOM
   const homeDivFeed = document.createElement('div');
   const feedHearder = document.createElement('header');
@@ -69,13 +71,11 @@ export const Muro = (onNavigate) => {
   divIconPublish.className = 'divIconPublish';
   iconUser.className = 'fa-solid fa-user';
   iconPublish.className = 'fa-regular fa-square-plus';
-  // const usuarioInfo = currentUserInfo();
-  const usuario = currentUserInfo().displayName;
-  const usuarioId = currentUserInfo().uid;
-  mensajeFeed.textContent = `Hola ${usuario}! Haz click, comparte tu receta:`;
+
   creadopor.textContent = 'Proyecto elaborado por: Ysis Longart y Nicole Conde';
   buttonHome.className = 'Cerrar_Sesion';
   buttonHome.textContent = 'Cerrar Sesión';
+  mensajeFeed.textContent = `Hola ${usuario}! Haz click, comparte tu receta:`;
   // createdByFeed.textContent = 'Creado por Nicole e Ysis';
   feedPost.id = 'taskDiv';
   labelReceta.setAttribute('id', 'tittle');
@@ -107,50 +107,18 @@ export const Muro = (onNavigate) => {
   feedFooter.append(divIconPublish, divIconUser, createdByFeed);
   homeDivFeed.append(feedHearder, divMessageHeader, feedeMain, feedFooter);
 
-  // Con template
-  // const templatePosts = `
-  // <form id="task-form">
-  //   <label for="title">Receta:</label>
-  //   <input type="text" placeholder="task tittle" id="task-title">
-  //   <label for="description">Preparacion:</label>
-  //   <textarea  id="task-description"  rows="3" placeholder="Comparte tu recetas"></textarea>
-  //   <button id="btn-task-save">Save</button>
-  //   <div id="tasks-container"></div>
-  // </form>`;
-
-  // const postlist = document.querySelector('#post');
-
   // Post
   let editStatus = false;
   let id = '';
+
   // FUNCION DE GETTASKS
-  // const querySnapshot = await getTasks();
-
-  const user = currentUserInfo().displayName;
-
-  // console.log(userDisplayName);
 
   onGetTasks((querySnapshot) => {
     let html = '';
 
     querySnapshot.forEach((doc) => {
       const task = doc.data();
-      // console.log(doc.id);
-      // html += `
-      //   <div class='cardPostPublication'>
-      //     <h3>${task.tittle}</h3>
-      //     <p>${task.description}<p>
-      //     <p class='displayName'> 👨🏽‍🍳${task.displayName}</p>
-      //     <div class='iconos'>
-      //   <button class='buttonLike' data-id = ${doc.id}>
-      //   <span class='icon'><i class="fa-regular fa-heart like ${task.like.includes(usuarioInfo.email) ? 'true' : 'false'}"></i>
-      //   </span>
-      //   <span class='count'>${task.like.length}</span>
-      //   </button>   </div>
-      //     <button class='btn-delete' data-id='${doc.id}'>Delete</button>
-      //     <button class='btn-edit' data-id='${doc.id}'>Edit</button>
-      //   </div>
-      //     `;
+
       const heartIcon = task.like.includes(usuarioId) ? 'fa-solid' : 'fa-regular';
       html += `
         <div class='cardPostPublication'>
@@ -203,20 +171,14 @@ export const Muro = (onNavigate) => {
     /// ----------------------------------boton likes-----------------------------------------------
     const btnLike = taskContainer.querySelectorAll('.btn-like');
     btnLike.forEach((btn) => {
-      // const count = 0;
-
       btn.addEventListener('click', () => {
         const buttonLiked = btn.dataset.id;
 
-        console.log(buttonLiked);
-        // console.log(dataset.id);
-        // console.log(dataset);
-        // console.log(usuarioId);
         getTask(buttonLiked).then((doclike) => {
           const jusonePost = doclike.data();
-          console.log(jusonePost);
+
           const userLikes = jusonePost.like;
-          console.log(userLikes);
+
           if (userLikes.includes(usuarioId)) {
             removeLikePost(buttonLiked, usuarioId);
           } else {
@@ -245,7 +207,7 @@ export const Muro = (onNavigate) => {
         dialogForm.showModal();
       });
       window.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') { dialogForm.showModal(); }
+        if (e.key === 'Escape') { dialogForm.close(); }
       });
     });
   });
