@@ -6,6 +6,7 @@ import {
 export const Muro = (onNavigate) => {
   const usuario = currentUserInfo().displayName;
   const usuarioId = currentUserInfo().uid;
+  console.log(usuario);
   // Creacion del DOM
   const homeDivFeed = document.createElement('div');
   const feedHearder = document.createElement('header');

@@ -1,4 +1,4 @@
-import { functionSignUp } from '../lib/index';
+import { currentUserInfo, functionSignUp } from '../lib/index';
 
 export const Register = (onNavigate) => {
   const HomeDiv = document.createElement('div');
@@ -54,8 +54,9 @@ export const Register = (onNavigate) => {
     const user = inputUser.value;
     const pasword = inputPasword.value;
 
-    functionSignUp(user, email, pasword).then((promiseResult) => {
-      console.log(promiseResult);
+    functionSignUp(user, email, pasword).then(() => {
+      // console.log(promiseResult);
+
       onNavigate('/Muro');
     }).catch((error) => {
       if (error.code === 'auth/email-already-in-use') {

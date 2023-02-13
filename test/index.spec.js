@@ -1,5 +1,6 @@
 // importamos la funcion que vamos a testear
 
+import { getDoc } from 'firebase/firestore';
 import {
   functionSignUp, functionSignin, functionUserGoogle, saveTask, addLikePost,
 } from '../src/lib/index';
@@ -22,7 +23,7 @@ jest.mock('@firebase/firestore', () => (
     getFirestore: () => ({ }),
     updateDoc: jest.fn(() => Promise.resolve({ id: 'postId', like: ['userUid'] })),
     doc: () => {},
-    getDoc: () => {},
+    getDoc: () => Promise.resolve({ data: () => ({ tittle: 'Burrito', like: [] }) }),
     arrayUnion: () => {},
     removeUnion: () => {},
     orderBy: () => {},
@@ -79,11 +80,16 @@ describe('funcion de addLikePost', () => {
     document.body.append(Muro());
     const btnLike = document.querySelector('.btn-like');
     btnLike.click();
-    const addLikePostUnion = addLikePost('postId', 'userUid');
-    expect(addLikePostUnion).toHaveBeenCalled();
 
-    // const like = addLikePost('postId', 'userUid');
-    // console.log(like);
-    // await expect(like).resolves.toEqual({ id: 'postId', like: ['userUid'] });
+    console.log(getDoc());
+    const like = getDoc();
+    await expect(like).toHaveBeenCalled();
+    // await expect(getDoc)toHaveBeenCalled();
   });
 });
+
+/* function sume(a,b) { return a + b }
+
+function getDate () { return " la fecha de hoy es " + Date.now()}
+
+expect(getDate()).tobe("la fecha de hpy es 13 de febrero a las 17:00 ") */
