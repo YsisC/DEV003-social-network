@@ -354,7 +354,7 @@ body{
     }
 
     .formDiv .btn {
-        height: 20%;
+        height: 5%;
         width: 50%;
         border: 10px;
         margin: 0.5rem;
@@ -364,7 +364,10 @@ body{
         border-radius: 20px;
         margin-left: 10rem;
     }
-
+    
+.formRegister .btn{
+    height: 20%;
+}
     .formRegister .btn_register {
         padding: 0.9rem;
         background-color: var(--Amarillo-colorPrincipal);
