@@ -330,7 +330,7 @@ La pagina web busca solucionar el problema de salud con informacion para una ali
 
 ### 6 Prototipo de alta
 
-
+![Getting Started](./Prototipo%20de%20alta%20mobile.png)
 ### 7 Historias de usuario
 
 1- Historia de usuario
