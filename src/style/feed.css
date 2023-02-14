@@ -52,6 +52,11 @@
         width: 74.5%;
         height: 1.5%;
     }
+    .divPasword .inputLogin:nth-child(2){
+        padding: 2%;
+        width: 80%;
+        height: 41%;
+    }
     #eye{
         width: 5%;
         position: absolute;
